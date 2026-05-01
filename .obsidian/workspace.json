@@ -1,0 +1,194 @@
+{
+  "main": {
+    "id": "b46945af59ff649f",
+    "type": "split",
+    "children": [
+      {
+        "id": "aea7d15bd66584da",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5ee653a92453b9fb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CS/Билеты/7. Таблицы - основные определения, классификация таблиц, способы отображения в памяти..md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "7. Таблицы - основные определения, классификация таблиц, способы отображения в памяти."
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bc121d485ffd16cb",
+    "type": "split",
+    "children": [
+      {
+        "id": "08d3d4b5d28d6052",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fc363557fb0e2e22",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Файловый менеджер"
+            }
+          },
+          {
+            "id": "09546936d4a3fb28",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Поиск"
+            }
+          },
+          {
+            "id": "7bbad332804f63f5",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Закладки"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "99742bed00d15af6",
+    "type": "split",
+    "children": [
+      {
+        "id": "a164348a4e45b200",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "467c704bb86052da",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "CS/Билеты/7. Таблицы - основные определения, классификация таблиц, способы отображения в памяти..md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Обратные ссылки для 7. Таблицы - основные определения, классификация таблиц, способы отображения в памяти."
+            }
+          },
+          {
+            "id": "1bf5c23f0cb718a3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "CS/Билеты/7. Таблицы - основные определения, классификация таблиц, способы отображения в памяти..md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Исходящие ссылки из 7. Таблицы - основные определения, классификация таблиц, способы отображения в памяти."
+            }
+          },
+          {
+            "id": "34134c815345741d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Теги"
+            }
+          },
+          {
+            "id": "3188ce6c7856431e",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Все свойства"
+            }
+          },
+          {
+            "id": "adf967b98ac8b7c7",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CS/Билеты/7. Таблицы - основные определения, классификация таблиц, способы отображения в памяти..md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Структура 7. Таблицы - основные определения, классификация таблиц, способы отображения в памяти."
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Меню быстрого перехода": false,
+      "graph:Граф": false,
+      "canvas:Создать новый холст": false,
+      "daily-notes:Сегодняшняя заметка": false,
+      "templates:Вставить шаблон": false,
+      "command-palette:Открыть палитру команд": false,
+      "bases:Создать новую базу": false
+    }
+  },
+  "active": "5ee653a92453b9fb",
+  "lastOpenFiles": [
+    "CS/Билеты/6. Элементарные структуры данных - стек и очередь, представленные списком..md",
+    "CS/cache/Стек.md",
+    "CS/Билеты/5. Элементарные структуры данных - стек и очередь, представленные вектором..md",
+    "CS/cache/Очередь.md",
+    "CS/cache/Абстрактная структура данных.md"
+  ]
+}

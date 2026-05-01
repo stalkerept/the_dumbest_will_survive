@@ -1,0 +1,227 @@
+{
+  "main": {
+    "id": "38a6846ed845fc72",
+    "type": "split",
+    "children": [
+      {
+        "id": "60cf9c9ed60458ad",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "68a589a2f68568cb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Термины/Список.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Список"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4a601f8946d80996",
+    "type": "split",
+    "children": [
+      {
+        "id": "21e2a9db616cc3cb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fd9011691235a17d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Файловый менеджер"
+            }
+          },
+          {
+            "id": "ebfde09d5c9a0400",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "781ade766b9b0419",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "6b82e945c6546922",
+    "type": "split",
+    "children": [
+      {
+        "id": "575030722a65090c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9dc7d7acdbeb97de",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Welcome.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Welcome"
+            }
+          },
+          {
+            "id": "d7c278597b209517",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Welcome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Welcome"
+            }
+          },
+          {
+            "id": "c223347416b348f5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "4c55e59165cf4003",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "3d53718e7ef1f7d3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Welcome.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Welcome"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Меню быстрого перехода": false,
+      "graph:Граф": false,
+      "canvas:Создать новый холст": false,
+      "daily-notes:Сегодняшняя заметка": false,
+      "templates:Вставить шаблон": false,
+      "command-palette:Открыть палитру команд": false,
+      "bases:Создать новую базу": false
+    }
+  },
+  "active": "68a589a2f68568cb",
+  "lastOpenFiles": [
+    "Термины/Структура данных.md",
+    "Термины/Список.md",
+    "Термины/Кольцевой список.md",
+    "Билеты/4. Конкретные структуры данных. Отображение структуры данных в памяти списком. Типы списков..md",
+    "Термины/Двусвязный список.md",
+    "Термины/Односвязный список.md",
+    "Термины/Отображение структуры данных в памяти списком..md",
+    "Pasted image 20260501200135.png",
+    "Билеты/6. Элементарные структуры данных - стек и очередь, представленные списком..md",
+    "Билеты/5. Элементарные структуры данных - стек и очередь, представленные вектором..md",
+    "Билеты/7. Таблицы - основные определения, классификация таблиц, способы отображения в памяти..md",
+    "Билеты/3. Конкретные структуры данных. Отображение структуры данных в памяти вектором..md",
+    "Термины/Отображение структуры данных в памяти вектором.md",
+    "Pasted image 20260501153212.png",
+    "Термины/Стек на основе вектора.md",
+    "Термины/Стек.md",
+    "Термины/Стек на основе списка.md",
+    "Термины/Очередь на основе вектора.md",
+    "Термины/Очередь.md",
+    "Термины/Очередь на основе списка.md",
+    "Pasted image 20260430095035.png",
+    "Pasted image 20260430093812.png",
+    "Термины/Абстрактная структура данных.md",
+    "Термины/Конкретная структура данных.md",
+    "Термины/Конкретный список данных.md",
+    "Билеты/2. Уровни представления информации. Понятие абстрактных (логических) структрур данных..md",
+    "Термины/Связный список.md",
+    "Термины/Уровни представления информации.md",
+    "Термины/Вычислительная сложность.md",
+    "Термины/Big O.md",
+    "Pasted image 20260429130710.png",
+    "Pasted image 20260429130509.png",
+    "Pasted image 20260429125902.png",
+    "cache/Pasted image 20260427204716.png",
+    "cache/Pasted image 20260426204331.png",
+    "cache",
+    "Билеты",
+    "Термины"
+  ]
+}
