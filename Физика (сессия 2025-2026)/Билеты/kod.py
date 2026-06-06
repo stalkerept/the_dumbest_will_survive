@@ -8,6 +8,7 @@ def clean_filename(raw_name):
     # Удаляем суффикс " (РЕВИЗИЯ)" с любым числом пробелов перед ним
     name = re.sub(r'\s*\(РЕВИЗИЯ\)\s*$', '', name)
     # Если после удаления имя заканчивается на .md, оставляем как есть
+    name = re.sub(r'[<>:"/\\|?*]', '-', name)
     if not name.endswith('.md'):
         name += '.md'
     return name
