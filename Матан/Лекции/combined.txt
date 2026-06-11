@@ -1,0 +1,3308 @@
+Лекция 1.4.2026.md:
+```
+2. В полярных координатах
+$r = r(\varphi)\geq0$, где $\varphi \in [\alpha; \beta]$
+![[Screenshot_3941.png]]
+$$
+\begin{align*}
+\frac{1}{2}(\inf_{\Delta_{j}}{r(\varphi)}^{2}\Delta \varphi_{j}) \leq \text{Площадь } \Delta G_{j} \leq  \frac{1}{2}(\sup_{\Delta_{j}}{r(\varphi)}^{2}\Delta \varphi_{j}) 
+\end{align*}
+
+$$
+
+## Объёмы и площади боковой поверхности тел вращения
+![[Screenshot_3943.png]]
+$$
+\begin{align*}
+\Delta V_{j} = S(x_{j})\Delta x_{j}, S(x) \in \mathbb{R}[a; b] \\
+V = \sum_{j = 1}^{n_{p}}{\Delta V_{j}} \approx \sum_{j=1}^{n_{p}}{S(x_{j})\Delta x_{j}} = \int_{a}^{b}{S(x)dx}
+\end{align*}
+$$
+![[Screenshot_3944.png]]
+$$
+V = \pi \int_{a}^{b}{f^{2}(x)dx}, \text{ если } f(x) \in \mathbb{R}[a; b]
+$$
+![[Screenshot_3945.png]]
+![[Screenshot_3946.png]]
+$$
+\begin{align*}
+S \Delta l_{j} = \frac{1}{2}(l_{j} + \Delta l_{j})^{2}\alpha - \frac{1}{2}l_{j}^{2}\alpha = \frac{\alpha}{2}((l_{j} + \Delta l_{j})^{2} - l_{j}^{2}) = \frac{\alpha}{2}(\Delta l_{j})(2l_{j} + \Delta l_{j}) = \\
+= \alpha\Delta l_{j} \left( l_{j} + \frac{\Delta l_{j}}{2} \right) = \Delta l_{j} \frac{f(x_{j})+f(x_{j-1})}{2}\cdot {2}\pi = 2\pi \sqrt{ \Delta x_{j}^{2} + \Delta f_{j}^{2} }\frac{f(x_{j})+f(x_{j-1})}{2} =  \\
+= 2\pi \frac{f(x_{j})+f(x_{j-1})}{2} \Delta x_{j}\sqrt{ 1 + \left( \frac{\Delta l}{\Delta x}^{2} \right) } \sim 2\pi \int_{a}^{b}{f(x)\sqrt{ 1+(f'(x))^{2} }dx}
+\end{align*}
+$$
+# Несобственные интегралы и ряды
+## Определение и простейшие свойства несобственных интегралов
+![[Screenshot_3942.png]]
+### Определение
+$f(x)$ определена на $[a; +\infty)$ и $\forall{b \geq a} f(x) \in \mathbb{R}[a; b]$. Если $\exists \lim\limits_{ B \to \infty }{\int_{a}^{B}{f(x)dx}}$, то $f(x) \in \mathbb{R}[a; +\infty)$ в несобственном смысле и $\int_{a}^{+\infty} = \lim\limits_{ B \to \infty }{\int_{a}^{B}{f(x)dx}}$ 
+### Определение:
+$f(x)$ на $[a; B)$ $\forall{[a; b] \subset [a;B)} \quad f(x) \in \mathbb{R}[a; b]$. Если $\exists \lim\limits_{ b \to B-0 }{\int_{a}^{b}{f(x)dx}} = \int_{a}^{B}{f(x)dx}$
+```
+
+Лекция 10.4.2026.md:
+```
+## Условная сходимость несобственных интегралов
+### Определение:
+Если $\int_{a}^{\omega}{f(x)dx}$ сходится, но не абсолютно, то сходимость условная.
+
+### Теорема (признак Абеля-Дирихле):
+$f(x), g(x) \in \mathbb{C}^{1}[a; \omega), g(x)$ монотонна на $[a; \omega)$. Тогда если:
+1. 
+	1.1 $F(x) = \int_{a}^{b}{f(x)dx} \in \mathbb{B}[a; \omega)$ 
+	1.2 $g(x) \to 0$, при $x \to \omega, x \in [a, \omega)$
+или
+2. 
+	2.1. $\int_{a}^{\omega}{f(x)dx}$ сходится
+	2.2. $g(x) \in \mathbb{B}[a; \omega)$ 
+То $\int_{a}^{\omega}{f(x)g(x)dx}$ сходится.
+
+### Доказательство (через разбиение по частям):
+Будем исследовать на абсолютную сходимость.
+1. $F(x) = \int_{a}^{x}{f(t)dt} \in \mathbb{C}^{2}[a; \omega)$
+$\int_{a}^{b}{f(x)g(x)dx} = \int_{a}^{b}{g(x)d(F(x))} = g(x)F(x)|^{b}_{a} - \int_{a}^{b}{F(x)d(g(x))}, b \to \omega, b \in [a; \omega)$
+$$
+\lim\limits_{ b \to \omega, b \in [a; \omega)}{g(x)F(x)}|^{b}_{a} = \lim\limits_{ b \to \omega, b \in [a; \omega)}{g(b)F(b) - g(a)F(a)} \implies \text{Предел существует }  
+$$
+$$
+\begin{align*}
+\text{Пусть } M >0: \forall{x \in [a; \omega)}: |F(x)| < M \\
+\int_{a}^{\omega}{|F(x)d(g(x))|} \leq \int_{a}^{\omega}{M|g'(x)dx|} = M |\int_{a}^{\omega}{g'(x)dx}| = M|g(x)|^{\omega}_{a} = M |\lim\limits_{ x \to \omega, x \in [a; \omega)}{g(x) - g(a)} |
+\end{align*}
+$$
+
+Пункт 2:
+$g(x)$ монотонная и ограниченная на промежутке $[a; \omega) \implies \exists{\lim\limits_{ x \to \omega, x \in [a; \omega)}{g(x)} = g}$. $g(x) = g + \alpha(x), \alpha(x) \to 0$, при $x \to \omega, x \in [a; \omega)$
+$$
+\int_{a}^{\omega}{f(x)g(x)dx} = \int_{a}^{\omega}{f(x)(g + \alpha(x))dx} = \underbrace{g \int_{a}^{\omega}{f(x)dx}}_{\text{Сходится по условию}} + \underbrace{ \int_{a}^{\omega}{f(x)\alpha(x)dx}}_{\text{Сходится в доказательстве пункта 1}}
+$$
+
+## Несобственные интегралы с несколькими особенностями
+$$
+\int_{a}^{\omega}{f(x)dx}, \forall{c \in [a; \omega)}
+~ \int_{c}^{\omega}{f(x)dx}$$ Сходится или расходится одновременно. 
+Пояснение:
+$\int_{a}^{\omega}{f(x)dx} = \lim\limits_{ b \to \omega, b \in [a; \omega)}{\int_{a}^{b}{f(x)dx}} = \lim\limits_{ b \to \infty, b \in [a; \omega)}\left( \int_{a}^{c} + \int_{c}^{b} \right) = \int_{a}^{c} + \lim\limits_{ b \to \omega, b \in [a; \omega)}{\int_{c}^{b}{f(x)dx}}$
+### Определение:
+$$
+\int_{\omega_{1}}^{\omega_{2}}{f(x)dx} = \int_{\omega_{1}}^{c} + \int_{c}^{\omega_{2}}
+$$
+Опять же сходятся или расходятся одновременно.
+$$
+\int_{a}^{b}{f(x)dx} = \lim\limits_{  \epsilon \to +0 }{\left( \int_{a}^{\omega-\epsilon}+\int_{\omega+\epsilon}^{b} \right)}
+$$
+$$
+\int_{-\infty}^{\infty}{f(x)dx} = \lim\limits_{ E \to +\infty }{\int_{-E}^{E}{f(x)dx}} 
+$$
+
+## Условная сходимость рядов
+### Определение:
+Если $\sum_{1}^{\infty}{u_{k}}$ сходится, а $\sum_{1}^{\infty}{|u_{k}|}$ расходится $\implies$ сходится условно
+```
+
+Лекция 13.2.2026 (нейросеть).md:
+```
+# Ряды Тейлора и правило Бернулли–Лопиталя
+
+## 1. Ряд Тейлора и условие равенства
+
+Пусть функция $f(x)$ имеет производные всех порядков в окрестности точки $x_0$. Формула Тейлора с остаточным членом в форме Лагранжа даёт
+
+$$
+f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + R_n(x,x_0).
+$$
+
+Формально можно написать степенной ряд
+
+$$
+f(x) \sim \sum_{k=0}^{\infty}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k .
+$$
+
+Знак $\sim$ означает, что ряд *порождён* функцией, но пока неизвестно, сходится ли он к ней.  
+Равенство
+
+$$
+f(x)=\sum_{k=0}^{\infty}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k
+$$
+
+имеет место тогда и только тогда, когда остаток $R_n(x,x_0)$ стремится к нулю при $n\to\infty$.
+
+---
+
+## 2. Пример 1: $f(x)=e^x$
+
+Разложим $e^x$ по степеням $x$ (точка $x_0=0$). Так как $(e^x)^{(k)}=e^x$, получаем
+
+$$
+e^x = \sum_{k=0}^{n}\frac{x^k}{k!} + R_n(x,0),
+$$
+
+где остаточный член в форме Лагранжа
+
+$$
+R_n(x,0)=\frac{e^{\xi}}{(n+1)!}\,x^{n+1},\qquad \xi\in(0,x)\ \text{или}\ (x,0).
+$$
+
+Оценим остаток по абсолютной величине. Поскольку $\xi$ лежит между $0$ и $x$, имеем $|\xi|\le |x|$, а значит $e^{\xi}\le e^{|x|}$. Тогда
+
+$$
+|R_n(x,0)| = \left|\frac{e^{\xi}x^{n+1}}{(n+1)!}\right| \le e^{|x|}\,\frac{|x|^{n+1}}{(n+1)!}.
+$$
+
+Покажем, что правая часть стремится к нулю при $n\to\infty$ для любого фиксированного $x$:
+
+$$
+e^{|x|}\frac{|x|^{n+1}}{(n+1)!} =
+e^{|x|}\cdot\frac{|x|}{1}\cdot\frac{|x|}{2}\cdot\frac{|x|}{3}\cdots\frac{|x|}{n+1}.
+$$
+
+Для каждого $x$ найдётся номер $N$ такой, что при $n+1 > |x|$ все множители вида $\frac{|x|}{k}$ с $k>|x|$ станут меньше $1$, а факториал в знаменателе растёт быстрее любой степени. Следовательно,
+
+$$
+e^{|x|}\frac{|x|^{n+1}}{(n+1)!}\xrightarrow[n\to\infty]{}0.
+$$
+
+Так как $|R_n|\le \text{этой величины}$, то и $R_n\to 0$. Поэтому
+
+$$
+\boxed{e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!},\qquad x\in\mathbb{R}}.
+$$
+
+---
+
+## 3. Пример 2: $f(x)=\ln(1+x)$
+
+Рассмотрим $f(x)=\ln(1+x)$, $x_0=0$. Запишем производную:
+
+$$
+\ln'(1+x)=\frac{1}{1+x}=\frac{1}{1-(-x)}.
+$$
+
+При $|x|<1$ это сумма бесконечной геометрической прогрессии:
+
+$$
+\frac{1}{1+x}=1 - x + x^2 - x^3 + \dots + (-1)^n x^n + \dots
+$$
+
+Интегрируя формально (пока без обоснования), получаем
+
+$$
+\ln(1+x) \sim \ln(1+0) + x - \frac{x^2}{2} + \frac{x^3}{3} - \dots + \frac{(-1)^{n-1}x^n}{n} + \dots
+$$
+
+То есть
+
+$$
+\ln(1+x) \sim \sum_{n=1}^{\infty}\frac{(-1)^{n-1}x^n}{n}.
+$$
+
+(В исходной лекции знаки записаны как $(-1)^{n+1}$; это эквивалентно $(-1)^{n-1}$.)
+
+Применим признак Даламбера к модулям членов $a_n=\frac{(-1)^{n-1}x^n}{n}$:
+
+$$
+\left|\frac{a_{n+1}}{a_n}\right| =
+\left|\frac{x^{n+1}}{n+1} \cdot \frac{n}{x^n}\right| =
+\frac{n}{n+1}\,|x| \xrightarrow[n\to\infty]{} |x|.
+$$
+
+Таким образом, ряд сходится (абсолютно) при $|x|<1$ и расходится при $|x|>1$. На границе при $x=1$ получается условно сходящийся ряд $\sum (-1)^{n-1}/n$, при $x=-1$ — расходящийся гармонический ряд.
+
+Теперь докажем, что для всех $x\in(-1,1]$ сумма ряда действительно равна $\ln(1+x)$. Для этого оценим остаток формулы Тейлора. Производная $n$-го порядка функции $\ln(1+x)$:
+
+$$
+f^{(n)}(x)=\frac{(-1)^{n-1}(n-1)!}{(1+x)^n}.
+$$
+
+Тогда $f^{(n+1)}(x) = \dfrac{(-1)^n n!}{(1+x)^{n+1}}$. Остаточный член в форме Лагранжа ($x_0=0$):
+
+$$
+R_n(x,0)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\,x^{n+1}
+= \frac{(-1)^n n!}{(n+1)!\,(1+\xi)^{n+1}}\,x^{n+1}
+= \frac{(-1)^n}{n+1}\,\frac{x^{n+1}}{(1+\xi)^{n+1}},
+$$
+
+где $\xi$ лежит между $0$ и $x$. Оценим $|R_n|$:
+
+$$
+|R_n(x,0)| = \frac{1}{n+1}\,\frac{|x|^{n+1}}{|1+\xi|^{n+1}}.
+$$
+
+Разберём два случая.
+
+**a) $x\in(0;1]$.**  
+Тогда $\xi\in(0,x)$, поэтому $1+\xi > 1$, откуда $\frac{1}{|1+\xi|^{n+1}} \le 1$. Следовательно,
+
+$$
+|R_n| \le \frac{1}{n+1}\,x^{n+1} \le \frac{1}{n+1}\xrightarrow[n\to\infty]{}0.
+$$
+
+Таким образом, при $x\in(0,1]$ остаток стремится к нулю, и ряд сходится к $\ln(1+x)$.
+
+**b) $x\in(-1,0]$.**  
+Здесь $\xi\in(x,0)$. Тогда $1+\xi\in(0,1]$, и $|1+\xi| = 1+\xi \ge 1-|\xi| > 1-|x|$ (поскольку $|\xi|<|x|$). Получаем оценку
+
+$$
+|R_n| < \frac{1}{n+1}\,\frac{|x|^{n+1}}{(1-|x|)^{n+1}}
+= \frac{1}{n+1}\left(\frac{|x|}{1-|x|}\right)^{n+1}.
+$$
+
+Это выражение гарантированно стремится к нулю, если $\frac{|x|}{1-|x|} \le 1$, т.е. $|x|\le \frac{1}{2}$. Таким образом, прямое использование этой оценки доказывает сходимость лишь на отрезке $x\in[-\frac{1}{2},0]$. Однако **ряд сходится к $\ln(1+x)$ на всём интервале $(-1,1]$**. Чтобы доказать это для $x\in(-1,-\frac{1}{2})$, нужно применить более тонкую оценку (например, остаток в форме Коши или интегральную форму).
+
+*Дополнение.* Используем остаточный член в форме Коши:
+$$
+R_n(x,0) = \frac{f^{(n+1)}(\xi)}{n!}(x-\xi)^n x
+= (-1)^n \frac{x(x-\xi)^n}{(1+\xi)^{n+1}}.
+$$
+Для $x\in(-1,0)$ и $\xi\in(x,0)$ можно показать, что $\left|\frac{x-\xi}{1+\xi}\right| \le |x| < 1$, откуда $|R_n| \le |x|\,|x|^n \to 0$. Тем самым остаток исчезает для всех $x\in(-1,0]$. При $x=1$ пользуемся признаком Лейбница и теоремой Абеля о непрерывности суммы степенного ряда.
+
+Итак, окончательно:
+$$
+\boxed{\ln(1+x) = \sum_{n=1}^{\infty}\frac{(-1)^{n-1}x^n}{n},\qquad x\in(-1,1]}.
+$$
+
+---
+
+## 4. Раскрытие неопределённостей (правило Бернулли–Лопиталя)
+
+### 4.1. Теорема
+
+Пусть функции $f(x)$ и $g(x)$ дифференцируемы на промежутке $(a,b]$ (где $a$ — число или $-\infty$, $b$ — число или $+\infty$), и $g'(x)\neq 0$ на $(a,b]$. Если выполнено одно из условий:
+
+1. $f(x)\to 0$ и $g(x)\to 0$ при $x\to a+0$,
+2. $g(x)\to \infty$ (при этом $f$ может не иметь предела),
+
+и существует конечный или бесконечный предел
+$$
+\lim_{x\to a+0}\frac{f'(x)}{g'(x)} = A \quad (A\in\mathbb{R}\cup\{\pm\infty\}),
+$$
+то существует и предел отношения функций, причём
+$$
+\lim_{x\to a+0}\frac{f(x)}{g(x)} = A.
+$$
+
+### 4.2. Доказательство (для конечных $a$ и $A$)
+
+Пусть сначала $a\in\mathbb{R}$ и $A\in\mathbb{R}$.
+
+**Случай 1 (неопределённость $0/0$).**  
+Доопределим (если нужно) $f(a)=0$, $g(a)=0$. Тогда $f$ и $g$ непрерывны на $[a,b]$ и дифференцируемы на $(a,b]$. Для любого $x\in(a,b]$ по формуле конечных приращений Коши существует $\xi\in(a,x)$ такое, что
+$$
+\frac{f(x)}{g(x)} = \frac{f(x)-f(a)}{g(x)-g(a)} = \frac{f'(\xi)}{g'(\xi)}.
+$$
+При $x\to a+0$ имеем $\xi\to a+0$. Поскольку по условию $\lim_{t\to a+0}\frac{f'(t)}{g'(t)} = A$, то и $\frac{f'(\xi)}{g'(\xi)}\to A$. Следовательно, $\frac{f(x)}{g(x)}\to A$.
+
+**Случай 2 (неопределённость $\infty/\infty$).**  
+Дано: $g(x)\to\infty$ при $x\to a+0$. Зафиксируем произвольное $\varepsilon>0$. Существует $\delta>0$ такое, что для всех $t\in(a,a+\delta)$ выполнено $\left|\frac{f'(t)}{g'(t)}-A\right|<\varepsilon$.
+
+Выберем $x_0\in(a,a+\delta)$ и рассмотрим $x\in(a,x_0)$. По теореме Коши найдётся $\xi\in(x,x_0)$:
+$$
+\frac{f(x)-f(x_0)}{g(x)-g(x_0)} = \frac{f'(\xi)}{g'(\xi)}.
+$$
+Отсюда
+$$
+f(x) = \frac{f'(\xi)}{g'(\xi)}\bigl(g(x)-g(x_0)\bigr) + f(x_0).
+$$
+Разделим на $g(x)$:
+$$
+\frac{f(x)}{g(x)} = \frac{f(x_0)}{g(x)} + \frac{f'(\xi)}{g'(\xi)}\left(1 - \frac{g(x_0)}{g(x)}\right).
+$$
+
+Оценим разность $\left|\frac{f(x)}{g(x)} - A\right|$:
+$$
+\left|\frac{f(x)}{g(x)} - A\right|
+\le \left|\frac{f(x_0)}{g(x)}\right|
++ \left|\frac{f'(\xi)}{g'(\xi)} - A\right|
++ \left|\frac{f'(\xi)}{g'(\xi)}\right|\left|\frac{g(x_0)}{g(x)}\right|.
+$$
+
+При $x\to a+0$ имеем $g(x)\to\infty$, поэтому $\frac{f(x_0)}{g(x)}\to 0$ и $\frac{g(x_0)}{g(x)}\to 0$. Так как $\xi\in(x,x_0)\subset(a,a+\delta)$, то $\left|\frac{f'(\xi)}{g'(\xi)}-A\right|<\varepsilon$. Следовательно, для достаточно близких к $a$ значений $x$ получаем
+$$
+\left|\frac{f(x)}{g(x)} - A\right|~ < 2\varepsilon.
+$$
+Произвольность $\varepsilon$ даёт $\lim_{x\to a+0}\frac{f(x)}{g(x)} = A$.
+
+**Случай $a = +\infty$.**  
+Сделаем замену $t = 1/x$. Тогда $x\to+\infty$ эквивалентно $t\to 0+$. По правилу Лопиталя для $t\to 0+$:
+$$
+\lim_{x\to+\infty}\frac{f(x)}{g(x)}
+= \lim_{t\to 0+}\frac{f(1/t)}{g(1/t)}
+= \lim_{t\to 0+}\frac{f'(1/t)\cdot(-1/t^2)}{g'(1/t)\cdot(-1/t^2)}
+= \lim_{t\to 0+}\frac{f'(1/t)}{g'(1/t)}
+= \lim_{x\to+\infty}\frac{f'(x)}{g'(x)} = A.
+$$
+Аналогично рассматривается $a = -\infty$.
+
+**Случай $A = +\infty$ (или $-\infty$).**  
+Достаточно свести к предыдущему, перевернув дробь:
+$$
+\lim_{x\to a+0}\frac{f(x)}{g(x)}
+= \frac{1}{\lim\limits_{x\to a+0}\frac{g(x)}{f(x)}}
+= \frac{1}{\lim\limits_{x\to a+0}\frac{g'(x)}{f'(x)}}
+= \lim_{x\to a+0}\frac{f'(x)}{g'(x)} = \infty,
+$$
+при условии, что $\lim g'/f' = 0$ (что следует из $\lim f'/g'=\infty$). Все выкладки корректны, если в окрестности $a$ функции $f,g$ не обращаются в нуль (для переворота) и выполнены условия теоремы. □
+```
+
+Лекция 13.2.2026.md:
+```
+$$
+f(x) = \sum_{0}^{n}{\frac{f^{(k)}}{k!}(x-x_{0})^k} + R_{n}(x,x_{0}) \implies f(x) \sim \sum_{0}^{\infty}{\frac{f^{(k)}(x_{0})}{k!}(x - x_{0})^{k}}
+$$
+В данном случае нас интересует тот момент, когда мы можем поставить не знак соответствия, а именно знак равно, чтобы честно всё сделать.
+Рассмотрим следующие примеры:
+1)
+$$
+\begin{align*}
+\exists \xi \in (0, x): e^{x} = \sum_{k = 0}^{n}{\frac{x^{k}}{k!}} + \frac{(e^{x})^{(n+1)}}{(n+1)!}|(x = \xi) \cdot x^{n+1}, \text{где } x \in (-\infty; +\infty) = \\
+= \sum_{k = 0}^{n}{\frac{x^{k}}{k!}} + \underbrace{\frac{e^{\xi}}{(n+1)!}x^{n+1}}_{\text{остаточный член}} \\
+\text{Оценим сверху остаточный член: } \left|\frac{e^{\xi}\cdot x^{n+1}}{(n+1)!}\right| \leq e^{|x|} \frac{|x|^{n+1}}{(n+1)!}
+\end{align*}
+$$
+Это из-за того, что $\xi$ мы взяли в интервале от $(0, x)$, т.е. $\xi \leq x$. 
+$$
+\begin{align*}
+e^{|x|} \frac{|x|^{n+1}}{(n+1)!} = e^{|x|} \cdot \frac{|x|}{1} \cdot \frac{|x|}{2} \cdot \frac{|x|}{3} \dots \cdot \frac{|x|}{n+1} \to 0 \text{ при } n \to \infty \\
+\text{Значит: } e^{x} = \sum_{0}^{\infty}{\frac{x^{n}}{n!}} \quad \square
+\end{align*}
+$$
+2)
+$$
+\begin{align*}
+\log'(1+x) = \frac{1}{1+x} = \frac{1}{1 - (-x)} \underbrace{=}_{|x|<1} 1 - x + x^{2} - x^{3} + \dots + (-1)^{n}x^{n} + \dots \\
+\log(1+x) \sim \log(1 + 0) + x - \frac{x^{2}}{2} + \frac{x^{3}}{3} + \dots + \frac{(-1)^{n+1}x^{n}}{n} + \dots \\
+\log(1+x) \sim \sum_{1}^{\infty}{{\frac{(-1)^{n+1}x^{n}}{n}}}
+\end{align*}
+$$
+Применим признак Даламбера:
+$$
+\left|\frac{a_{n+1}}{a_{n}}\right| = \left|\frac{x^{n+1}}{n+1} \cdot \frac{n}{x^{n}}\right| = \frac{n}{n+1}|x| = |x| - \frac{1}{n+1}|x| \to |x| \text{ при } n \to \infty
+$$
+$$
+\begin{align*}
+\log(1+x) = \sum_{1}^{k}{\frac{(-1)^{k+1}x^{k}}{k}} + \frac{\left( \frac{1}{1+x} \right)^{(n)}|(x = \xi)}{(n+1)!} x^{n+1} = \\
+=  \sum_{1}^{k}{\frac{(-1)^{k+1}x^{k}}{k}} + \frac{(-1)(-2)\dots(-n)}{(n+1)!(1+\xi)^{n+1}}x^{n+1} \\
+\exists{\xi \in (0, x)}: \log(1+x) = \sum_{1}^{k}{\frac{(-1)^{k+1}x^{k}}{k}} + \frac{(-1)^{n}}{n+1} \cdot \frac{x^{n+1}}{(1 + \xi)^{n+1}}
+\end{align*}
+$$
+Рассмотрим остаток:
+$$
+\begin{align*}
+|R_{n}(x, 0)| = \frac{1}{n+1} \cdot \frac{|x|^{n+1}}{|1+\xi|^{n+1}} \\
+a. \quad x \in (0; 1] \implies |R_{n}(x, 0)| \leq \frac{1}{n+1} |x|^{n+1} \to 0, \text{ при } n \to \infty \text{ и } \forall{x \in (0; 1]} \\
+b. x\in(-1; 0] \implies |R_{n}(x, 0)| = \frac{1}{n+1}\cdot \frac{|x|^{n+1}}{(1 - |\xi|)^{n+1}} < \frac{1}{n+1} \left( \frac{|x|}{1 - |x|} \right)^{n+1}
+\end{align*}
+$$
+Нам нужно, чтобы всё это выражение стремилось к нулю. Понятно, что $\frac{1}{n+1}$ может просто не успеть за скоростью функции $\left( \frac{|x|}{1 - |x|} \right)^{n+1}$, и тогда бесконечность в знаменателе первой функции пр осто не спасёт (во второй функции будет бесконечность в числителе + $|x|^{n+1}$). Так что придётся накладывать ограничения на вторую функцию. Пусть $\left( \frac{|x|}{1 - |x|} \right) \leq 1 \implies x \in \left[ -\frac{1}{2}; 0 \right]$
+
+
+## Раскрытие неопределённостей (правило Бернулли - Лопиталя)
+
+$\frac{0}{0}$ и $\frac{\infty}{\infty}$ - неопределённости
+### Теорема:
+$f(x),g(x)$ дифференцируемы на интервале $(a, b]$ и $g'(x)\neq 0$ на $(a; b]$, если:
+1) $f(x), g(x) \to 0$, при $x \to a + 0$
+ИЛИ
+2) $g(x) \to \infty$ при $x \to a + 0$ и $\exists \lim\limits_{  x \to a + 0 }{\frac{f'(x)}{g'(x)}} = A$, то $\exists \lim\limits_{ x \to a + 0 }{\frac{f(x)}{g(x)}} = A$
+### Доказательство (Формула Коши конечных приращений):
+Рассмотрим следующий случай: $a \in \mathbb{R}, A \in \mathbb{R}$
+1) $f(a) := 0, g(a) := 0 \implies f(x), g(x) \in \mathbb{C}[a, b]$
+$\frac{f(x)}{g(x)} = \frac{f(x) - f(a)}{g(x) - g(a)} \underbrace{=}_{\exists \xi \in (a, x)} \frac{f'(\xi)}{g'(\xi)}$. Т.к. при $x \to a+0$, то по теореме о зажатой последовательности $\xi \to a + 0 \implies \frac{f'(\xi)}{g'(\xi)} \to A$
+2) Рассмотрим график: числа a и b расположены на какой-то числовой последовательности. Понятно что в точке a нельзя доопределить функцию в точке, чтобы функция стала непрерывно и вообще позволила применить формулу Коши (точка a стремится к $\infty$). Тогда нужно выделить какой-то конечный промежуток на $(a; b)$, на котором функция будет непрерывной, на котором функция будет дифференцируемая и на которой можно будет применить формулу Коши. Тогда возьмём точки $a< x< x_{0}<b \implies \frac{f(x_{0})-f(x)}{g(x_{0})-g(x)} \underbrace{=}_{\exists \xi \in (x, x_{0})} = \frac{f'(\xi)}{g'(\xi)}$
+Нам нужно $\frac{f(x)}{g(x)}$:
+$$
+\begin{align*}
+g'(\xi)(f(x) - f(x_{0})) = f'(\xi)(g(x)-g(x_{0})) \\
+f(x) = \frac{f'(\xi)}{g'(\xi)}(g(x)-g(x_{0})) + f(x_{0}) \\
+\frac{f(x)}{g(x)} = \frac{f(x_{0})}{g(x)} + \frac{f'(\xi)}{g'(\xi)} - \frac{f'(\xi)}{g'(\xi)} \cdot \frac{g(x_{0})}{g(x)} \\
+|\frac{f(x)}{g(x)} - A| \leq |\frac{f(x_{0})}{g(x)}| + |\frac{f'(\xi)}{g'(\xi)} - A| + |\frac{f'(\xi)}{g'(\xi)} \cdot \frac{g(x_{0})}{g(x)}| \\
+\forall{\epsilon>0} \exists \delta_{\epsilon} > 0: \text{ на } x_{0} \in (a; a +\delta_{\epsilon}): |\frac{f'(x_{0})}{g'(x_{0})}| < \epsilon \\
+\text{Т.к. } \xi \in (x, x_{0}) \in (a; a + \delta_{\epsilon}) \implies  |\frac{f'(\xi)}{g'(\xi)}-A| < \epsilon  \\
+\frac{g(x_{0})}{g(x)} \to 0 \text{ при } x\to a+ 0, x_{0} - \text{фиксировано} \\
+\frac{f'(\xi)}{g'(\xi)} \cdot \frac{g(x_{0})}{g(x)} \to 0 \\
+\end{align*}
+$$
+При $x$ достаточно близком к $a$:
+$$
+|\frac{f(x)}{g(x)} - A| < 2\epsilon
+$$
+А если $a = +\infty$? Сделаем замену: $t = \frac{1}{x}$:
+$$
+\lim\limits_{ x \to \infty }{\frac{f(x)}{g(x)}} = \lim\limits_{ t \to 0 }{\frac{f\left( \frac{1}{t} \right)}{g\left( \frac{1}{t} \right)}} = \lim\limits_{ t \to 0 } \frac{{f'\left( \frac{1}{t} \right)}\left( -\frac{1}{t^{2}} \right)}{g'\left( \frac{1}{t} \right)\left( -\frac{1}{t^{2}} \right)} = \lim\limits_{ t \to 0 } {\frac{f'\left( \frac{1}{t} \right)}{g'\left( \frac{1}{t} \right)}} = \lim\limits_{ x \to +0 }{\frac{f'(x)}{g'(x)}}
+$$
+Если $A = +\infty$
+$$
+\lim\limits_{ x \to a + 0}{\frac{f(x)}{g(x)}} = \frac{1}{\lim\limits_{ x \to a+0 }{\frac{g(x)}{f(x)}}} = \frac{1}{\lim\limits_{ x \to a + 0} \frac{g'(x)}{f'(x)}} = \lim\limits_{ x \to a + 0}{\frac{f'(x)}{g'(x)}} \quad \square 
+$$
+```
+
+Лекция 13.5.2026.md:
+```
+## Дифференциальные исчисления функция нескольких переменных
+### Частные производны и дифференциалы
+
+$$
+f(x): G \subset \mathbb{R}^{n} \to \mathbb{R}(\mathbb{R}^{m})
+$$
+#### Определение 1:
+$$
+\begin{align*}
+f(x, y): G \subset \mathbb{R}^{2} \to R \\
+\frac{\partial f}{\partial x}|_{(x_{0}, y_{0})} = \lim\limits_{ x \to x_{0} }{\frac{f(x, y_{0}) - f(x_{0}, y_{0})}{x - x_{0}}} \\
+\frac{\partial f}{\partial y}|_{(x_{0}, y_{0})} = \lim\limits_{ y \to y_{0} }{\frac{f(x_{0}, y) - f(x_{0}, y_{0})}{y - y_{0}}} \\
+\end{align*}
+$$
+#### Определение 2:
+Если $\exists{A_{x},A_{y}}: f(x, y) - f(x_{0}, y_{0}) = A_{x}(x - x_{0}) + A_{y}(y-y_{0}) + \alpha(x, y)\underbrace{\sqrt{ (x-x_{0})^{2} + (y-y_{0})^{2} }}_{:=\rho}$
+#### Утверждение:
+Если $f(x, y)$ дифференцируемо в точке $(x_0, y_0)$, то $A_{x} = \frac{\partial f}{\partial x}|_{(x_{0}, y_{0})},\quad  A_{y} = \frac{\partial f}{\partial y}|_{(x_{0}, y_{0})}$(утверждение, что частные производные существуют, и что есть вот такие 2 равенства)
+
+##### Доказательство:
+$$
+\begin{align*}
+f(x, y) = f(x_0, y_0) + A_{x}(x - x_{0}) + A_{y}(y-y_{0}) + o(\rho)\\
+\frac{f(x, y_{0}) - f(x_{0}, y_{0})}{x - x_{0}} = \frac{f(x_{0}, y_{0}) + A_{x}(x - x_{0}) + A_{y}(y_{0}-y_{0}) + o(x - x_{0})) - f(x_{0}, y_{0})}{x-x_{0}} = A_{x} + o(1) \to A_{x} \\
+\square
+\end{align*}
+$$
+
+$$
+f(x, y) - f(x_{0}, y_{0}) = \underbrace{\frac{\partial f}{\partial x}|_{(x_{0}, y_{0})}(x - x_{0}) + \frac{\partial f}{\partial y}|_{(x_{0}, y_{0})}(y - y_{0})}_{\text{линейная часть приращения функции}} + \underbrace{o(\rho)}_{\text{мало по сравнению с линейной}}
+$$
+$$
+df := \frac{\partial f}{\partial x_{1}}dx_{1} + \dots + \frac{\partial f}{\partial x_{n}}dx_{n} = \underbrace{\left[ \frac{\partial f}{\partial x_{1}}, \dots, \frac{\partial f}{\partial x_{n}} \right]}_{\text{матрица Якоби, $f'$}} \cdot \underbrace{\left[ \begin{align*}
+dx_{1} \\
+\dots \\
+dx_{n}
+\end{align*} \right]}_{dx} = f'dx  = df
+$$
+### Касательная плоскость
+#### Теорема
+$f(x, y)$ в $G \subset \mathbb{R}^{2}$ дифференцировано в $(x_{0}, y_{0}) \in G$. Тогда график $z = f(x, y)$ имеет невертикальную касательную плоскость ($M_{0}(x_{0}, y_{0}, f(x_{0}, y_{0}))$) $\Leftrightarrow f(x, y)$ дифференцируемо в точке $(x_{0}, y_{0})$
+##### Доказательство:
+$f(x, y)$ дифференцируемо в точке $(x_0, y_0) \implies \exists$ касательная плоскость
+$$
+\begin{align*}
+z = f(x, y) = \underbrace{f(x_{0}, y_{0}) + \frac{\partial f}{\partial x}|_{(x_{0}, y_{0})}(x - x_{0}) + \frac{\partial f}{\partial y}|_{(x_{0}, y_{0})}(y - y_{0})}_{\text{z}} + o(\rho) \\
+M_{0}(x_{0},y_{0},\underbrace{f(x_{0}, y_{0})}_{z_{0}}), \quad M(x, y, f(x, y)), \quad \rho = \sqrt{ (x-x_{0})^{2} + (y-y_{0})^{2} }
+\end{align*}
+$$
+
+#### Утверждение:
+Если $f(x, y)$ - дифференцируемо в $(x_0, y_0)$, то $f(x, y)$ непрерывна в $(x_{0}, y_{0})$
+$$
+f(x, y) = \left\{ \begin{align*}
+\frac{xy}{x^{2}+y^{2}}, (x, y) \neq (0, 0)   \\
+0, (x, y) = (0, 0)
+\end{align*}
+\right\}
+$$
+Не существует предел $f(x, y)$ при $(x, y) = (0, 0)$ 
+$$
+\frac{\partial f}{\partial x}|_{(0, 0)} = \lim\limits_{ x \to 0 }{\frac{f(x, 0)-f(0,0)}{x-0}} = 0 =  \frac{\partial f}{\partial y}|_{(0, 0)}
+$$
+
+### Достаточное условие дифференцируемости
+#### Теорема:
+$f(x, y)$ в $U_{(x_{0}, y_{0})}$ в $(x_{0}, y_{0})$ $\frac{\partial f}{\partial x}$ и $\frac{\partial f}{\partial y}$ непрерывны $\implies$ $f(x, y)$ дифференцируемо в $(x_{0}, y_{0})$
+##### Доказательство:
+$$
+\begin{align*}
+f(x, y) -f(x_{0}, y_{0}) = \underbrace{(f(x, y) - f(x, y_{0}))}_{x \text{ фиксировано}, y \text{ от } y \text{ до } y_{0}} + \underbrace{(f(x, y_{0}) - f(x_{0}, y_{0}))}_{y_{0} \text{ фиксировано}, x \text{ от } x \text{ до } x_{0}} = \\
+\exists n \in (y_{0}, y), \exists \xi \in (x_{0}, x): \\
+=  \frac{\partial f}{\partial y}|_{(x, n)}(y- y_{0}) + \frac{\partial f}{\partial x}|_{(\xi, y_{0})}(x- x_{0}) = \left( \frac{\partial f}{\partial y}|_{(x_{0}, y_{0})}+{\alpha_{y}(x,n)} \right)(y - y_{0}) + \left( \frac{\partial f}{\partial x}|_{(x_{0}, y_{0})}+\alpha_{x}(\xi,y_{0}) \right)(x - x_{0}) = \\
+= \frac{\partial f}{\partial x}|_{(x_{0}, y_{0})}(x - x_{0}) + \frac{\partial f}{\partial y}|_{(x_{0}, y_{0})}(y - y_{0}) + [\alpha_{x}(\xi, y)(x-x_{0}) + \alpha_{y}(x, n)(y-y_{0})] \\
+|\alpha_{x}(\xi, y_{0})(x-x_{0}) + \alpha_{y}(x, n)(y-y_{0})| \leq_{\text{Коши-Буняковский}} \sqrt{ (x - x_{0})^{2} + (y-y_{0})^{2}} \cdot (|\alpha_{x}(\xi, y_{0})|  + |\alpha_{y}(x, n)|) = (|\alpha_{x}(\xi, y_{0})|  + |\alpha_{y}(x, n)|) \cdot \rho = o(\rho)
+\end{align*}
+$$
+#### Определение:
+$f(x): G \subset \mathbb{R}^{n} \to \mathbb{R}, f(x)$ непрерывно дифференцируемо в $G$, если $\exists \frac{\partial f}{\partial x_{1}}, \dots  \frac{\partial f}{\partial x_{n}}$ непрерывно в $G$.
+
+### Дифференцирование вектор функций:
+$$
+f = \left[ \begin{align*}
+f_{1}(x_{1}, \dots, x_{n}) \\
+\dots \\
+f_{m}(x_{1}, \dots, x_{n})
+\end{align*} \right]
+$$
+```
+
+Лекция 15.4.2026.md:
+```
+$a_{k}^{+} = \max{\{ a_{k}, 0 \}}\geq 0 \quad a_{k}^{-} = -\min\{ a_{k}, 0\} \geq 0$
+$a_{k} = a_{k}^{+} - a_{k}^{-}$
+### Теорема 2 (Теорема Римана о условных сходящихся рядах):
+$\sum_{1}^{\infty}{a_{k}}$ сходится условно $\implies$ оба ряда $\sum_{1}^{\infty}{a_{k}^{+}}$ и $\sum_{1}^{\infty}{a_{k}^{-}}$ расходятся.
+Доказательство:
+$S_{n} = \sum_{1}^{n}{a_{k}} = \sum_{1}^{n}{a_{k}^{+}} - \sum_{1}^{n}{a_{k}^{-}} \implies \sum_{1}^{\infty}{|a_{k}|} = \sum_{1}^{\infty}{a_{k}^{+}} + \sum_{1}^{\infty}{a_{k}^{-}}$
+Расходится хотя бы один их этих рядов.
+
+### Преобразование Абеля:
+Формула суммирования по частям:
+$$
+\begin{align*}
+B_{k} = \sum_{j=1}^{k}{b_{j}}, B_{0} = 0 \\
+\sum_{1}^{n}{a_{k}b_{k}} = \sum_{1}^{n}{a_{k}(B_{k} - B_{k-1})} = a_{n}B_{n} - a_{1}B_{0} + \sum_{k = 1}^{n-1}{B_{k}(a_{k} - a_{k+1})} = \\
+= \boxed{a_{n}B_{n} - a_{1}B_{0} - \sum_{k=1}^{n-1}{B_{k}(a_{k+1} - a_{k})} = \sum_{k=1}^{n}{a_{k}b_{k}}}
+\end{align*}
+$$
+### Теорема (признак Абеля-Дирихле сходимости)
+$b_{k} \in \mathbb{C}, {a_{k}}$ монотонна. Если:
+1. 
+	1. $\sum_{1}^{n}{b_{k}}$ ограничены
+	2. $a_{k} \to 0$ при $k \to \infty$
+или
+2. 
+	1. $\sum_{1}^{n}{b_{k}}$ сходится
+	2. $\{ a_{k} \}$ ограничена
+Тогда ряд $\sum_{k=1}^{n}{a_{k}b_{k}}$ сходится. 
+#### Доказательство:
+1. $M>0: \forall{n} |\sum_{1}^{n}{b_{k}}|\leq M$
+$$
+\begin{align*}
+\sum_{k = n_{1}}^{n_{2}}{a_{k}b_{k}} = a_{n_{2}}B_{n_{2}} - a_{n_{1}}B_{n_{1}-1} - \sum_{n_{1}}^{n_{2}-1}{B_{k}(a_{k+1} - a_{k})} \\
+\sum_{k=n_{1}}^{n_{2}-1}{|B_{k}||a_{k+1}-a_{k}|}\leq M\sum_{n_{1}}^{n_{2}-1}{|a_{k+1} - a_{k}|} = M|a_{n_{2}} - a_{n_{1}}| \to 0, \text{ при } n_{1}, n_{2} \to \infty
+\end{align*}
+$$
+По критерию Коши будет абсолютная сходимость
+
+2. $\{ a_{k} \}$ монотонна и ограничена $\implies$ сходится. Пусть $a_{k} \to a$, при $k \to \infty$. $a_{k} = a + \alpha_{k}$, где $\alpha_{k}$ монотонная и $\alpha_{k} \to 0$, при $k \to \infty$
+$$
+\sum_{k=1}^{\infty}{a_{k}b_{k}} = \sum_{k=1}^{\infty}{(a+\alpha_{k})b_{k}} = a \sum{b_{k}} + \sum{\alpha_{k}b_{k}}
+$$
+### Теорема (Признак Лейбница сходимости для знакочередующегося ряда)
+$a_{k}$ убывает до 0 $\implies \sum_{1}^{\infty}{(-1)^{k+1}a_{k}}$ сходится
+Доказательство:
+1. Признак Дирихле:
+$$
+\begin{align*}
+\sum_{1}^{n}{(-1)^{k+1}} = \begin{cases}
+1, \text{ если } k = 2n -1,\\
+0, \text{ если } k = 2n,
+\end{cases} n \in \mathbb{N} \implies \text{ сходится } \\
+|\sum_{j=n+1}^{n+p}{(-1)^{j+1}a_{j}}| = |a_{n+1} - a_{n+2} + \dots + (-1)^{p}a_{n+p}|
+\end{align*}
+$$
+```
+
+Лекция 15.5.2026.md:
+```
+$$
+f = \left[ \begin{align*}
+f_{1}(x_{1}, \dots, x_{n}) \\
+\dots \\
+f_{m}(x_{1}, \dots, x_{n})
+\end{align*} \right]
+$$
+$\forall{j} = 1,\dots, m: f_{j} \text{ дифферецируема в точке } x^{0}, \sqrt{ (x_{1}-x_{1}^{0})^{2} + \dots + (x_{n} - x_{n}^{0})^{2} } = \rho$
+$$
+f(x) - f(x^{0}) = 
+\left. \begin{bmatrix}
+\frac{\partial f_{1}}{\partial x_{1}} & \cdots & \frac{\partial f_{1}}{\partial x_{n}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial f_{m}}{\partial x_{1}} & \cdots & \frac{\partial f_{m}}{\partial x_{n}}
+\end{bmatrix} \right|_{x^{0}}
+\cdot
+\begin{bmatrix}
+x_{1} - x_{1}^{0} \\
+\vdots \\
+x_{n} - x_{n}^{0}
+\end{bmatrix}
++
+\begin{bmatrix}
+\alpha_{1}(x) \\
+\vdots \\
+\alpha_{m}(x)
+\end{bmatrix}
+\rho
+$$
+$$
+\begin{align*}
+|\alpha_{j}(x)| \leq ||\alpha(x)||_{2} \leq |\alpha_{1}(x)| + \dots + |\alpha_{m}(x)| \\
+\forall{j = 1,\dots,m} \quad \alpha(x)(\text{вектор вниз}) = o(\rho) \leftrightarrow ||\alpha(x)||_{2} = o(\rho) \\
+f(x) - f(x_{0}) = f(x_{0})'(x-x_{0}) + o(x - x_{0}) \\
+f'(x), \text{матрица Якоби}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+f(x): G \subset \mathbb{R}^{n} \to \mathbb{R}^{m}: f(x) - f(x^{0}) = f'(x_{0})(x - x_{0}) + o(\alpha(x, x^{0})), f(x) \text{ дифференцируемо в } x^{0}
+\end{align*}
+$$
+#### Утверждение:
+$f(x)$ дифференцируемо в $x^{0} \leftrightarrow \forall{j = 1, \dots, m}: f_{j}(x)$ дифференцируемо в $x^{0}$
+Теорема:
+1. $f(x), g(x): G \subset \mathbb{R}^{n} \to \mathbb{R}^{m}$ дифференцируемо в $x^{0} \implies [f(x) \pm g(x)]'|_{x^{0}} = f'(x^{0}) \pm g'(x^{0})$ 
+2. Суперпозиция
+
+#### Теорема:
+$$
+\begin{align*}
+y(x): G_{x} \subset \mathbb{R}^{n} \to \mathbb{R}^{m} \\
+x(u): G_{u} \subset \mathbb{R}^{k} \to G_{x} \\
+u^{0} \in G_{u}, x^{0}:=x(u^{0})\in G_{x} \\
+x(u) \text{ дифференцируемо в }u^{0}, y(x) \text{ дифференцируемо в} x^{0}. \text{Тогда } y(x(u)) \text{дифференцируемо в } u^{0} \text{ и } \\
+(y(x(u)))'_{u}|_{u^{0}} = f'_{x}(x^{0}) \cdot x'_{u}(u^{0}) \text{ (порядок важен, т.к. здесь произведение матриц, а оно не коммутативно)}
+\end{align*}
+$$
+##### Доказательство:
+$$
+\begin{align*}
+y(x)\text{(вектор вниз)}- y(x^{0})\text{(вектор вниз)} = \left. \begin{bmatrix}
+\frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{1}}{\partial x_{n}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial y_{m}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
+\end{bmatrix} \right|_{x^{0}} \cdot
+\begin{bmatrix}
+x_{1} - x_{1}^{0} \\
+\vdots \\
+x_{n} - x_{n}^{0}
+\end{bmatrix}
++
+\begin{bmatrix}
+\alpha_{1}(x) \\
+\vdots \\
+\alpha_{m}(x)
+\end{bmatrix} \cdot \underbrace{\sqrt{ (x_{1} - x_{1}^{0})^{2} + \dots + (x_{n} - x_{n}^{0})^{2}}}_{\rho_{x}} \\
+x\text{(вектор вниз)}- x^{0}\text{(вектор вниз)} = \begin{bmatrix}
+x_{1} - x_{1}^{0} \\
+\vdots \\
+x_{n} - x_{n}^{0}
+\end{bmatrix} = \left. \begin{bmatrix}
+\frac{\partial x_{1}}{\partial u_{1}} & \cdots & \frac{\partial x_{1}}{\partial u_{k}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial x_{n}}{\partial u_{1}} & \cdots & \frac{\partial x_{n}}{\partial u_{k}}
+\end{bmatrix} \right|_{u^{0}} \cdot \begin{bmatrix}
+u_{1} - u_{1}^{0} \\
+\vdots \\
+u_{k} - u_{k}^{0}
+\end{bmatrix}
++
+\begin{bmatrix}
+\beta_{1}(x) \\
+\vdots \\
+\beta_{n}(x)
+\end{bmatrix} \cdot \rho_{u} \\
+\end{align*}
+$$
+
+$$
+\begin{align*}
+y(x(u)) - y(x(u^{0})) = \begin{bmatrix}
+\frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{1}}{\partial x_{n}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial y_{m}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
+\end{bmatrix} \left(\left. \begin{bmatrix}
+\frac{\partial x_{1}}{\partial u_{1}} & \cdots & \frac{\partial x_{1}}{\partial u_{k}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial x_{n}}{\partial u_{1}} & \cdots & \frac{\partial x_{n}}{\partial u_{k}}
+\end{bmatrix} \right|_{u^{0}} \cdot \begin{bmatrix}
+u_{1} - u_{1}^{0} \\
+\vdots \\
+u_{k} - u_{k}^{0}
+\end{bmatrix}
++
+\begin{bmatrix}
+\beta_{1}(x) \\
+\vdots \\
+\beta_{n}(x)
+\end{bmatrix} \cdot \rho_{u}\right) + \begin{bmatrix}
+\alpha_{1}(x) \\
+\vdots \\
+\alpha_{m}(x)
+\end{bmatrix} \cdot  \\
+\cdot \sqrt{ ((x_{1}(u) - x_1(u^{0}))^{2} + \dots + (x_{n}(u) - x_{n}(u^{0}))^{2}} = \begin{bmatrix}
+\frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{1}}{\partial x_{n}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial y_{m}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
+\end{bmatrix} \left. \begin{bmatrix}
+\frac{\partial x_{1}}{\partial u_{1}} & \cdots & \frac{\partial x_{1}}{\partial u_{k}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial x_{n}}{\partial u_{1}} & \cdots & \frac{\partial x_{n}}{\partial u_{k}}
+\end{bmatrix} \right|_{u^{0}} \cdot \begin{bmatrix}
+u_{1} - u_{1}^{0} \\
+\vdots \\
+u_{k} - u_{k}^{0}
+\end{bmatrix} + \left(\underbrace{\begin{bmatrix}
+\frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{1}}{\partial x_{n}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial y_{m}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
+\end{bmatrix}\begin{bmatrix}
+\beta_{1}(x) \\
+\vdots \\
+\beta_{n}(x)
+\end{bmatrix} \cdot \rho_{u}}_{o(\rho_{u})} + o(\rho_{u})\right)
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\sqrt{ (x_{1}(u) - x_{1}(u^{0}))^{2} + \dots +  (x_{n}(u) - x_{n}(u^{0}))^{2}} \leq |x_{1}(u) - x_{1}^{0}| + \dots + |x_{n}(u) - x_{n}^{0}| =  \\
+= |\frac{\partial x_{1}}{\partial u_{1}}(u_{1} - u_{1}^{0}) + \dots \frac{\partial x_{1}}{\partial u_{k}}(u_{k} - u_{k}^{0}) + \beta_{1}(u)| + \dots + |\frac{\partial x_{n}}{\partial u_{1}}(u_{1} - u_{1}^{0}) + \dots \frac{\partial x_{n}}{\partial u_{k}}(u_{k} - u_{k}^{0}) + \beta_{n}(u)| \leq  \\
+\leq  \sum_{l =1}^{n}{\sum_{j=1}^{k}}|\frac{\partial x_{l}}{\partial u_{j}}|\rho_{u} + \sum_{l=1}^{n}|b_{l}|p_{u} = \left( \sum{\sum{|\frac{\partial x_{l}}{\partial u_{j}}|}} + \sum{b_{l}}\right) \rho_{n} \leq  M \rho_{n}\\
+\square
+\end{align*}
+$$
+### Производная по направлению. Градиент
+$$
+\begin{align*}
+f(x): G \subset \mathbb{R}^{n} \to \mathbb{R}, x^{0} \in G, ||\overrightarrow{e}|| = 1 \quad x = x^{0} + et \\
+\varphi(t):=f(x^{0} + et) \\
+\text{Производная в нуле:} \frac{\varphi(t) - \varphi(0)}{t-0} = \frac{f(x^{0} + et) - f(x^{0})}{t} \underbrace{\to}_{?} \varphi'_{t}(0), \text{при } t \to 0? \\
+f(x) \text{ дифференцируемо в } x^{0} \implies \text{сложная функция:} \\
+\frac{d\varphi}{dt}|_{t=0} = f'_{x}|_{x^{0}} x'_{t}|_{t=0} = \left[\frac{\partial f}{\partial x_{1}} \dots \frac{\partial f}{\partial x_{1}}\right] \cdot  \\
+\text{Т.к. } |e| = 1 \implies e =  \begin{bmatrix}
+\cos{\alpha_{1}} \\
+\vdots \\
+\cos{\alpha_{n}}
+\end{bmatrix} \implies  x'_{t} = \begin{bmatrix}
+(x_{1}^{0} + t\cos{\alpha_{1}}(x))' \\
+\vdots \\
+(x_{n}^{0} + t\cos{\alpha_{n}}(x))'
+\end{bmatrix} = \begin{bmatrix}
+\cos{\alpha_{1}} \\
+\vdots \\
+\cos{\alpha_{n}}
+\end{bmatrix} \\
+\cdot \begin{bmatrix}
+\cos{\alpha_{1}} \\
+\vdots \\
+\cos{\alpha_{n}}
+\end{bmatrix} = \frac{\partial f}{\partial x_{1}} \cos{\alpha_{1}} + \dots + \frac{\partial f}{\partial x_{n}} \cos{\alpha_{n}} = (\nabla f, e) = (\nabla f, f')
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\frac{df}{de} = (\nabla f, e)
+\end{align*}
+$$
+
+### Формула Лагранжа конечных приращений
+```
+
+Лекция 17.4.2026 (нейронка).md:
+```
+### Функции многих переменных. Пределы и непрерывность. (Вводные понятия линейной алгебры в $\mathbb{R}^n$ и $\mathbb{C}^n$)
+
+#### 1. Координатное $n$-мерное пространство
+
+Мы переходим от рассмотрения функций одной переменной к функциям, зависящим от нескольких аргументов. Для формального описания области определения таких функций вводится понятие $n$-мерного пространства.
+
+Точка (или вектор) в таком пространстве обозначается как упорядоченный набор $n$ чисел (координат):
+$$ \vec{x} = x = (x_{1}, x_{2}, \dots, x_{n}) $$
+
+В зависимости от природы чисел, из которых состоят координаты, различают два основных типа пространств:
+
+*   **Действительное пространство $\mathbb{R}^n$**: $x_{j} \in \mathbb{R}$ для всех $j = 1, \dots, n$.
+*   **Комплексное пространство $\mathbb{C}^n$**: $x_{j} \in \mathbb{C}$ для всех $j = 1, \dots, n$.
+
+Здесь $j$ — это номер координаты (индекс).
+
+#### 2. Скалярное произведение в $\mathbb{R}^n$ и $\mathbb{C}^n$. Евклидово пространство
+
+Для работы с длинами, углами и расстояниями необходимо ввести операцию скалярного произведения.
+
+**Вспомним геометрический смысл в $\mathbb{R}^2$ и $\mathbb{R}^3$:**
+$$ (\vec{a}, \vec{b}) = |\vec{a}| \cdot |\vec{b}| \cdot \cos(\widehat{\vec{a}, \vec{b}}) $$
+Из этого определения автоматически следуют важные свойства:
+*   Модуль скалярного произведения не превосходит произведения длин (неравенство Коши-Буняковского): $|(\vec{a}, \vec{b})| \leq |\vec{a}| \cdot |\vec{b}|$.
+*   Длина вектора определяется через скалярное произведение самого на себя: $|\vec{a}| = \sqrt{(\vec{a}, \vec{a})}$.
+*   Неравенство треугольника: $|\vec{a} + \vec{b}| \leq |\vec{a}| + |\vec{b}|$, что в терминах скалярного произведения записывается как $\sqrt{(\vec{a}+\vec{b}, \vec{a}+\vec{b})} \leq \sqrt{(\vec{a}, \vec{a})} + \sqrt{(\vec{b}, \vec{b})}$.
+
+**Формальное определение скалярного произведения для $n$ измерений:**
+
+*   **В $\mathbb{R}^n$ (Евклидово пространство):**
+    Пусть $x, y \in \mathbb{R}^n$. Их скалярное произведение — это сумма произведений соответствующих координат:
+    $$ (x, y) := \sum_{j=1}^{n} x_{j} y_{j} $$
+
+*   **В $\mathbb{C}^n$ (Унитарное пространство):**
+    Пусть $x, y \in \mathbb{C}^n$. Здесь для обеспечения положительной определенности длины вектора ($(x,x) \geq 0$) вводится комплексное сопряжение второй переменной:
+    $$ (x, y) := \sum_{j=1}^{n} x_{j} \overline{y}_{j} $$
+
+**Свойства скалярного произведения:**
+
+1.  **Симметрия в $\mathbb{R}^n$:**
+    $$(x, y) = (y, x)$$
+
+2.  **Эрмитова симметрия в $\mathbb{C}^n$:**
+    $$(x, y) = \sum_{j=1}^{n} x_{j} \overline{y}_{j} = \overline{\sum_{j=1}^{n} \overline{x}_{j} y_{j}} = \overline{(y, x)}$$
+    *Важно:* Перестановка аргументов местами приводит к комплексному сопряжению результата.
+
+3.  **Линейность по первому аргументу:**
+    Для любых векторов $x, y, z$ и скаляров $\alpha, \beta$ (как в $\mathbb{R}^n$, так и в $\mathbb{C}^n$):
+    $$ (\alpha x + \beta y, z) = \alpha(x, z) + \beta(y, z) $$
+
+4.  **Полуторалинейность по второму аргументу в $\mathbb{C}^n$:**
+    Из-за наличия сопряжения, скалярный множитель выносится из второго аргумента с сопряжением:
+    $$ (x, \alpha y + \beta z) = \overline{(\alpha y + \beta z, x)} = \overline{\alpha(y, x) + \beta(z, x)} = \overline{\alpha}(x, y) + \overline{\beta}(x, z) $$
+
+5.  **Положительная определенность:**
+    $$ (x, x) \geq 0, \quad \text{и } (x, x) = 0 \iff x = \Theta \text{ (нулевой вектор)} $$
+    *Замечание:* Если бы мы попытались определить произведение в $\mathbb{C}^n$ по правилу $\mathbb{R}^n$ (без сопряжения), то получили бы противоречие. Например, для вектора $x + ix$ (где $x \neq \Theta$) получили бы:
+    $$ (x+ix, x+ix) = (x,x) + (x,ix) + (ix,x) + (ix,ix) = (x,x) + i(x,x) + i(x,x) + i^2(x,x) = 2i(x,x) $$
+    Это число мнимое, что делает невозможным извлечение действительного корня для определения длины. Именно поэтому вводится сопряжение во втором аргументе.
+
+#### 3. Неравенство Коши-Буняковского
+
+Это фундаментальное неравенство, которое справедливо для любого скалярного произведения:
+$$ |(x, y)|^2 \leq (x, x)(y, y) $$
+
+**Доказательство для $\mathbb{R}^n$:**
+Рассмотрим неотрицательную квадратичную функцию действительной переменной $\lambda \in \mathbb{R}$:
+$$ f(\lambda) = (x + \lambda y, x + \lambda y) = (x, x) + 2\lambda(x, y) + \lambda^2(y, y) \geq 0 $$
+Квадратный трехчлен относительно $\lambda$ неотрицателен при всех $\lambda$, следовательно, его дискриминант неположителен (при $(y,y) \neq 0$):
+$$ \frac{D}{4} = (x, y)^2 - (x, x)(y, y) \leq 0 \implies (x, y)^2 \leq (x, x)(y, y) $$
+Если $y = \Theta$, то неравенство превращается в равенство $0=0$.
+
+**Доказательство для $\mathbb{C}^n$:**
+Рассмотрим $\lambda \in \mathbb{C}$ и выберем его специальным образом. Неравенство $(x + \lambda y, x + \lambda y) \geq 0$ верно для любого $\lambda$:
+$$ 0 \leq (x + \lambda y, x + \lambda y) = (x, x) + \overline{\lambda}(x, y) + \lambda \overline{(x, y)} + \lambda \overline{\lambda}(y, y) \quad (\star) $$
+Положим $\lambda := - \frac{(x, y)}{(y, y)}$ (это допустимо при $y \neq \Theta$). Тогда $\overline{\lambda} = - \frac{\overline{(x, y)}}{(y, y)}$.
+Подставим в $(\star)$:
+$$ (\star) = (x, x) - \frac{\overline{(x, y)}}{(y, y)}(x, y) - \frac{(x, y)}{(y, y)}\overline{(x, y)} + \frac{(x, y)\overline{(x, y)}}{(y, y)^2}(y, y) $$
+$$ = (x, x) - \frac{|(x, y)|^2}{(y, y)} - \frac{|(x, y)|^2}{(y, y)} + \frac{|(x, y)|^2}{(y, y)} = (x, x) - \frac{|(x, y)|^2}{(y, y)} \geq 0 $$
+Отсюда:
+$$ (x, x)(y, y) \geq |(x, y)|^2 $$
+Если $y = \Theta$, то обе части неравенства равны $0$.
+
+**Следствие: Неравенство Коши-Буняковского в координатной форме:**
+$$ \left| \sum_{j=1}^{n} x_j \overline{y}_j \right| \leq \left( \sum_{j=1}^{n} |x_j|^2 \right)^{\frac{1}{2}} \left( \sum_{j=1}^{n} |y_j|^2 \right)^{\frac{1}{2}} $$
+
+#### 4. Неравенство Минковского (Неравенство треугольника)
+
+$$ ||x + y||_2 \leq ||x||_2 + ||y||_2 $$
+Где $||x||_2 := \sqrt{(x, x)}$ — евклидова норма.
+
+**Доказательство (с использованием К-Б):**
+$$ (x+y, x+y) = (x, x) + (x, y) + (y, x) + (y, y) = ||x||_2^2 + 2\operatorname{Re}(x, y) + ||y||_2^2 $$
+Так как $\operatorname{Re}(x, y) \leq |(x, y)|$, применяем неравенство Коши-Буняковского:
+$$ (x+y, x+y) \leq ||x||_2^2 + 2|(x, y)| + ||y||_2^2 \leq ||x||_2^2 + 2||x||_2 ||y||_2 + ||y||_2^2 = (||x||_2 + ||y||_2)^2 $$
+Извлекая квадратный корень из обеих частей (все величины неотрицательны), получаем требуемое неравенство.
+
+**Следствие в координатной форме:**
+$$ \left( \sum_{j=1}^{n} |x_j + y_j|^2 \right)^{\frac{1}{2}} \leq \left( \sum_{j=1}^{n} |x_j|^2 \right)^{\frac{1}{2}} + \left( \sum_{j=1}^{n} |y_j|^2 \right)^{\frac{1}{2}} $$
+
+#### 5. Соотношение между $l_1$ и $l_2$ нормами в $\mathbb{R}^n$
+
+Сравним сумму модулей координат (так называемую $l_1$-норму) и евклидову норму ($l_2$-норму).
+Из неравенства Коши-Буняковского для вектора $x$ и вектора, состоящего из единиц $y = (1, 1, \dots, 1)$, получаем:
+$$ \sum_{j=1}^{n} |x_j| \cdot 1 \leq \left( \sum_{j=1}^{n} |x_j|^2 \right)^{\frac{1}{2}} \cdot \left( \sum_{j=1}^{n} 1^2 \right)^{\frac{1}{2}} = \left( \sum_{j=1}^{n} |x_j|^2 \right)^{\frac{1}{2}} \cdot \sqrt{n} $$
+
+С другой стороны, очевидно, что сумма квадратов не превосходит квадрата суммы модулей:
+$$ \sum_{j=1}^{n} |x_j|^2 \leq \left( \sum_{j=1}^{n} |x_j| \right)^2 \implies \left( \sum_{j=1}^{n} |x_j|^2 \right)^{\frac{1}{2}} \leq \sum_{j=1}^{n} |x_j| $$
+
+Объединяя, получаем двустороннюю оценку:
+$$ \frac{1}{\sqrt{n}} \sum_{j=1}^{n} |x_j| \leq \left( \sum_{j=1}^{n} |x_j|^2 \right)^{\frac{1}{2}} \leq \sum_{j=1}^{n} |x_j| $$
+Это показывает, что все нормы в конечномерном пространстве эквивалентны.
+
+**Определение:** Если в линейном пространстве $U$ задано скалярное произведение (удовлетворяющее перечисленным выше свойствам), то такое пространство называется **Евклидовым пространством** (в случае $\mathbb{R}$) или **Унитарным пространством** (в случае $\mathbb{C}$). Запись в конспекте обозначает его как $E$.
+
+#### 6. Нормированное пространство
+
+Более общая конструкция, чем Евклидово пространство.
+
+**Определение:**
+Пусть $U$ — линейное пространство над полем $\mathbb{R}$ или $\mathbb{C}$. Говорят, что на $U$ задана **норма** $|| \cdot ||$, если каждому вектору $x \in U$ ставится в соответствие действительное число $||x|| \in \mathbb{R}$, удовлетворяющее следующим аксиомам:
+
+1.  **Неотрицательность:** $||x|| \geq 0$, причем $||x|| = 0 \iff x = \Theta$.
+2.  **Однородность:** $\forall \alpha \in \mathbb{K} \ (\text{где } \mathbb{K} = \mathbb{R} \text{ или } \mathbb{C}), \quad ||\alpha x|| = |\alpha| \cdot ||x||$.
+3.  **Неравенство треугольника:** $\forall x, y \in U, \quad ||x + y|| \leq ||x|| + ||y||$.
+
+Пара $(U, ||\cdot||)$ называется **нормированным пространством**.
+
+**Пример: Норма, порожденная скалярным произведением.**
+В любом евклидовом пространстве можно ввести норму, положив:
+$$ ||x||_2 := \sqrt{(x, x)} $$
+
+**Проверка аксиом для $||\cdot||_2$:**
+1.  Следует из положительной определенности скалярного произведения.
+2.  $||\alpha x||_2 = \sqrt{(\alpha x, \alpha x)} = \sqrt{\alpha \overline{\alpha} (x, x)} = \sqrt{|\alpha|^2 ||x||_2^2} = |\alpha| \cdot ||x||_2$.
+3.  Это в точности доказанное выше неравенство Минковского.
+
+Таким образом, всякое Евклидово (Унитарное) пространство автоматически является нормированным с нормой, порожденной скалярным произведением.
+```
+
+Лекция 17.4.2026.md:
+```
+## Дифференциальное исчисление функций многих переменных
+### Функции многих переменных. Пределы и непрерывность.
+
+#### Координатное n мерное пространство.
+Пространство будет либо действительным, или комплексным (скорее комплексным)
+**Определения:**
+$$
+\begin{align*}
+&\vec{x} = x = (x_{1}, x_{2}, \dots x_{4})\\
+&x_{j} \in \mathbb{R} \to \text{пространство } \mathbb{R}^{n} \\
+&x_{j} \in \mathbb{C} \to \text{пространство } \mathbb{C}^{n} \\
+&x_{j}, \text{где } j = 1, \dots, n \quad j - \text{координата}  \\
+\end{align*}
+$$
+#### Скалярное произведение в $\mathbb{R}^{n} \text{ и } \mathbb{C}^{n}$. Евклидово пространство.
+$(\overrightarrow{a}, \overrightarrow{b}) = |\overrightarrow{a}|\cdot|\overrightarrow{b}|\cdot \cos(\overrightarrow{a}, \overrightarrow{b})$
+$$
+\begin{align*}
+|(\overrightarrow{a}, \overrightarrow{b})| \leq  |\overrightarrow{a}| \cdot |\overrightarrow{b}|, \quad |\overrightarrow{a}| = (\overrightarrow{a}, \overrightarrow{a})^{\frac{1}{2}}. \\
+|\overrightarrow{a} + \overrightarrow{b}| \leq  |\overrightarrow{a}| + |\overrightarrow{b}| \\
+(\overrightarrow{a} + \overrightarrow{b}, \overrightarrow{a} + \overrightarrow{b})^{\frac{1}{2}} \leq  (\overrightarrow{a}, \overrightarrow{a})^{\frac{1}{2}} + (\overrightarrow{b}, \overrightarrow{b})^{\frac{1}{2}} \\
+\text{Определение: } x, y \in \mathbb{R}^{n},\ (x, y ):= \sum_{j=1}^{n}{x_{j}y_{j}} \\
+x, y \in \mathbb{C}^{n},\ (x, y ):= \sum_{j=1}^{n}{x_{j}\overline{y}_{j}} \\
+\text{Свойства}: \\
+1)\text{ в }\mathbb{R}^{n}:\ (x, y) = (y, x) \\
+2)\text{ в }\mathbb{C}^{n}:\ (x, y) = \sum_{j=1}^{n}{x_{j}\overline{y}_{j}} = \sum_{j=1}^{n}{\overline{x}_{j}{y}_{j}} = \overline{(y, x)} \\
+3)\ \forall \alpha, \beta, x, y, z \text{ (векторы) и в } \mathbb{R}^{n} \text{ и в } \mathbb{C}^{n}: \\
+(\alpha x + \beta y, z) = \alpha(x, z) + \beta(y, z) \\
+\text{В }\mathbb{C}^{n}:\quad (x, \alpha y + \beta z) = \overline{(\alpha y + \beta z, x)} = \overline{\alpha(y, x) + \beta(z, x)} = \overline{\alpha}\,\overline{(y, x)} + \overline{\beta}\,\overline{(z, x)} = \overline{\alpha}(x, y) + \overline{\beta}(x, z) \\
+4)\ (x, x) \geq  0,\ (x, x) = 0 \Leftrightarrow x = \Theta  \\
+\text{Если бы } (x, \alpha y) = \alpha(x, y)\ \forall x \neq \Theta,\ \text{то } \\
+ (x + ix, x+ix) = (x, x) + (x, ix) + (ix, x) + (ix, ix) = (x, x) + 2i(x,x) - (x, x) = 2i(x,x)
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\text{Проверим неравенство Коши-Буняковского для скалярного произведения}  \\
+\text{Рассмотрим несколько случаев:} \\
+1) \text{ в } \mathbb{R}^{n} \quad \forall{x, y} \in \mathbb{R}^{n}, \forall{\lambda}\in\mathbb{R} (x+\lambda y, x + \lambda y) = (x, x) + 2\lambda(x, y) + \lambda^{2}(y, y) \geq 0 \\
+\text{Чтобы это ровнялось 0, нужно чтобы } \frac{D}{4} = (x, y)^{2} - (x,x)(y,y) \leq 0 \\
+(x, y)^{2} \leq  (x, x)(y,y) \text{(Подразумевается, что} (y, y) \neq 0 \text{ т.к. иначе нет квадратного 3-х члена}) \\
+\text{ в } \mathbb{C}^{n} \quad \forall{x, y} \in \mathbb{C}, \forall{\lambda}\in \mathbb{C} \quad 0\leq (x + \lambda y, x +\lambda y) = (x, x) + (x, \lambda y) + (\lambda y, x) + (\lambda y, \lambda y)  \\
+= (x, x) + \overline{\lambda}(x, y) + \lambda\cdot \overline{(x, y)} + \lambda\bar{\lambda}(y, y) (\star) \\
+\lambda := -\frac{(x, y)}{(y, y)} \\
+(\star) = (x, x) - \frac{\overline{(x, y)}}{(y, y)}(x, y) - \frac{(x, y)}{(y,y)}\overline{(x, y)} + \frac{(x, y)}{(y,y)} \frac{\overline{(x, y)}}{(y, y)} = (x, x) - \frac{(x, y) \overline{(x, y)}}{(y, y)} \geq 0  \\
+(x, x) \geq  \frac{|(x ,y)^{2}|}{(y, y)} \text{К-Б} \\
+\text{Пусть}  y = \Theta \forall{x} (x, x) = (x, x + \Theta) = (x, x) + (x, \Theta). \\
+\text{Если } y = \Theta \quad (x, y) = 0  \leq (x ,x)^{\frac{1}{2}} \\
+\forall{x, y} \in \mathbb{C}^{n} \\
+(x+y, x+y) = (x, x) + (x, y) + (y, x) + (y, y) = (x, x) + (x, y) + \overline{(x, y)} + (y, y) \leq  \\
+\leq  (x + x) + 2\mathrm{Re}(x, y) + (y, y) \leq  (x, x) + 2|(x, y)| + (y, y) \leq ((x, x)^{\frac{1}{2}})^{2} + 2(x, x)^{\frac{1}{2}}(y, y)^{\frac{1}{2}} + ((y, y)^{\frac{1}{2}})^{2} = \\
+= ((x, x)^{\frac{1}{2}} + (y, y)^{\frac{1}{2}})^{2} \quad \text{К-Б} \to \text{Минковский}
+\end{align*}
+$$
+$$
+\begin{align*}
+\text{ в } \mathbb{R}^{n} \text{ и } \mathbb{C}^{n} \quad x,y \in \mathbb{C}^{n}  \\
+|\sum_{1}^{n}{x_{j}\overline{y}_{j}}| \leq \left( \sum_{1}^{n}{|x_{j}|^{2}} \right)^{\frac{1}{2}} \cdot \left( \sum_{1}^{n}{|y_{j}|^{2}} \right)^{\frac{1}{2}} \\
+\sum_{1}^{n}{(|x_{j}+y_{j}|^{2})^{\frac{1}{2}}} \leq \left( \sum_{1}^{n}{|x_{j}^{2}|} \right)^{\frac{1}{2}} + \left( \sum_{1}^{n}{|y_{j}^{2}|} \right)^{\frac{1}{2}} \\
+\text{Для положительных чисел} (\mathbb{R}^{n}): \\
+\sum_{1}^{n}{|x_{j}||y_{j}|} \leq  \left( \sum_{1}^{n}{|x_{j}^{2}|} \right)^{\frac{1}{2}} \cdot \left( \sum_{1}^{n}{|y_{j}^{2}|} \right)^{\frac{1}{2}}, y_{j} = 1, j = 1,\dots n \\
+\sum_{j = 1}^{n}{|x_{j}|} \leq  \left( \sum_{1}^{n}{|x_{j}^{2}|} \right)^{\frac{1}{2}} \sqrt{n} \\
+\frac{1}{\sqrt{ n }}\sum_{j=1}^{n}|x_{j}| \leq  \left( \sum_{1}^{n}{|x_{j}^{2}|} \right)^{\frac{1}{2}} \leq \sum_{j = 1}^{n}{|x_{j}|}
+\end{align*}
+$$
+**Определение**: Если в Евклидовом пространстве ($U$, или $E$) задано скалярное произведение, то это Евклидово пространство.
+
+#### Нормированное пространство
+$U$ - линейное пространство, если $\forall{x} \in U \to ||x|| \in \mathbb{R}$ со свойствами (||x|| - норма)
+1. $||x|| \geq 0, ||x|| = 0 \leftrightarrow x = \Theta$
+2. $\forall{\alpha} \quad ||\alpha x|| = |\alpha|\cdot||x||$
+3. $\forall{x, y} \in U \quad ||x + y|| \leq ||x|| + ||y||,$ то $(U, ||\cdot||)$ - нормированное пространство
+В евклидовом пространстве можно положить $||x||_{2}:= (x, x)^{\frac{1}{2}}$
+##### Смотрим свойства:
+1. Для $||\cdot||_{2}$ выполнено
+2. $||\alpha x|| = (\alpha x, \alpha x)^{\frac{1}{2}} = (\alpha^{2}(x ,x))^{\frac{1}{2}} = |\alpha|||x||_{2}$
+3. $||x+y||_{2} \leq ||x||_{2} + ||y||_{2}$ Минковский
+$||\cdot||_{2}$ - норма порождающая скалярным произведением.
+
+[[Матан 2 семестр лекции]]
+```
+
+Лекция 18.2.2026 (нейронкой).md:
+```
+# Исследование функций
+Изучаем возрастание/убывание, выпуклость, точки перегиба и экстремумы.
+
+## § 1. Условия монотонности
+
+### Теорема 1 (связь знака производной и монотонности)
+Пусть $f(x)$ дифференцируема на интервале $(a; b)$. Тогда справедливы следующие прямые и обратные утверждения:
+
+| Знак производной на $(a;b)$ | Характер монотонности $f(x)$ | Необходимое условие (обратное) |
+| :-------------------------- | :--------------------------- | :----------------------------- |
+| 1) $f'(x)>0$                | $f$ строго возрастает        | $f'(x)\ge 0$                   |
+| 2) $f'(x)\ge 0$             | $f$ возрастает (нестрого)    | $f'(x)\ge 0$                   |
+| 3) $f'(x)\equiv 0$          | $f\equiv \text{const}$       | $f'(x)\equiv 0$                |
+| 4) $f'(x)\le 0$             | $f$ убывает (нестрого)       | $f'(x)\le 0$                   |
+| 5) $f'(x)<0$                | $f$ строго убывает           | $f'(x)\le 0$                   |
+
+**Замечание.** Единственное необходимое и достаточное условие — п. 3 (постоянство). В остальных случаях есть «зазор»: например, из строгого возрастания не следует $f'(x)>0$, а лишь $f'(x)\ge 0$ (контрпример: $f(x)=x^3$ в нуле).  
+*Вопрос:* сформулируйте необходимое и достаточное условие строгого возрастания в терминах производной (ответ: $f'(x)\ge 0$ и $f'(x)$ не обращается в нуль ни на каком интервале).
+
+#### Доказательство (прямые и обратные переходы)
+*Прямые утверждения (1, 2, 4, 5)* используют формулу конечных приращений Лагранжа.  
+Для любых $x_1<x_2$ из $(a;b)$ существует $\xi\in(x_1,x_2)$:
+$$
+f(x_2)-f(x_1)=f'(\xi)(x_2-x_1).
+$$
+Знак приращения функции совпадает со знаком $f'(\xi)$. Если $f'(x)>0$ для всех $x$, то $f'(\xi)>0$ и $f(x_2)>f(x_1)$ — строгое возрастание. Аналогично для остальных.
+
+*Обратные утверждения* следуют из определения производной. Если $f$ возрастает, то для любого $x$ и $h\neq0$
+$$
+\frac{f(x+h)-f(x)}{h}\ge 0 \quad (\text{при } h>0:\ f(x+h)\ge f(x);\ h<0:\ f(x+h)\le f(x)),
+$$
+поэтому предел $f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\ge 0$. Для строгого возрастания знак приращения строгий, но в пределе нестрогое неравенство сохраняется, поэтому $f'(x)\ge0$. Аналогично для убывания. $\square$
+
+---
+
+## § 2. Условия внутреннего экстремума
+
+### Теорема 1 (Ферма, необходимое условие экстремума)
+Если $f(x)$ определена на $(a;b)$ и в точке $x_0\in(a;b)$ имеет локальный экстремум, то $f'(x_0)=0$ или производная не существует.
+
+### Теорема 2 (достаточные условия экстремума по первой производной)
+Пусть $f(x)$ непрерывна на $[a;b]$ и дифференцируема на $(a;b)$, $x_0\in(a;b)$ — критическая точка ($f'(x_0)=0$ или $f'(x_0)$ не существует). Если при переходе через $x_0$ производная меняет знак, то:
+1. Если $f'(x)$ сохраняет знак (положительна слева и справа, или отрицательна слева и справа) — экстремума нет.
+2. Если $f'(x)<0$ при $x\in(a;x_0)$ и $f'(x)>0$ при $x\in(x_0;b)$ — в $x_0$ **минимум**.
+3. Если $f'(x)>0$ при $x\in(a;x_0)$ и $f'(x)<0$ при $x\in(x_0;b)$ — в $x_0$ **максимум**.
+
+#### Вспомогательное утверждение
+Пусть $f\in C[a;b]$ и дифференцируема на $(a;b)$. Тогда:
+- Если $f'(x)>0$ на $(a;b)$, то $f(a)=\min_{[a;b]} f(x)$, $f(b)=\max_{[a;b]} f(x)$.
+- Если $f'(x)<0$ на $(a;b)$, то $f(a)=\max_{[a;b]} f(x)$, $f(b)=\min_{[a;b]} f(x)$.
+
+*Доказательство (для $f'(x)>0$).* Возьмём произвольное $x_0\in(a;b)$. По теореме Лагранжа существуют $\xi_1\in(a;x_0)$ и $\xi_2\in(x_0;b)$:
+$$
+\begin{aligned}
+f(x_0)-f(a) &= f'(\xi_1)(x_0-a) \ge 0,\\
+f(b)-f(x_0) &= f'(\xi_2)(b-x_0) \ge 0,
+\end{aligned}
+$$
+откуда $f(a)\le f(x_0)\le f(b)$. $\square$
+
+*Доказательство теоремы 2.* Выберем отрезок $[c;d]\subset(a;b)$, содержащий $x_0$. Применим утверждение к интервалам $(c;x_0)$ и $(x_0;d)$.
+- В случае 1 (производная одного знака) функция монотонна на обоих интервалах, и $x_0$ не является точкой экстремума.
+- В случае 2: слева от $x_0$ функция убывает, справа возрастает — $f(x_0)$ меньше всех значений в окрестности, т.е. минимум.
+- Случай 3 аналогично даёт максимум. $\square$
+
+### Теорема 3 (достаточное условие экстремума по высшим производным)
+Пусть $f(x)$ имеет в некоторой окрестности $U(x_0)$ производные до порядка $n$ включительно ($n\ge 2$), причём
+$$
+f'(x_0)=f''(x_0)=\dots=f^{(n-1)}(x_0)=0,\qquad f^{(n)}(x_0)\neq 0.
+$$
+Тогда:
+1. Если $n$ **нечётное** — в $x_0$ экстремума нет.
+2. Если $n$ **чётное** — в $x_0$ есть экстремум.  
+   - $f^{(n)}(x_0)>0$ $\Rightarrow$ локальный минимум,
+   - $f^{(n)}(x_0)<0$ $\Rightarrow$ локальный максимум.
+
+#### Доказательство
+Разложим $f(x)$ по формуле Тейлора с остатком в форме Пеано:
+$$
+\begin{aligned}
+f(x) &= f(x_0) + \frac{f'(x_0)}{1!}(x-x_0) + \dots + \frac{f^{(n-1)}(x_0)}{(n-1)!}(x-x_0)^{n-1} \\
+&\quad + \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n + o\big((x-x_0)^n\big) \\
+&= f(x_0) + \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n + \alpha(x)(x-x_0)^n,
+\end{aligned}
+$$
+где $\alpha(x)\to0$ при $x\to x_0$. При $x$, достаточно близких к $x_0$, знак скобки $\bigl(\frac{f^{(n)}(x_0)}{n!}+\alpha(x)\bigr)$ совпадает со знаком $f^{(n)}(x_0)$. Тогда поведение разности $f(x)-f(x_0)$ определяется множителем $(x-x_0)^n$ и знаком этой скобки.
+
+- Если $n$ нечётное, $(x-x_0)^n$ меняет знак при переходе через $x_0$, значит, $f(x)-f(x_0)$ меняет знак — экстремума нет.
+- Если $n$ чётное, $(x-x_0)^n\ge0$, и знак $f(x)-f(x_0)$ определяется знаком $f^{(n)}(x_0)$. Если он положителен, то $f(x)\ge f(x_0)$ (минимум), если отрицателен — максимум. $\square$
+
+---
+
+## § 3. Условия выпуклости функций
+
+### Определение 1 (выпуклость вниз, т.е. функция выпукла)
+Функция $f(x)$ на промежутке $\langle a;b\rangle$ называется **выпуклой вниз** (или просто выпуклой), если $\forall x_1,x_2\in\langle a;b\rangle$ график $y=f(x)$ на интервале $(x_1,x_2)$ лежит **не выше** прямой, проходящей через точки $(x_1,f(x_1))$ и $(x_2,f(x_2))$.  
+Если график лежит **строго ниже** (кроме концов), говорят о **строгой выпуклости вниз**.
+
+**Выпуклость вверх** (вогнутость) определяется аналогично: график лежит **не ниже** прямой; или же $f$ выпукла вверх $\iff$ $-f$ выпукла вниз.
+
+*Вопросы.*  
+1. Известно, что функция, выпуклая вниз на интервале $(a;b)$, непрерывна на нём (более того, имеет левую и правую производные).  
+2. Пример выпуклой вниз на $[a;b]$ функции, не принадлежащей $C[a;b]$:  
+$f(x)=\begin{cases}0,& x\in(0,1),\\1,& x=0\text{ или }x=1.\end{cases}$  
+На $[0,1]$ эта функция выпукла вниз, но разрывна на концах (пределы изнутри равны $0$, значение $1$). Выпуклость сохраняется, потому что значения на концах «выше» графика на интерьере.
+
+### Аналитическое определение и свойства дифференцируемых функций
+
+Пусть $x_1<x_2$. Уравнение секущей:
+$$
+y_{\text{сек}} = \frac{x-x_1}{x_2-x_1}f(x_2) + \frac{x_2-x}{x_2-x_1}f(x_1).
+$$
+Условие выпуклости вниз на $(x_1,x_2)$: для любого $x\in(x_1,x_2)$
+$$
+f(x) \le \frac{x-x_1}{x_2-x_1}f(x_2) + \frac{x_2-x}{x_2-x_1}f(x_1).
+$$
+Так как $\frac{x-x_1}{x_2-x_1}+\frac{x_2-x}{x_2-x_1}=1$, это равносильно
+$$
+\frac{f(x)-f(x_1)}{x-x_1} \le \frac{f(x_2)-f(x)}{x_2-x}, \qquad \forall x\in(x_1,x_2).
+$$
+
+Если $f$ дифференцируема на $(a;b)$, то при $x\to x_1+0$ левая часть стремится к $f'(x_1)$, а при $x\to x_2-0$ правая — к $f'(x_2)$. Переходя к пределу, получаем:
+$$
+f'(x_1) \le \frac{f(x_2)-f(x_1)}{x_2-x_1} \le f'(x_2).
+$$
+Следовательно, для выпуклой вниз функции **производная не убывает**.
+
+### Утверждение 1 (нестрогая выпуклость)
+Дифференцируемая на $(a;b)$ функция $f$ **нестрого выпукла вниз** $\iff$ $f'(x)$ **нестрого возрастает** на $(a;b)$.
+
+*Доказательство.* Выше мы показали, что из нестрогой выпуклости следует $f'(x_1)\le f'(x_2)$ для любых $x_1<x_2$. Обратное: если $f'$ не убывает, то по теореме Лагранжа $\frac{f(x)-f(x_1)}{x-x_1}=f'(\xi_1)\le f'(\xi_2)=\frac{f(x_2)-f(x)}{x_2-x}$, где $x_1<\xi_1<x<\xi_2<x_2$, что даёт неравенство выпуклости. $\square$
+
+### Утверждение 2 (строгая выпуклость)
+Дифференцируемая на $(a;b)$ функция $f$ **строго выпукла вниз** $\iff$ $f'(x)$ **строго возрастает** на $(a;b)$.
+
+*Доказательство необходимости.* Пусть $f$ строго выпукла вниз. Для $x_1<x<x_2$ неравенства становятся строгими:
+$$
+f'(x_1) \le \frac{f(x)-f(x_1)}{x-x_1} < \frac{f(x_2)-f(x)}{x_2-x} \le f'(x_2).
+$$
+По теореме Лагранжа существуют $\xi_1\in(x_1,x)$, $\xi_2\in(x,x_2)$ такие, что
+$$
+\frac{f(x)-f(x_1)}{x-x_1}=f'(\xi_1),\qquad \frac{f(x_2)-f(x)}{x_2-x}=f'(\xi_2).
+$$
+Тогда $f'(x_1)\le f'(\xi_1)<f'(\xi_2)\le f'(x_2)$, откуда $f'(x_1)<f'(x_2)$. Строгое возрастание доказано.
+Обратное утверждение доказывается аналогично через теорему Лагранжа (если $f'$ строго возрастает, то неравенство для наклонов становится строгим). $\square$
+
+Эти утверждения дают удобные критерии выпуклости в терминах первой производной, а для дважды дифференцируемых функций приводят к классическому условию: $f''(x)\ge 0$ ($>0$ для строгой) соответствует выпуклости вниз.
+```
+
+Лекция 18.2.2026.md:
+```
+# Исследование функций
+Будем заниматься исследованием возрастанием/убыванием, выпуклостями вверх/вниз, точками перегиба и экстремумами
+
+## $\S$ 1. Условия монотонности
+
+### Теорема 1:
+$f(x)$ дифференцируемо на интервале $(a; b)$. Если на $(a; b)$:
+1) $f'(x)>0 \implies f(x)$ строго возрастает $\implies f'(x)\geq0$
+2) $f'(x)\geq0 \implies f(x)$ возрастает $\implies f'(x) \geq 0$
+3) $f'(x) \equiv 0 \implies f(x) \equiv const \implies f'(x) \equiv0$ (единственное необходимое и достаточное условие, в остальных есть зазор)
+4) $f'(x) \leq 0 \implies f(x)$ убывает $\implies f'(x)\leq 0$
+5) $f'(x) < 0 \implies f(x)$ строго убывает $\implies f'(x)\leq0$
+
+#### Замечание:
+Дайте необходимое и достаточное условие строго возрастания в терминах производной.
+
+#### Доказательство:
+Левые переходы
+1) $x_{1} < x_{2}; x_{1}, x_{2} \in (a; b)$, $\exists{\xi}: f(x_{2}) - f(x_{1}) = \underbrace{f'(\xi)}_{>0}\underbrace{(x_{2}-x_{1})}_{>0}$
+Правые переходы (по определению производной):
+$$
+f'(x) = \lim\limits_{ h \to 0 }{\frac{f(x+h) - f(x)}{h}} 
+$$
+Важно уточнение: $h\neq0$. Да, оно стремится, но не 0 (иначе бы были проблемы с знаменателем). Ну а дальше просто подставляем наши случаи и всё у нас сходится. $\square$
+
+## $\S$ 2. Условия внутреннего экстремума
+
+### Теорема 1 (теорема Ферма)
+Если $f(x)$ определена на $(a; b)$. Если в $x_{0} \in (a; b)$ у $f(x)$ находится экстремум $\implies$ $f'(x_0) = 0$ или не существует
+
+### Теорема 2
+Функция $f(x)$ дифференцируема на интервале $(a; b)$, и $f(x) \in C[a; b]$ $f'(x_{0}) = 0, x_{0} \in (a; b)$. 
+1. на $(a; x_{0})$ и $(x_{0}; b)$ $f'(x)>0$ (или $f'(x)<0$) то в $x_{0}$ нет экстремума
+2. на $(a; x_{0})$ $f'(x) <0$, а потом на $(x_{0}; b) ~ f'(x)>0$, то в $x_{0}$ минимум
+3. на $(a; x_{0})$ $f'(x) >0$, а потом на $(x_{0}; b) ~ f'(x)<0$, то в $x_{0}$ максимум.
+
+
+### Утверждение:
+$f(x) \in C[a; b]$ и дифференцируемо на $(a; b)$. Если на $(a; b)$:
+1. $f'(x)>0 \implies f(a) = \min_{[a; b]}{f(x)}, \quad f(b) = \max_{[a; b]}{f(x)}$
+2. $f'(x)<0 \implies f(a) = \max_{[a; b]}{f(x)}, \quad f(b) = \min_{[a; b]}{f(x)}$
+#### Доказательство (Пункт 1. Пункт 2 аналогично): 
+$$
+\begin{align*}
+\forall{x_{0} \in (a; b)}: \\
+\exists{\xi_{1}\in(a;x_{0})} ~ f(x_{0}) - f(a) = f'(\xi_{1})(x_{0}-a) \geq 0 \\
+\exists{\xi_{2}\in(x_{0}; b)} ~ f(b) - f(x_{0}) = f'(\xi_{2})(b-x_{0}) \geq 0 \\
+\implies f(a) \leq f(x_{0})\leq f(b)
+\end{align*}
+$$
+#### Доказательcтво (ТЕОРЕМЫ 2):
+Пусть $c, d \in (a; b), x_{0} \in [c; d]$, $\forall{x' \in [c; x_{0})}, \forall{x'' \in (x_{0}; d]}$
+1. По утверждению $\implies f(x') < f(x_{0}) < f(x'') \quad (f(x') > f(x_{0}) > f(x''))$
+2. По утверждению $\implies f(x') > f(x_{0}) < f(x'') \implies$ в точке $x_{0}$ минимум
+3. По утверждению $\implies f(x') < f(x_{0}) > f(x'') \implies$ в точке $x_{0}$ максимум
+$\square$
+
+### Теорема 3 (достаточное условие экстремума в терминах высших производных)
+$f(x)$ определена на окрестности точки $x_{0}$ $U(x_{0})$, дифференцируема в точке $x_{0} \quad n$ раз, где $n \geq 2$. Пусть $f'(x_{0}) = f''(x_{0}) = \dots = f^{(n-1)}(x_{0}) = 0; f^{(n)}(x_{0})\neq {0}$. 
+1. При $n$ нечётном экстремума нет
+2. При $n$ чётном экстремум есть.
+3. $f^{(n)}(x_{0})>0 \implies$ в $x_0$ локальный минимум
+4. $f^{(n)}(x_{0})<0 \implies$ в $x_0$ локальный максимум
+
+#### Доказательcтво
+$$
+\begin{align*}
+f(x) = f(x_{0}) + \frac{f'(x_{0})}{1!}(x-x_{0}) + \dots + \frac{f^{(n-1)}(x_{0})}{(n-1)!}(x-x_{0})^{n-1} +  \\
++ \frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^{n} + o((x - x_{0})^{n}) = f(x_{0}) + \frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^{n} + \alpha(x)(x - x_{0})^{n} = \\
+= f(x_{0}) + (x - x_{0})^{n}(\underbrace{\frac{f^{(n)}(x_{0})}{n!}}_{\neq0} + \alpha(x))
+\end{align*}
+$$
+Если $x$ достаточно близко к $x_{0}$, то $sign(\frac{f^{(n)}(x_{0})}{n!} + \alpha(x)) = sign(f^{(n)}(x_{0}))$. Важно, что выражение не меняет знак.
+1. Если $n$ нечётное выражение $(x - x_{0})^{n}(\frac{f^{(n)}(x_{0})}{n!} + \alpha(x))$ меняет знак $\implies$ в $x_0$ нет экстремума
+2. Если $n$ чётное, то выражение  $(x - x_{0})^{n}(\frac{f^{(n)}(x_{0})}{n!} + \alpha(x))$ не меняет знак $\implies$ в $x_{0}$ есть экстремум.
+
+## Условие выпуклости функций
+### Определение 1 (выпуклость вниз):
+$f(x)$ на $<a; b>$, выпукла вниз на $<a; b>$ $\forall{x_{1}, x_{2} \in <a; b>}$ график $y = f(x)$ на $(x_{1}, x_{2})$ лежат **ниже** (**строгая выпуклость**) прямой, проходящей через точки $(x_{1}, f(x_{1}))$ и $(x_{2}, f(x_{2}))$, а если **не выше**, то **нестрогая выпуплоксть**
+Определение для выпуклости вверх аналогичное, но там функцию нужно просто домножить на -1. 
+
+Вопросы:
+1. Если $f(x)$ выпукла вниз на интервале $(a; b) \implies f(x) \in C[a; b]$ 
+2. Выпукла вниз на отрезке $[a; b]$. Привести пример $f(x) \not\in C[a; b]$
+
+Уравнение секущей (конструкция Лагранжа):
+$y_{\text{сек}} = \frac{x - x_{1}}{x_{2} - x_{1}}f(x_{2}) + \frac{x_{2} - x}{x_{2} - x_{1}}f(x_{1})$.
+На $(x_{1}; x_{2})$ $f(x) \leq \frac{x - x_{1}}{x_{2} - x_{1}}f(x_{2}) + \frac{x_{2} - x}{x_{2} - x_{1}}f(x_{1})$. 
+$\frac{x - x _{1}}{x_{2} - x_{1}} + \frac{x_{2} - x}{x_{2} - x_{1}} = 1 \implies (\frac{x - x _{1}}{x_{2} - x_{1}} + \frac{x_{2} - x}{x_{2} - x_{1}})f(x) \leq \frac{x - x_{1}}{x_{2} - x_{1}}f(x_{2}) + \frac{x_{2} - x}{x_{2} - x_{1}}f(x_{1})$
+Тогда иное определение выпуклости вниз:
+$$
+\frac{f(x) - f(x_{1})}{x-x_{1}} \leq \frac{f(x_{2}) - f(x)}{x_{2} - x} ~ \forall{x \in (x_{1}; x_{2})}
+$$
+$f(x)$ дифференцируемо на интервале $(a; b)$. В первом выражении $x \to x_{1} + 0$, а во втором $x \to x_{2} - 0$
+$$
+\underbrace{\frac{f(x) - f(x_{1})}{x - x_{1}}}_{\to f'(x_{1})} \leq \frac{f(x_{2}) - f(x)}{x_{2} - x} \quad \frac{f(x) - f(x_{1})}{x - x_{1}} \leq \underbrace{\frac{f(x_{2}) - f(x)}{x_{2} - x}}_{\to f'(x_{2})}
+$$
+$$
+\frac{f(x_{2}) - f(x)}{x_{2} - x} = \frac{f(x_{2}) - f(x_{1})}{x_{2}-x_{1}} \quad \frac{f(x) - f(x_{1})}{x - x_{1}} = \frac{f(x_{2}) - f(x_{1})}{x_{2}-x_{1}}
+$$
+$$
+f'(x_{1}) \leq \frac{f(x_{2}) - f(x_{1})}{x_{2}-x_{1}} \leq f'(x_{2}) 
+$$
+### Утверждение 1:
+Если дифференцируемая функция нестрого выпукла вниз $\implies f'(x)$ возрастает нестрого. 
+#### Доказательство:
+1. Строгая выпуклость вниз: $x_{1} < x < x_2$
+$$
+f'(x_{1}) \leq \frac{f(x) - f(x_{1})}{x-x_{1}} < \frac{f(x_{2}) - f(x)}{x_{2} - x} \leq f'(x_{2}) 
+$$
+$$
+\begin{align*}
+\exists{\xi_{1} \in (x_{1}, x)}: f'(x_{1})\leq f'(\xi_{1}) \\
+\exists{\xi_{2} \in (x, x_{2})}: f'(x_{2}) \geq  f'(\xi_{2})  \\
+\implies  f'(x_{1}) < f'(x_{2})
+\end{align*}
+$$
+### Утверждение 2:
+Если дифференцируемая функция строго выпукла вниз $\implies f'(x)$ возрастает строго. 
+#### Доказательство:
+1. Строгая выпуклость вниз: $x_{1} < x < x_2$
+$$
+f'(x_{1}) \leq \frac{f(x) - f(x_{1})}{x-x_{1}} < \frac{f(x_{2}) - f(x)}{x_{2} - x} \leq f'(x_{2}) 
+$$
+$$
+\begin{align*}
+\exists{\xi_{1} \in (x_{1}, x)}: f'(x_{1})\leq f'(\xi_{1}) \\
+\exists{\xi_{2} \in (x, x_{2})}: f'(x_{2}) \geq  f'(\xi_{2})
+\end{align*}
+$$
+```
+
+Лекция 18.3.2026.md:
+```
+### Определение:
+$$
+\int_{a}^{b}{f(x)dx} = -\int_{b}^{a}{f(x)dx}; \quad \int_{a}^{a}{f(x)dx} = 0
+$$
+### Теорема:
+$a, b, c \in R$ и $f(x) \in \mathbb{R}$ по наибольшему отрезку с концами в точках a, b, c. Тогда справедливо такое утверждение:
+$$
+\int_{a}^{b}{f(x)dx} + \int_{b}^{c}{f(x)dx} + \int_{c}^{a}{f(x)dx} = 0
+$$
+#### Доказательство:
+$a = \min\{ a, b , c \}$
+1. $\max\{ a, b, c \} = c \implies \int_{a}^{b} + \int_{b}^{c} = \int_{a}^{c} \implies \int_{a}^{b} + \int_{b}^{c} + \int_{c}^{a} = 0$
+С другими пунктами ровно тоже самое
+
+
+## Оценка интегралов
+### Теорема 1:
+$f(x) \in \mathbb{R}[a; b] \implies |\int_{a}^{b}{f(x)dx}| \le \int_{a}^{b}{|f(x)|dx}$
+#### Доказательство
+1. Случай $a < b$ уже был
+2. Случай $a = b$: 0<0 (очевидно)
+3. Случай $a > b$:
+$$
+|\int_{a}^{b}{f(x)dx}| = |\int_{b}^{a}{f(x)dx}| \leq \int_{b}^{a}{|f(x)|dx} = - \int_{a}^{b}{|f(x)|dx} = |\int_{a}^{b}{|f(x)|dx}|
+$$
+
+### Следствие:
+Если $|f(x)| \leq C$ на $[a; b]$ и $f(x) \in \mathbb{R}[a; b]$, то:
+$$
+|\int_{a}^{b} f(x)dx| \leq C|b-a|
+$$
+#### Доказательство:
+$$
+\begin{align*}
+\forall{p}, \forall{\xi}~ \sigma(f,p,\xi) = |\sum_{j=1}^{n_{p}}f(\xi_{j}\Delta x_{j})| \leq  \sum_{j=1}^{n_{p}}{|f(\xi_{j})| \cdot |\Delta x_{j}|} \leq \\
+\leq  C \sum_{j=1}^{n_{p}}{|\Delta x_{j}|} = C \cdot |\sum_{j=1}^{n_{p}}{\Delta x_{j}}| = C \cdot |b - a| \quad \square
+\end{align*}
+$$
+### Теорема 2:
+$a \leq b$, $f(x), g(x) \in \mathbb{R}[a; b], f(x) \leq g(x) \implies \int_{a}^{b}{f(x)dx}\leq \int_{a}^{b}{g(x)dx}$
+#### Доказательство:
+1. $a = b \implies \int_{a}^{a}{f(x)dx} \leq \int_{a}^{a}{g(x)dx}$. Очевидно. Они зануляются
+2. $a < b \implies \forall{p}, \forall{\xi} ~ \sigma(f, p, \xi) = \sum_{j=1}^{n_{p}}{f(\xi_{j})\Delta x_{j}} \leq \sum_{j=1}^{n_{p}}{g(\xi_{j})\Delta x_{j}} = \sigma(g, p, \xi)$
+$\lambda_{p} \to 0 \implies \int_{a}^{b}{f(x)dx}\leq \int_{a}^{b}{g(x)dx}$
+
+### Следствие 1:
+$a \leq b, f(x) \in \mathbb{R}[a; b], m\geq f(x)\leq M$ на $[a; b] \implies m(b-a)\leq \int_{a}^{b}{f(x)dx}\leq M(b-a)$
+
+### Следствие 2:
+$a \leq b, f(x) \in \mathbb{R}[a; b], m = \inf_{[a; b]}{f(x)}, M=\sup_{[a; b]}{f(x)} \implies \exists{\mu \in [m; M]} \implies \int_{a}^{b}{f(x)dx} = \mu(b-a)$
+#### Доказательство:
+1. $a = b \implies m = M = \mu \implies \int_{a}^{a}{f(x)dx} = \mu (a - a) = 0$
+2. $a \neq b$. Можно считать, что $a< b \implies \mu = \frac{1}{b-a}\int_{a}^{b}{f(x)dx} \implies \int_{a}^{b}{f(x)dx} = \mu(b-a)$
+По следствию 1: $m(b -a) \leq \int_{a}^{b}{f(x)dx}\leq M(b-a) \implies m \leq \frac{1}{b-a}\int_{a}^{b}{f(x)dx}\leq M$
+$\square$
+
+### Следствие 3
+$f(x) \in \mathbb{C}[a; b], \exists{\xi \in [a; b]}\implies \int_{a}^{b}{f(x)dx} = F(\xi)(b -a)$
+#### Доказательство:
+$f(x) \in \mathbb{C}[a; b] \implies f(x) \in \mathbb{R}[a; b] \implies$ по следствию 2 $\exists \mu \in [\inf_{[a; b]}f; \sup_{[a; b]}f]: \int_{a}^{b}{f(x)dx} = \mu(b - a)$. По теореме о промежуточном значении: $\exists{\xi \in [a; b]}: f(\xi) = \mu$
+```
+
+Лекция 20.2.2026 (нейронкой).md:
+```
+Ниже — обработанный и дополненный фрагмент лекции. Он продолжает тему исследования функций (выпуклость, точки перегиба) и начинает интегральное исчисление. Все формулы оформлены, пробелы заполнены, неточности исправлены.
+
+---
+
+# Исследование функций (продолжение) и интегральное исчисление
+
+## § 3. Условия выпуклости (продолжение)
+
+### Утверждение 2 (достаточное условие выпуклости через первую производную)
+Пусть $f(x)$ дифференцируема на $(a;b)$. Тогда:
+1) если $f'(x)$ возрастает (нестрого) $\implies$ $f(x)$ выпукла вниз (нестрого);
+2) если $f'(x)$ строго возрастает $\implies$ $f(x)$ строго выпукла вниз.
+
+#### Доказательство
+Возьмём любые $x_1 < x < x_2$ из $(a;b)$. По теореме Лагранжа:
+$$
+\exists \xi_1 \in (x_1; x):\quad \frac{f(x)-f(x_1)}{x-x_1} = f'(\xi_1),
+$$
+$$
+\exists \xi_2 \in (x; x_2):\quad \frac{f(x_2)-f(x)}{x_2 - x} = f'(\xi_2).
+$$
+Так как $x_1 < \xi_1 < x < \xi_2 < x_2$, то из возрастания $f'$ (нестрогого или строгого) следует:
+$$
+f'(\xi_1) \le \;(\text{или } <)\; f'(\xi_2).
+$$
+Подставляя, получаем:
+$$
+\frac{f(x)-f(x_1)}{x-x_1} \le \;(\text{или } <)\; \frac{f(x_2)-f(x)}{x_2 - x},
+$$
+что является аналитическим определением (нестрогой или строгой) выпуклости вниз. $\square$
+
+
+### Теорема 1 (критерий выпуклости через первую производную)
+Пусть $f(x)$ дифференцируема на $(a;b)$. Тогда:
+$$
+f(x) \text{ выпукла вниз (строго выпукла вниз)} \Longleftrightarrow f'(x) \text{ возрастает (строго возрастает)}.
+$$
+
+#### Следствие (достаточное условие через вторую производную)
+Пусть $f(x)$ дважды дифференцируема на $(a;b)$. Тогда:
+1) $f''(x) \ge 0$ на $(a;b)$ $\implies$ $f(x)$ выпукла вниз (нестрого);
+2) $f''(x) > 0$ на $(a;b)$ $\implies$ $f(x)$ строго выпукла вниз.
+
+Это немедленно следует из теоремы 1, поскольку знак $f''$ определяет характер монотонности $f'$.
+
+---
+
+## Точки перегиба
+
+**Определение.** Пусть $f(x)$ определена в окрестности точки $x_0$ и имеет в $x_0$ касательную (конечную или бесконечную, т.е. $f$ непрерывна в $x_0$ и существует конечный или бесконечный предел $\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$). Точка $x_0$ называется **точкой перегиба**, если существует $\delta>0$ такое, что на интервалах $(x_0-\delta, x_0)$ и $(x_0, x_0+\delta)$ функция имеет разные направления выпуклости.
+![[Screenshot_3937.png]]
+
+**Необходимое условие перегиба.** Если $f$ дважды дифференцируема в $x_0$ и $x_0$ — точка перегиба, то $f''(x_0)=0$ (либо $f''(x_0)$ не существует).  
+**Достаточное условие.** Если $f''(x)$ меняет знак при переходе через $x_0$, то $x_0$ — точка перегиба.
+
+*Примечание к рисункам из лекции:* на графике 1 изображён излом или угловая точка, где касательная не существует (или существует лишь односторонняя), — это не точка перегиба в смысле данного определения. На графике 2 — гладкая кривая с касательной и сменой направления выпуклости.
+
+### Определение (через опорную прямую)
+Функция $f(x)$ на $(a;b)$ называется **выпуклой вниз**, если для любой точки $x_0\in(a;b)$ существует прямая (опорная), проходящая через $(x_0, f(x_0))$, такая, что график функции лежит не ниже (не выше для выпуклости вверх) этой прямой на всём $(a;b)$.
+
+### Теорема 2 (эквивалентность определений)
+Определение выпуклости через секущую (классическое) $\Longleftrightarrow$ Определение через опорную прямую (для дифференцируемых функций опорная прямая — касательная).
+
+---
+
+# Часть 1: Интегральное исчисление
+
+## Неопределённый интеграл и первообразная
+
+**Определение.** Функция $F(x)$ называется **первообразной** функции $f(x)$ на интервале $(a;b)$, если $F(x)$ дифференцируема на $(a;b)$ и $F'(x)=f(x)$ для всех $x\in(a;b)$.
+
+### Утверждение (об общем виде первообразных)
+Если $F_1(x)$ и $F_2(x)$ — две первообразные функции $f(x)$ на $(a;b)$, то $F_1(x)-F_2(x)\equiv \text{const}$ на $(a;b)$.
+
+*Доказательство.*
+$$
+(F_1(x)-F_2(x))' = F'_1(x)-F'_2(x) = f(x)-f(x)\equiv 0 \implies F_1(x)-F_2(x)\equiv \text{const}
+$$
+в силу теоремы Лагранжа (производная равна нулю на промежутке $\Rightarrow$ функция постоянна). $\square$
+
+#### Пример (разные первообразные одной функции)
+1. $(\arctan x)' = \frac{1}{1+x^2}$.
+2. $\left( \operatorname{arcctg} x \right)' = -\frac{1}{1+x^2}$. Тогда $(-\operatorname{arcctg} x)' = \frac{1}{1+x^2}$.
+![[Screenshot_3938.png]]
+Таким образом, $\arctan x$ и $-\operatorname{arcctg} x$ — две первообразные одной и той же функции $\frac{1}{1+x^2}$. Согласно утверждению, они отличаются на константу: $\arctan x = -\operatorname{arcctg} x + \frac{\pi}{2}$ (при $x>0$; для $x<0$ аналогично со знаком). В лекции ошибочно вычислена производная от $\operatorname{arcctg}\left(\frac{1}{x}\right)$, которая действительно равна $\frac{1}{1+x^2}$ для $x\neq 0$, но проще использовать $-\operatorname{arcctg} x$.
+
+### Определение неопределённого интеграла
+Совокупность всех первообразных функции $f(x)$ на $(a;b)$ называется **неопределённым интегралом** и обозначается
+$$
+\int f(x)\,dx = F(x) + C,
+$$
+где $F(x)$ — одна из первообразных, $C$ — произвольная постоянная.
+
+**Свойства:**
+1. $d\int f(x)\,dx = f(x)\,dx$.
+2. $\int dF(x) = F(x) + C$.
+
+### Таблица основных неопределённых интегралов
+$$
+\begin{aligned}
+&\int 0\,dx = C, \quad \int 1\,dx = x + C,\\
+&\int x^\alpha\,dx = \frac{x^{\alpha+1}}{\alpha+1}+C \quad (\alpha\neq -1), \quad \int \frac{dx}{x} = \ln|x|+C,\\
+&\int a^x\,dx = \frac{a^x}{\ln a}+C \quad (a>0, a\neq 1), \quad \int e^x\,dx = e^x+C,\\
+&\int \sin x\,dx = -\cos x+C, \quad \int \cos x\,dx = \sin x+C,\\
+&\int \frac{dx}{\cos^2 x} = \operatorname{tg} x+C, \quad \int \frac{dx}{\sin^2 x} = -\operatorname{ctg} x+C,\\
+&\int \frac{dx}{\sqrt{1-x^2}} = \arcsin x+C = -\arccos x+C,\\
+&\int \frac{dx}{1+x^2} = \arctan x+C = -\operatorname{arcctg} x+C,\\
+&\int \sinh x\,dx = \cosh x+C, \quad \int \cosh x\,dx = \sinh x+C.
+\end{aligned}
+$$
+
+### Основные приёмы вычисления
+
+#### 1. Линейность интеграла
+$$
+\int (\alpha f(x) + \beta g(x))\,dx = \alpha \int f(x)\,dx + \beta \int g(x)\,dx.
+$$
+*Доказательство:* продифференцируем правую часть:
+$$
+\left( \alpha \int f + \beta \int g \right)' = \alpha f + \beta g,
+$$
+что совпадает с подынтегральной функцией левой части.
+
+#### 2. Интегрирование по частям
+Пусть $u(x), v(x) \in C^1(a;b)$. Тогда
+$$
+\int u\,dv = uv - \int v\,du,
+$$
+или в развёрнутой форме:
+$$
+\int u(x) v'(x)\,dx = u(x)v(x) - \int v(x)u'(x)\,dx.
+$$
+*Доказательство.* Из формулы производной произведения $(uv)' = u'v + v'u$ получаем $u v' = (uv)' - v u'$. Интегрируя обе части, имеем
+$$
+\int u v'\,dx = uv - \int v u'\,dx. \quad \square
+$$
+
+#### 3. Замена переменной (метод подстановки)
+Пусть на интервале $(\alpha;\beta)$ задана функция $x = \varphi(t)$, где $\varphi'(t)$ непрерывна и $\varphi: (\alpha;\beta) \to (a;b)$. Если на $(a;b)$ известно, что $\int f(x)\,dx = F(x)+C$, то
+$$
+\int f(\varphi(t)) \varphi'(t)\,dt = F(\varphi(t)) + C.
+$$
+*Доказательство.* По правилу дифференцирования сложной функции:
+$$
+\frac{d}{dt} F(\varphi(t)) = F'_x(\varphi(t)) \cdot \varphi'_t(t) = f(\varphi(t)) \varphi'(t). \quad \square
+$$
+
+### Пример: интеграл $\int e^{ax} \cos(bx)\,dx$
+
+Вычислим комбинацией интегрирования по частям и линейности.
+$$
+\begin{aligned}
+I &:= \int e^{ax}\cos(bx)\,dx = \frac{1}{a}\int \cos(bx)\,d(e^{ax}) \\
+&= \frac{1}{a}\left( e^{ax}\cos(bx) - \int e^{ax}\,d(\cos(bx)) \right) \\
+&= \frac{1}{a}\left( e^{ax}\cos(bx) + b\int e^{ax}\sin(bx)\,dx \right) \\
+&= \frac{1}{a}e^{ax}\cos(bx) + \frac{b}{a^2}\int \sin(bx)\,d(e^{ax}) \\
+&= \frac{1}{a}e^{ax}\cos(bx) + \frac{b}{a^2}\left( e^{ax}\sin(bx) - b\int e^{ax}\cos(bx)\,dx \right) \\
+&= e^{ax}\left( \frac{\cos(bx)}{a} + \frac{b\sin(bx)}{a^2} \right) - \frac{b^2}{a^2} I.
+\end{aligned}
+$$
+Переносим интеграл в левую часть:
+$$
+I\left(1 + \frac{b^2}{a^2}\right) = e^{ax} \frac{a\cos(bx) + b\sin(bx)}{a^2} + C_1,
+$$
+откуда окончательно
+$$
+\boxed{\int e^{ax}\cos(bx)\,dx = e^{ax}\frac{a\cos(bx) + b\sin(bx)}{a^2+b^2} + C.}
+$$
+
+---
+
+## Интегрирование рациональных функций (простейшие дроби)
+
+1. $\displaystyle \int \frac{dx}{x-a} = \ln|x-a| + C.$
+2. $\displaystyle \int \frac{dx}{(x-a)^n} = \frac{(x-a)^{1-n}}{1-n} + C, \qquad n\in\mathbb{N},\, n\neq 1.$
+3. $\displaystyle \int \frac{dx}{1+x^2} = \arctan x + C.$
+4. Рекуррентная формула для $\displaystyle J_n = \int \frac{dx}{(1+x^2)^n}$.
+
+Выведем $J_{n+1}$ через $J_n$. При $n\ge 1$:
+$$
+\begin{aligned}
+J_n &= \int \frac{dx}{(1+x^2)^n} \\
+&= \frac{x}{(1+x^2)^n} - \int x\,d\left( \frac{1}{(1+x^2)^n} \right) \\
+&= \frac{x}{(1+x^2)^n} - \int x \cdot \left( -\frac{2n x}{(1+x^2)^{n+1}} \right) dx \\
+&= \frac{x}{(1+x^2)^n} + 2n \int \frac{x^2}{(1+x^2)^{n+1}}\,dx \\
+&= \frac{x}{(1+x^2)^n} + 2n \int \frac{(x^2+1)-1}{(1+x^2)^{n+1}}\,dx \\
+&= \frac{x}{(1+x^2)^n} + 2n \int \frac{dx}{(1+x^2)^n} - 2n \int \frac{dx}{(1+x^2)^{n+1}} \\
+&= \frac{x}{(1+x^2)^n} + 2n J_n - 2n J_{n+1}.
+\end{aligned}
+$$
+Переносим $2n J_{n+1}$ влево, а $J_n$ — вправо:
+$$
+2n J_{n+1} = \frac{x}{(1+x^2)^n} + (2n-1)J_n,
+$$
+$$
+\boxed{J_{n+1} = \frac{1}{2n}\left( \frac{x}{(1+x^2)^n} + (2n-1)J_n \right).}
+$$
+Эта формула позволяет последовательно вычислить $J_2, J_3, \ldots$, зная $J_1 = \arctan x + C$.
+
+---
+
+Этот конспект закрывает блок о выпуклости и начинает интегральное исчисление — всё с полными доказательствами и исправленными неточностями.
+```
+
+Лекция 20.2.2026.md:
+```
+### Утверждение 2:
+$f(x)$ дифференцируемо на $(a; b)$
+1) $f'(x)$ возрастает $\implies$ $f(x)$ выпукла вниз
+2) $f'(x)$ строго возрастает $\implies$ $f(x)$ строго выпукла вниз
+#### Доказательство:
+$$
+\begin{align*}
+\exists{\xi_{1}\in(x_{1},x)}: \frac{f(x)-f(x_{1})}{x- x_{1}} = f'(\xi_{1}) \\
+\exists{\xi_{2}\in(x,x_{2})}: \frac{f(x_{2})-f(x)}{x_{2}-1} = f'(\xi_{2})  \\
+\frac{f(x)-f(x_{1})}{x- x_{1}} \leq (\text{или} <) \frac{f(x_{2})-f(x)}{x_{2}-x} \implies f'(\xi_{1}) \leq (\text{или} <) f'(\xi_{2})
+\end{align*}
+$$
+
+### Теорема 1
+$f(x)$ дифференцируема на $(a; b)$. $f(x)$ выпукла вниз на $(a; b)$ (строго выпукла вниз) $\Longleftrightarrow$ $f(x)$ возрастает на $(a; b)$ (строго возрастает).
+
+#### Следствие:
+$f(x)$ дважды дифференцируема на интервале $(a; b)$:
+1) $f''(x)\geq0$ на $(a; b) \implies f(x)$ выпукла вниз
+2) $f''(x)>0$ на $(a; b) \implies$ $f(x)$ строго выпукла вниз.
+
+
+**Точка перегиба** - это точка, в которой направление выпуклости меняется на противоположное И в этой точке существует касательная
+![[Screenshot_3937.png]]
+В данном случае будет правильным график 2. На графике 1 здесь будет скорее точка изгиба или ломанная кривая.
+
+### Определение':
+$f(x)$ на $(a; b)$ выпукла, если $\forall{x} \in (a; b)$ через каждую точку $(x, f(x))$ проходит **опорная** прямая, т.е. такая прямая, что график функции целиком лежит с одной стороны от неё. 
+
+### Теорема 2:
+Определение $\Longleftrightarrow$ Определение'
+
+# Часть 1: (интегральное исчисление)
+## Неопределённый интеграл и первообразная
+
+### Определение:
+$f(x)$ определена на $(a;b)$. $F(x)$ первообразная $f(x)$ на $(a; b)$, если $F(x)$ дифференцируемо на $(a; b)$ и $F'(x) = f(x)$
+### Утверждение:
+Если $F_1(x)$ и $F_{2}(x)$ первообразные $f(x)$ на $(a; b) \implies F_{1}(x) - F_{2}(x) \equiv Const$ на $(a; b)$
+#### Доказательство:
+$(F_{1}(x) - F_{2}(x))' = F'_{1}(x) - F'_{2}(x) = f(x) - f(x) \equiv 0 \implies$ по теореме Лагранжа о конечных приращениях $F_1(x) - F_{2}(x) \equiv Const$
+
+#### Пример:
+1. $\arctan'{x} = \frac{1}{1+x^{2}}$
+2. $\operatorname{arcctg}'\left( \frac{1}{x} \right) = -\frac{1}{1 + \frac{1}{x^{2}}} \cdot \left( -\frac{1}{x^{2}} \right) = \frac{1}{1+x^{2}}$
+![[Screenshot_3938.png]]
+Здесь константа выводится.
+### Определение:
+Совокупность всех первообразных - неопределённый интеграл $f(x)$ на $(a; b)$. Будет обозначаться как $\int{f(x)dx} = F(x) + Const$
+$d\int{f(x)}dx = f(x)dx$
+$\int {dF(x)} = F(x) + C$
+
+### Таблица неопределённых интегралов
+Здесь не написали, но нужно будет написать
+
+### Основные приёмы вычисления. Примеры:
+#### Линейность интеграла:
+$\int{(\alpha f(x) + \beta g(x))dx} = \alpha \int{f(x)dx} + \beta \int{g(x)dx}$
+Доказательство:
+$\left( \alpha \int{f(x)dx} + \beta \int{g(x)dx} \right)' = \alpha \left( \int{f(x)dx} \right)' + \beta \left( \int{g(x)dx} \right)' = \alpha f(x) + \beta g(x)$
+#### Интегрирование по частям:
+$\int{udv} = uv - \int{vdu}$
+$u, v \in C'(a; b) \quad \int{uv'dx} = uv - \int{vu'dx}$
+Доказательство:
+$$
+\begin{align*}
+(u(x)v(x))' = u'v + v'u \\
+udv = d(uv) - vdu \\
+\int{udv} = \underbrace{\int{d(uv)}}_{uv} - \int{vdu} \quad \square
+\end{align*}
+$$
+#### Замена переменной интегрирования:
+Пусть на $(a; b) \quad \int{f(x)dx} = F(x) + Const$
+$x = \varphi(t): (\alpha, \beta) \to (a, b), \varphi'(t)$ непрерывная на $(\alpha; \beta) \implies \int{f(\varphi(t))\varphi'(t)dt} = F(\varphi(t))+Const \implies \int{f(\varphi(t))d\varphi(t)} = F(\varphi(t))+Const$Доказательство:
+$F(\varphi(t))'_{t} = F_{x}'(\varphi(t))\varphi_{t}'(t) \quad \square$
+Примеры:
+1) 
+$$
+\begin{align*}
+ \int e^{ax}\cos({bx})dx = \frac{1}{a}\int \cos(bx)de^{ax} = \frac{1}{a}(\cos\left( bx)e^{ax} - \int{e^{ax}d\cos(bx)}\right) =  \\
+ \frac{1}{a}(\cos\left( bx)e^{ax} + b\int{e^{ax}\sin(bx)dx} \right) = \frac{1}{a}e^{ax}\cos(bx) + \frac{b}{a^{2}}\int{\sin(bx)de^{ax}} =  \\
+ = \frac{1}{a}e^{ax}\cos(bx) + \frac{b}{a^{2}}\left(e^{ax}\sin(bx) - b\int{e^{ax}\cos(bx)dx} \right) \\
+ \left( 1 + \frac{b^{2}}{a^{2}} \right)\int{e^{ax}\cos(bx)dx} = e^{ax} \cdot \frac{a\cos(bx) + b\sin(bx)}{a^{2}} + Const
+
+\end{align*}
+$$
+## Интегрирование рациональных функций
+$$
+\begin{align*}
+\int{\frac{dx}{x-a}} = \ln|{x-a}| + Const \\
+\int{\frac{dx}{(x-a)^{n}}} = \frac{(x-a)^{1-n}}{1-n} + Const \\ n \in \mathbb{N}, n \neq 1 \\
+\int{\frac{dx}{1+x^{2}}} = \arctan{x} + C \\
+\int{\frac{dx}{(1+x^{2})^{n}}} = J_{n} \\
+J_{n} \to J_{n-1} \\
+J_{n} = \int{\frac{dx}{(1+x^{2})^{n}}} = \frac{x}{(1+x^{2})^{n}} - \int{xd\left( \frac{1}{(1+x^{2})^{n}} \right)} = \\
+ \frac{x}{(1+x^{2})^{n}} + n \int{x \frac{2xdx}{(1+x^{2})^{n+1}}} =  \frac{x}{(1+x^{2})^{n}} + 2n \int{\frac{(x^{2}+1-1)dx}{(1+x^{2})^{n+1}}} =  \\
+= \frac{x}{(1+x^{2})^{n}} + 2n \int{\frac{dx}{(1+x^{2})^{n}}} - 2n \int{\frac{dx}{(1+x^{2})^{n+1}}} \\
+2nJ_{n+1} = \frac{x}{(1+x^{2})^{n}} + (2n-1)J_{n} \\
+J_{n+1} = \frac{\frac{x}{(1+x^{2})^{n}} + (2n-1)J_{n}}{2n}
+\end{align*}
+$$
+```
+
+Лекция 24.4.2026 (нейронкой).md:
+```
+### Нормы и сходимость в конечномерных пространствах
+
+#### 1. Понятие нормы
+**Норма** — обобщение понятия длины вектора. В линейном пространстве $E$ нормой называется функция $\|\cdot\|: E \to \mathbb{R}$, удовлетворяющая трём аксиомам:
+1. $\|x\| \ge 0$, причём $\|x\| = 0 \Leftrightarrow x = 0$ (положительная определённость).
+2. $\|\alpha x\| = |\alpha| \cdot \|x\|$ для любого скаляра $\alpha \in \mathbb{C}$ (или $\mathbb{R}$) (однородность).
+3. $\|x + y\| \le \|x\| + \|y\|$ (неравенство треугольника).
+
+Нормы можно задавать по-разному. Основные примеры в $\mathbb{R}^n$ (или $\mathbb{C}^n$):
+
+*   **Евклидова норма** (порождается скалярным произведением):
+    $\|x\|_2 = \sqrt{(x, x)} = \left( \sum_{j=1}^{n} |x_j|^2 \right)^{1/2}$
+    (индекс $2$ связан с показателем степени, а также с тем, что она является частным случаем $l_p$-норм).
+*   **Октаэдрическая (манхэттенская) норма**:
+    $\|x\|_1 = \sum_{j=1}^{n} |x_j|$
+*   **Чебышёвская (равномерная) норма**:
+    $\|x\|_0 = \max_{1 \le j \le n} |x_j|$
+    (в некоторых обозначениях $\|x\|_\infty$).
+
+> *Проверка аксиом для $\|\cdot\|_2$ очевидна из свойств скалярного произведения; для $\|\cdot\|_1$ и $\|\cdot\|_0$ следует из свойств модуля и неравенства треугольника для чисел.*
+
+#### 2. Сходимость по норме
+**Определение.** Последовательность $\{x_n\}$ *сходится к $x$ по норме*, если $\|x_n - x\| \to 0$ при $n \to \infty$.
+Обозначение: $x_n \to x$.
+
+Это определение порождает теорию предела, аналогичную числовым последовательностям.
+
+---
+#### Свойства предела по норме
+
+**Утверждение 1 (Единственность предела).**
+Если последовательность имеет предел, он единственный.
+
+*Доказательство:* Пусть $x_n \to x$ и $x_n \to y$. Используем неравенство треугольника:
+$\|x - y\| = \|x - x_n - (y - x_n)\| \le \|x_n - x\| + \|x_n - y\| \to 0$.
+Следовательно, $\|x - y\| = 0 \Rightarrow x = y$. $\square$
+
+**Утверждение 2 (Линейность предельного перехода).**
+Если $x_n \to x$, $y_n \to y$ и $\alpha, \beta$ — скаляры, то $\alpha x_n + \beta y_n \to \alpha x + \beta y$.
+
+*Доказательство:*
+$\|(\alpha x_n + \beta y_n) - (\alpha x + \beta y)\| = \|\alpha(x_n - x) + \beta(y_n - y)\|$
+$\le |\alpha| \cdot \|x_n - x\| + |\beta| \cdot \|y_n - y\| \to 0$. $\square$
+
+**Утверждение 3 (Совместный предел скаляра и вектора).**
+Если $\alpha_n \to \alpha$ (числовая последовательность) и $x_n \to x$, то $\alpha_n x_n \to \alpha x$.
+
+*Доказательство:* Используем приём добавления и вычитания $\alpha_n x$:
+$\|\alpha_n x_n - \alpha x\| = \|(\alpha_n x_n - \alpha_n x) + (\alpha_n x - \alpha x)\|$
+$\le |\alpha_n| \cdot \|x_n - x\| + |\alpha_n - \alpha| \cdot \|x\|$.
+Так как $\alpha_n$ сходится, она ограничена, а произведения ограниченной на бесконечно малую и бесконечно малой на константу стремятся к нулю. $\square$
+
+**Утверждение 4 (Непрерывность нормы).**
+Если $x_n \to x$, то $\|x_n\| \to \|x\|$.
+
+*Доказательство:* Оценим разность $|\|x_n\| - \|x\||$. Из неравенства треугольника:
+$\|x_n\| \le \|x_n - x\| + \|x\| \quad \Rightarrow \quad \|x_n\| - \|x\| \le \|x_n - x\|$.
+$\|x\| \le \|x - x_n\| + \|x_n\| \quad \Rightarrow \quad \|x\| - \|x_n\| \le \|x_n - x\|$.
+Объединяя, получаем:
+$-\|x_n - x\| \le \|x_n\| - \|x\| \le \|x_n - x\| \quad \Rightarrow \quad |\,\|x_n\| - \|x\|\,| \le \|x_n - x\| \to 0$. $\square$
+
+**Утверждение 5 (Непрерывность скалярного произведения в $\mathbb{R}^n, \|\cdot\|_2$).**
+Если $x_n \to x$ и $y_n \to y$, то $(x_n, y_n) \to (x, y)$.
+
+*Доказательство:* Оцениваем модуль разности, добавляя и вычитая $(x_n, y)$:
+$|(x_n, y_n) - (x, y)| = |(x_n, y_n) - (x_n, y) + (x_n, y) - (x, y)|$
+$\le |(x_n, y_n - y)| + |(x_n - x, y)|$.
+Применяем неравенство Коши — Буняковского:
+$\le \|x_n\| \cdot \|y_n - y\| + \|x_n - x\| \cdot \|y\|$.
+По утверждению 4, $\|x_n\| \to \|x\|$ (ограничена), и по условию $\|y_n - y\| \to 0$, $\|x_n - x\| \to 0$; следовательно, всё выражение стремится к нулю. $\square$
+
+---
+#### Связь сходимости в $\mathbb{R}^n$ и покоординатной сходимости
+
+**Теорема 1.**
+Пусть $\{x^{(m)}\}$ — последовательность векторов в $\mathbb{R}^n$ (или $\mathbb{C}^n$) с координатами $x^{(m)} = (x_1^{(m)}, \dots, x_n^{(m)})$.
+1.  **Ограниченность:** $\{x^{(m)}\}$ ограничена по норме $\Leftrightarrow$ каждая числовая последовательность $\{x_j^{(m)}\}$ ($j = 1, \dots, n$) ограничена.
+2.  **Сходимость:** $\{x^{(m)}\}$ сходится по норме $\Leftrightarrow$ $\forall j$ числовая последовательность $\{x_j^{(m)}\}$ сходится.
+
+*Доказательство (идея)*, опирающееся на цепочку неравенств:
+$|x_j^{(m)}| \le \left( \sum_{k=1}^{n} |x_k^{(m)}|^2 \right)^{1/2} = \|x^{(m)}\|_2 \le \sum_{k=1}^{n} |x_k^{(m)}|$.
+Для сходимости:
+$|x_j^{(m)} - x_j| \le \|x^{(m)} - x\|_2 \le \sum_{k=1}^{n} |x_k^{(m)} - x_k|$.
+Отсюда следует, что покоординатная сходимость равносильна сходимости по евклидовой норме.
+
+---
+#### Критерий Коши
+
+**Теорема 2 (Критерий Коши в $\mathbb{R}^n$).**
+Последовательность $\{x^{(m)}\}$ сходится $\Leftrightarrow$ она фундаментальна:
+$\forall \varepsilon > 0 \ \exists M_\varepsilon: \forall m > M_\varepsilon, \ \forall p \in \mathbb{N} \quad \|x^{(m)} - x^{(m+p)}\|_2 < \varepsilon$.
+
+*Доказательство:*
+*   ($\Rightarrow$) Если $x^{(m)} \to x$, то для $\varepsilon > 0$ найдётся $M$ такое, что $\|x^{(m)} - x\| < \varepsilon/2$. Тогда для любых $m > M$ и $p$
+    $\|x^{(m)} - x^{(m+p)}\| \le \|x^{(m)} - x\| + \|x - x^{(m+p)}\| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$.
+*   ($\Leftarrow$) Пусть последовательность фундаментальна. Для $j$-й координаты:
+    $|x_j^{(m)} - x_j^{(m+p)}| \le \|x^{(m)} - x^{(m+p)}\|_2 < \varepsilon$.
+    Значит, $\{x_j^{(m)}\}$ — фундаментальная числовая последовательность $\Rightarrow$ сходится. В силу Теоремы 1 сходится и векторная последовательность. $\square$
+
+---
+#### Эквивалентность норм
+**Определение.** Две нормы $\|\cdot\|$ и $\|\cdot\|^*$ в линейном пространстве $E$ называются *эквивалентными*, если существуют константы $C_1, C_2 > 0$ такие, что для любого $x \in E$:
+$C_1 \|x\| \le \|x\|^* \le C_2 \|x\|$.
+Из этого следует, что сходимость по одной норме влечёт сходимость по любой эквивалентной норме.
+
+В $\mathbb{R}^n$ все нормы эквивалентны. Пример соотношений между основными нормами:
+$\|x\|_0 \le \|x\|_2 \le \|x\|_1 \le n \|x\|_0$.
+(Рисунок кругов-единичных сфер иллюстрирует их вложенность).
+
+---
+#### Связь с линейными операторами (выход в линейную алгебру)
+Рассматривается линейный оператор $A$, связывающий векторы $x$ и $y$:
+$y = A x$.
+По аналогии с оценкой модуля числа $|y| = |a| \cdot |x|$, для оператора вводится понятие *операторной нормы* (согласованной с векторной):
+$\|A\| = \sup_{x \ne 0} \frac{\|A x\|}{\|x\|}$.
+Это позволяет записать фундаментальное неравенство:
+$\|y\| = \|A x\| \le \|A\| \cdot \|x\|$.
+```
+
+Лекция 24.4.2026.md:
+```
+**Норма** - некоторое обобщение длины.
+Нормы бывают разными
+Если E евклидово пространство (линейное пространство, в котором задано скалярное произведение), то норма $||x||_{2} = (x, x)^{\frac{1}{2}} = \left( \sum_{j=1}^{n}{|x_{j}|^{2}} \right)^{\frac{1}{2}}$. (Вопрос на миллион, откуда 2 в $||x||_{2}$?):
+1) $\forall{x} \in E \quad (x, x)^{\frac{1}{2}} \geq 0$
+2) $\forall{x} \in E, \forall{\alpha}\in \mathbb{C} \quad (\alpha \cdot x, \alpha \cdot x) = \alpha\bar{\alpha}(x, x) = |\alpha|^{2}(x, x)$
+3) $\forall{x, y} \in E \quad (x + y, x + y)^{\frac{1}{2}} \leq (x, x)^{\frac{1}{2}} + (y, y)^{\frac{1}{2}}$ (Вспоминаем неравенство Минковского), а также $||x||_{1} = \sum_{j=1}^{n}{|x_{j}|} \quad ||x||_{0} := \max_{j}{|x_{j}|}$
+Проверить, что $||\cdot||_{1} \text{ и } ||\cdot||_{0}$ - нормы
+#### Определение:
+$x_{n} \to x$ по норме $E$, если $||x_{n}-x|| \to 0 \text{ при } n\to \infty$
+#### Утверждение 1:
+Если $\{x_{n}\}$ имеет предел, то он единственный (каждая последовательность либо предела не имеет, либо имеет 1 предел)
+**Доказательство**:
+Пусть $x_{n} \to x, x_{n} \to y$ по норме. Тогда найдём разность: $||x - y|| = ||x - x_{n} - (y -x_{n})|| \leq ||x_{n} - x|| + ||x_{n} - y|| \to 0, n \to \infty \Rightarrow ||x - y|| =0 \Leftrightarrow x = y$
+#### Утверждение 2:
+$x_{n} \to x, y_{n} \to y$ по норме и $\forall{\alpha, \beta} \in \mathbb{R}(\text{или }\mathbb{C}) \Rightarrow \alpha x_{n}+\beta y_{n} \to \alpha x + \beta y$
+**Доказательство**:
+$||(\alpha x_{n}+\beta y_{n}) - (\alpha x + \beta y)|| = ||\alpha(x_{n} - x) + \beta(y_{n} - y)|| \leq |\alpha|\cdot||x_{n}-x|| + |\beta|\cdot||y_{n}-y|| \to 0, n\to\infty$
+#### Утверждение 3:
+$\alpha_{n} \to \alpha (\text{числа}) \quad x_{n} \to x (\text{по норме}) \Rightarrow \alpha_{n}x_{n} \to \alpha x$
+**Доказательство:**
+$||\alpha_{n}x_{n} - \alpha x|| = ||(\alpha_{n}x_{n} - \alpha_{n}x) + (\alpha_{n} x - \alpha x)|| \leq |a_{n}|\cdot||x_{n} - x|| + |\alpha_{n} - \alpha| \cdot ||x|| \to 0, n\to \infty$
+#### Утверждение 4:
+Последовательность $\{x_n\}$ сходится по норме, то $\{||x_n||\}$ сходится.
+**Доказательство**:
+$x_{n} \to x \text{ (по норме)} \quad ||x_{n}|| = ||(x_{n} - x) + x||\leq ||x_{n} - x|| + ||x||, \text{ где } ||x_{n} - x|| \to 0$
+$||x_{n}|| \leq ||x_{n} - x|| + ||x||$
+Остаётся найти то что стоит слева от $||x_{n}||$, что по теореме о зажатой последовательности доказать сходимость. Достаточно сделать ещё одно неравенство треугольника:
+$||x_{n}|| \geq ||x|| - ||x_{n} - x|| \Rightarrow ||x|| - ||x_{n} - x|| \leq ||x_{n}|| \leq ||x_{n} - x|| + ||x||$
+А значит $||x_{n}|| \to ||x||$
+#### Утверждение 5:
+$\mathbb{R}^{n}(\mathbb{C}^{n}), ||\cdot||_{2}, \quad x_{n} \to x, y_{n} \to y \text{ (по норме)} \Rightarrow (x_{n}, y_{n}) \to (x, y)$
+**Доказательство:**
+$$
+\begin{align*}
+|(x_{n}, y_{n}) - (x, y)| = |((x_{n}, y_{n}) - (x_{n}, y)) + ((x_{n}, y) - (x, y))| \leq |(x_{n}, y_{n} - y)| + |(x_{n} - x, y)| \leq \\ \leq (\text{Коши-Буняковский}) (x_{n}, x_{n})^{\frac{1}{2}}(y_{n}-y, y_{n} - y)^{\frac{1}{2}} + (x_{n} - x, x_{n} -x)^{\frac{1}{2}}(y, y)^{\frac{1}{2}} = ||x_{n}|| \cdot ||y_{n} - y|| + ||x_{n} - x|| \cdot ||y|| \to 0 \\ \text{т.к.} ||y_{n} - y|| \to 0, ||x_{n} - x|| \to 0, ||x|| и ||y|| \text{ - числа}.
+\end{align*}
+$$
+#### Теорема 1:
+$\{x^{(m)}\}$ в $\mathbb{R}^{n}(\mathbb{C}^{n})$, где $\{x^{(m)}\} = \{(x^{(m)}, \dots, x_{n}^{(m)})\}$
+1. $\{x^{(m)}\}$ ограничена $\Leftrightarrow \{x^{(m)}_{j}\}, j=1,\dots,n$ ограничена
+2.  $\{x^{(m)}\}$ сходится $\Leftrightarrow \forall{j}=1,\dots,n \quad \{x^{(m)}_{j}\}$ сходится
+##### **Доказательство**:
+1. $\forall{j = 1, \dots, n}\quad |x_{j}^{(m)}| \leq \left( \sum_{k=1}^{n}{|x_{k}^{(m)}|^{2}} \right)^{\frac{1}{2}} \leq \sum_{k = 1}^{n}|x_{k}^{(m)}|$
+$\left( \sum_{k=1}^{n}{|x_{k}^{(m)}|^{2}} \right)^{\frac{1}{2}} = ||x^{(m)}||_{2}$
+2. $x^{(m)} \to x, m\to \infty$ (по норме) $\Leftrightarrow \forall{j = 1, \dots, n} \quad x_{j}^{(m)} \to x_{j}, m\to \infty$
+$|x_{j}^{(m)} - x_{j}| \leq \left( \sum_{k = 1}^{n}{|x_{k}^{(m)} - x_{k}|^{2}} \right)^{\frac{1}{2}} \leq \sum_{k=1}^{n}{|x_{k}^{m} - x_{k}|} \quad ||x^{(m)} - x||_{2} \to 0, m\to \infty$
+
+#### Теорема 2 (Критерий Коши):
+Последовательность $\{x^{(m)}\}$ сходится $\Leftrightarrow$ $\{x^{(m)}\}$ фундаментальна, т.е. $\forall{\epsilon>0} \quad  \exists{M_{\epsilon}}: \forall{m > M_{\epsilon}}, \forall{p \in \mathbb{N}} |x^{(m)} - x^{(m+p)}|_2 < \epsilon$
+**Доказательство:**
+$\Rightarrow \{x^{(m)}\} \text{ сходится } \Rightarrow \{x^{(m)}\}$ фундаментальна
+$\exists{x}: \forall{\epsilon}>0 \exists{M_{\epsilon}}: \forall{m>M_{\epsilon}} ||x^{(m)} - x|| < \frac{\epsilon}{2}$
+$\forall{m>M_{\epsilon}}, \forall{p \in \mathbb{N}} ||x^{(m)} - x^{(m+p)}|| = ||x^{(m)} - x - ( x^{(m+p)} - x)|| \leq ||x^{(m)} - x|| + ||x^{(m+p)} - x)|| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$
+$\Leftarrow {\{x^{(m)}\}}$ фундаментальна $\Rightarrow \{x^{(m)}\} \text{ сходится }$
+$\forall{j = 1, \dots, n} \quad|x_{j}^{(m)} - x_{j}^{(m+p)}| \leq \left( \sum_{k=1}^{n}{|x_{k}^{(m)} - x_{k}^{(m+p)}|^{2}} \right)^{\frac{1}{2}} = ||x^{(m)} - x^{(m+p)}|| \Rightarrow \forall{j = 1, \dots n} \quad \{x_{j}^{(m)}\}$ фундаментальна $\Rightarrow$ сходится, а значит сходится по норме.
+
+#### Определение:
+$||\cdot||$ и $||\cdot||^{\star}$ эквивалентны, если $\exists{C_{1}, C_{2} > 0}: \forall{x \in E} \quad C_{1}||x|| \leq ||x||^{\star} \leq C_{2}||x||$
+Ну и ещё:
+$$
+\begin{align*}
+||x||_{2} = \left( \sum_{j=1}^{n}{|x_{j}|^{2}} \right)^{\frac{1}{2}} \\
+||x||_{1} = \sum_{j=1}^{n}{|x_{j}|} \\
+||x||_{0} = \max_{j}{|x_{j}|}
+\end{align*}
+$$
+![[Pasted image 20260424114327.png]]
+
+Теперь немного лезем в Линал:
+$y = Ax$, где $A$ - дифференциальный оператор, $y$ и $x$ - вектора
+$|y| = |A|\cdot|x|$
+```
+
+Лекция 27.2.2026.md:
+```
+$$
+\int{\frac{dx}{(1+x^{2})^{n}}} = J_{n}
+$$
+До рассмотрим случаи из прошлой лекции:
+$$
+\begin{align*}
+\int{\frac{bx+c}{x^{2}+2px+q}dx} = \frac{b}{2}\int{\frac{2(x+p)-2p+\frac{2c}{b}}{x^{2}+2px+q}dx} = \frac{b}{2}\int{\frac{d(x^{2}+2px+q)}{x^{2}+2px+q}} - \\
+- b\int{\frac{\left( p-\frac{c}{b} \right)}{(x+p)^{2}+q-p^{2}}dx} = b \ln{(x^{2}+2px+q)}^{\frac{1}{2}} - \frac{b}{a}\int{\frac{\left( p-\frac{c}{b} \right)}{\left( \frac{t}{a} \right)^{2} +1 }d\left( \frac{t}{a} \right)} = \\
+= b \ln{(x^{2}+2px+q)^{\frac{1}{2}}} + \frac{b}{\sqrt{ q - p^{2} }}\left( p-\frac{c}{b} \right)\arctan{\frac{x+p}{\sqrt{ q+p^{2} }}} + Const
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\int{\frac{bx+c}{(x^{2}+2px+q)^{n}}dx} = \int{\frac{b(x+p)+c-bp}{((x+p)^{2}+q-p^{2})^{n}}d(x+p)} =  \\
+= \frac{b}{2}\int{\frac{d(x+p)^{2}}{((x+p)^{2} + a^{2})^{n}}} + \frac{c-bp}{a^{2n}} \int{\frac{d\left( \frac{x+p}{a} \right)}{\left( \left( \frac{x+p}{a} \right)^{2}+1 \right)^{n}}} = \\
+ = \frac{b}{2} \frac{1}{((x+p)^{2}+a^{2})^{n-1}} \frac{1}{1-n} + \frac{c-bp}{(q-p^{2})^{\frac{n-1}{2}}} J_{n} \frac{x+p}{\sqrt{ q - p^{2} }}
+\end{align*}
+$$
+# Определённые интегралы
+## $\S$ 1. Определение
+### Физические соображения:
+$$
+\begin{align*}
+V(t) \approx \frac{S(t+\Delta t) - S(t)}{\Delta t} \implies S(t_{j}+\Delta t_{j}) - S(t_{j}) \approx V(t_{j})\Delta t_{j} = \Delta S_{j} \implies \\
+\implies  S(t) = S(t_{0}) + (S(t) - S(t_{0})) = S(t_{0}) + \sum_{j}{\Delta S_{j}} \approx S(t_{0}) + \sum_{j}{V(t_{j})\Delta t_{j}} \\
+S(T) - S(t_{0}) \approx \sum_{j}{V(t_{j})\Delta t_{j}}
+\end{align*}
+$$
+### Определения:
+Разбиение P отрезка $[a; b]$ - набор точек $a = x_{0} < x_{1}<\dots<x_{n}=b$.
+Отрезок $\Delta_{j}:=[j-1; j], j = 1,\dots,n_{p}$ - $j$ отрезок разбиения
+$\Delta x_{j} = x_{j} - x_{j-1}$ - длина отрезка $\Delta j$
+$\lambda_{p} = \max_{j}\Delta x_{j}$ - диаметр разбиения (характеристика разбиения, мелкость разбиения).
+Разбиение $(P, \xi)$ - разбиение с отмеченными точками. $\xi_{j} \in [x_{j-1}; x_{j}]$
+
+Функция $f(x)$ на отрезке $[a; b]$. Имеется разбиение с отмеченными точками $(P, \xi)$. Тогда $\sigma(f, P, \xi) = \sum_{j=1}^{n_{p}}{f(\xi_{j})\Delta x_{j}}$ - **интегральная сумма Римана**. 
+
+Если $\exists \lim\limits_{ \lambda_{p} \to 0 }{\sigma(f, P, \xi)}$, то $f(x)$ интегрируема по Риману на отрезке $[a; b]$. Записывается это как $f(x) \in \mathbb{R}[a; b]$
+$\lim\limits_{ \lambda_{p} \to 0 }{\sum_{j=1}^{n_{p}}{f(\xi_{j})\Delta x_{j}}} = \int_{a}^{b}{f(x)dx}$
+
+Пример неинтегрируемой по Риману функции (функция Дирихле): Суть в том, что у нас результат суммы будет разным в зависимости от того, какую именно точку мы будем брать на каждом из отрезков разбиения. 
+
+### Определение:
+$\forall{\epsilon>0} ~ \exists{\delta_{\epsilon}>0}: \forall{p},~ \lambda_{p}<\delta_{\epsilon}~ \forall{\xi}~ |\sigma(f, p, \xi) - \int_{a}^{b}{f(x)dx}|<\epsilon$
+
+## $\S$ 2. Необходимое условие интегрирования
+### Критерий Коши существования придела при $\lambda_{p} \to 0$
+Функция $f(x) \in \mathbb{R}[a;b] \Longleftrightarrow \forall{\epsilon>0} \exists{\delta_{\epsilon}>0:} \forall{p'}, \lambda_{p'} < \delta_{\epsilon}, \forall{p''}, \lambda_{p''}<\delta_{\epsilon}, \forall{\xi', \xi''}: |\sigma(f, p', \xi') -\sigma(f, p'', \xi'')|<\epsilon$ Доказательства не приведено.
+
+### Теорема (необходимое условие интегрирования):
+$$
+f(x) \in \mathbb{R}[a; b] \implies f(x) \in \mathbb{B}[a; b]
+$$
+Т.е. ограничена на $[a; b]$
+#### Доказательство (от противного):
+Если $f(x) \not \in \mathbb{B}[a; b]$, то не выполняется критерий Коши интегрируемости.
+Пусть $f(x)$ неограниченная на $[a; b]$. Возьмём произвольное разбиение $p$ отрезка $[a; b] \implies [a; b] = [x_{0}; x_{1}] \cup [x_{1}; x_{2}] \cup \dots \cup [x_{n-1}; x_{n}]$. Функция не ограниченная на всём отрезке, а значит она неограниченна на каком-то из под отрезков. Пусть $f(x)$ неограниченна на отрезке $[x_{k-1}; x_{k}]$. Теперь возьмём два разных наборов отмечанных точек:
+$$
+\begin{align*}
+\xi_{j}' = \xi_{j}'', j\neq k \implies |\sigma(f, p, \xi') - \sigma(f, p, \xi'')| = |\sum_{j = 1}^{n_{p}}{f(\xi_{j}')\Delta x_{j}} - \sum_{j = 1}^{n_{p}}{f(\xi_{j}'')\Delta x_{j}}| =  \\
+= |\sum_{j=1}^{n_{p}}{(f(\xi_{j}')-f(\xi_{j}''))\Delta x_{j}}| = |(f(\xi_{k}')-f(\xi_{k}''))\Delta x_{k}| > M \\
+ \end{align*}
+$$
+
+$\forall{\xi'_{k}}$ зафиксировано. Значит можно добиться любого большого числа за счёт правильного выбора точки $\xi_{k}''$. Значит критерий Коши не выполняется. Значит функция неинтегрируемая. Противоречие. $\square$
+
+## $\S$ 3. Суммы д'Арбу. Интегрирование д'Арбу
+$f(x) \in \mathbb{B}[a; b], \forall{p}$
+$M_{j} = \sup_{[x_{j-1}; x_{j}]}f(x); \quad m_{j} = \inf_{[x_{j-1}; x_{j}]}f(x) \quad j = 1, \dots, n_{p}$
+
+Верхняя сумма д'Арбу: $S_{p} = \sum_{j=1}^{n_{p}}{M_{j}\Delta x_{j}}$
+Нижняя сумма д'Арбу: $s_{p} = \sum_{j=1}^{n_{p}}{m_{j}\Delta x_{j}}$
+Будем пытаться сделать так, чтобы суммы д'Арбу были произвольно близко друг к другу, и соответственно существовал интеграл, равный пределу этих сумм
+**Свойства**:
+1. Если функция ограничена на $[a; b]$, то для любого разбиения суммы д'Арбу определены
+2. Если p' получено из p добавлением одной точки, то $S_{p'}\leq S_{p}$ и $s_{p'}\geq s_{p}$ 
+Доказательство пункта 2 (для верхней суммы д'Арбу):
+$$
+\begin{align*}
+S_{p'} = \sum_{j\neq k}^{n_{p}}{\sup{f(x)}\Delta x_{j}} + \sup_{[x_{k-1}; x^{*}]}{f(x)(x^{*}-x_{k-1})} + \sup_{[x^{*}; x_{k}]}{f(x)(x_{k}-x^{*})} \leq \\
+\leq  \sum_{j\neq k}^{n_{p}}{\dots} + \sup_{[x_{k-1}; x_{k}]}{f(x)(x_{k}-x_{k-1})} = S_{p}
+\end{align*}
+$$
+```
+
+Лекция 27.3.2026.md:
+```
+## Интегрирование по частям и формула замены переменного
+### Утверждение 1:
+$u(x), v(x) \in \mathbb{C}^{1}[a; b]$, т.е. их первые производные непрерывны на $[a; b]$. Тогда:
+$$
+\int_{a}^{b}{u(x)v'(x)dx} = u(x)v(x)|^{b}_{a} - \int_{a}^{b}{v(x)u'(x)dx}
+$$
+#### Доказательство:
+$$
+(uv)' = uv' + vu' \implies uv \text{ первообразная для } uv' + vu' + \text{Формула Лейбница} \quad  \square
+$$
+Важно: когда мы говорим про замену переменной, нужно учитывать один важный момент. При замене $\varphi: [\alpha; \beta] \to [a; b]$, может оказаться, что $\varphi(t)$ указывает на ту область, в которой основная функция $f(x)$ просто не определена. Например, если $\varphi(t)$ выдаст отрицательный результат, а $f(x)$- логарифм. 
+### Утверждение 2
+$\varphi: [\alpha; \beta] \to [a; b], \varphi \in C^{1}[\alpha; \beta], \varphi(\alpha) = a, \varphi(\beta) = b, f(x) \in \mathbb{C}[a; b] \implies f(\varphi(t))\varphi'(t) \in \mathbb{C}[\alpha; \beta]$
+$$
+\int_{a}^{b}{f(x)dx} = \int_{\alpha}^{\beta}{f(\varphi(t))\varphi'(t)dt}
+$$
+#### Доказательство:
+$F(x)$ первообразная функции $f(x)$ на $[a; b] \implies F(\varphi(t))$ первообразная $f(\varphi(t))\varphi'(t)$ на $[\alpha; \beta]$.
+$$
+\begin{align*}
+\int_{a}^{b}{f(x)dx} = F(b) - F(a) \\
+\int_{\alpha}^{\beta}{f(\varphi(t))\varphi'(t)dt} = F(\varphi(\beta)) - F(\varphi(\alpha)) \quad \square
+\end{align*}
+$$
+## Неравенство Коши-Буняковского:
+
+### Теорема:
+$f(x), g(x) \in \mathbb{R}[a; b]$
+$$
+\left( \int_{a}^{b}{f(x)g(x)dx} \right)^{2} \leq \int_{a}^{b}{f^{2}(x)dx} \cdot \int_{a}^{b}{g^{2}(x)dx}
+$$
+#### Доказательство:
+$f^{2}, g^{2}, fg \in \mathbb{R}[a; b]$
+$$
+\int_{a}^{b}{\underbrace{(\lambda f(x) + g(x))^{2}}_{\geq 0}dx} = \lambda^{2}\int_{a}^{b}{f^{2}(x)dx} + 2\lambda \int_{a}^{b}{f(x)g(x)dx} + \int_{a}^{b}{g^{2}(x)dx}
+$$
+Т.к. квадратный трёхчлен $\geq 0$, то либо у него есть 1 корень, либо у него действительных корней. Значит, $D \leq 0$:
+$$
+\frac{D}{4} = \left( \int_{a}^{b}{f(x)g(x)dx} \right)^{2} - \int_{a}^{b}{f^{2}(x)dx}\int_{a}^{b}{g^{2}(x)dx} \leq 0\quad \square
+$$
+
+### Теорема (неравенство Минковского):
+$f(x), g(x) \in \mathbb{R}[a; b] \implies \left( \int_{a}^{b}{(f(x) + g(x))^{2}dx} \right)^{\frac{1}{2}} \leq \left( \int_{a}^{b}{f^{2}(x)dx}\right)^{\frac{1}{2}} + \left(\int_{a}^{b}{g(x)^{2}dx} \right)^{\frac{1}{2}}$
+#### Доказательство:
+$$
+\begin{align*}
+\int_{a}^{b}{(f(x) + g(x))^{2}dx} = \int_{a}^{b}{f(x)^{2}dx} + 2\int_{a}^{b}{f(x)g(x)dx} + \int_{a}^{b}{g^{2}(x)dx} \leq \\
+\leq \int_{a}^{b}{f(x)^{2}dx} + 2\left|\int_{a}^{b}{f(x)g(x)dx}\right| + \int_{a}^{b}{g^{2}(x)dx} \leq  \\
+\leq \int_{a}^{b}{f(x)^{2}dx} + 2 \left( \int_{a}^{b}{f(x)^{2}dx} \right)^{\frac{1}{2}} \cdot \left( \int_{a}^{b}{g(x)^{2}dx} \right)^{\frac{1}{2}} + \int_{a}^{b}{g(x)^{2}dx} =  \\
+= \left(\left( \int_{a}^{b}{f^{2}(x)dx}\right)^{\frac{1}{2}} + \left(\int_{a}^{b}{g(x)^{2}dx} \right)^{\frac{1}{2}}\right)^{2} \quad \square
+\end{align*}
+$$
+
+# Применение определённого интеграла
+## Длина кривой
+### Гладкая кривая
+$$
+\gamma:
+\begin{cases}
+x = x(t), \\
+y = y(t), \\
+z = z(t),
+\end{cases}\quad t \in [a; b]; \quad x(t), y(t), z(t) \in \mathbb{C}^{1}[a; b]
+$$
+Параметризация нужна для того, чтобы упорядочить точки на кривой.
+Взяли какую-то кривую. Разбили её на n точек A: $A_{1}, \dots , A_{n}$. Каждая точка соответствует значению функции, которая определена на отрезке $[a; b]$ с разбиением p. Тогда пусть $L_{p}$ - вписанная ломанная $\implies$ Длина $\gamma := \sup_{p}{\text{длина }L_{p}}$. Если длина $\gamma < +\infty \implies \gamma$ - спрямляемая кривая. 
+Условие невырожденности:
+$$
+\forall{t \in [a; b]} \quad x'^{2} + y'^{2} + z'^{2} > 0
+$$
+### Утверждение:
+$$
+\begin{align*}
+\gamma: \begin{cases}
+x = x(t), \\
+y = y(t), 
+\end{cases} t \in [a; b] \text{ гладкая, т.е. } x(t), y(t) \in \mathbb{C}^{1}[a; b], x'^{2} + y'^{2} > 0 \text{ на } [a; b] \\
+\implies \gamma \text{ спрямляемая } \\
+M_{x} := \sup(|x'(t)|) = \max|x(t)| \quad m_{x}:= \inf(|x'(t)|) \\
+M_{y} := \sup(|y'(t)|) = \max|y(t)| \quad m_{y}:= \inf(|y'(t)|) \\
+\end{align*}
+$$
+и $\sqrt{ m_{x}^{2} + m_{y}^{2} }(b-a)\leq\text{ длина }\gamma \leq \sqrt{ M_{x}^{2} + M_{y}^{2} }(b-a)$
+#### Доказательство:
+Длина $L_{p} = \sum_{k=1}^{n_{p}}{|A_{k-1}A_{k}|} = \sum_{k=1}^{n_{p}}{\sqrt{ (x_{k} - x_{k-1})^{2} + (y_{k} - y_{k-1})^{2}}} =$. $\exists(\tau_{k}', \tau_{k}'' \in (t_{k-1};t_{k})$
+$$
+\begin{align*}
+= \sum_{k=1}^{n_{p}}{\sqrt{ (x'(\tau_{k}')\Delta t_{k})^{2} + y'(\tau_{k}'')\Delta t_{k})^{2}}} = \sum_{k=1}^{n_{p}}{\underbrace {\sqrt{ (x'\tau_{k}')^{2} + (y'\tau_{k}'')^{2}}}_{ \leq\sqrt{  M_{x}^{2} + M_{y}^{2} }}\Delta t_{k}} \leq  \\
+\leq  \sqrt{  M_{x}^{2} + M_{y}^{2} } \cdot \sum_{k=1}^{n_{p}}{\Delta t_{k}} = \sqrt{  M_{x}^{2} + M_{y}^{2} } (b - a) \\
+\sqrt{ m_{x}^{2} + m_{y}^{2} }(b-a)\leq\text{ длина }\gamma = \sup_{p}{\text{длина } L_{n}} \leq \sqrt{ M_{x}^{2} + M_{y}^{2} }(b-a) \quad \square
+\end{align*}
+$$
+### Теорема
+$\gamma$ гладкая кривая. Длина $\gamma = \int_{a}^{b}{\sqrt{ x'^{2}+y'^{2} }dt}$
+#### Доказательство:
+$I:=\int_{a}^{b}{\sqrt{ x'^{2}+y'^{2} }dt}$. Сходится. 
+$$
+\begin{align*}
+\forall{p = p_{[a; b]}}: s_{p} \leq I\leq S_{p} \\
+\sum_{j = 1}^{n_{p}}{\inf_{\Delta j}{\sqrt{ x'^{2} + y'^{2} }}\Delta t_{j}} \leq I \leq \sum_{j = 1}^{n_{p}}{\sup_{\Delta j}{\sqrt{ x'^{2} + y'^{2} }}\Delta t_{j}} \\
+\sum_{j = 1}^{n_{p}}{\sup_{\Delta j}{\sqrt{ x'^{2} + y'^{2} }}\Delta t_{j}} \leq \sum_{j=1}^{n_{p}}{\sqrt{ (\max_{\Delta j}{|x'|})^{2} + (\max_{\Delta j}{|x'|})^{2}}\Delta t_{j}} = S_{p}^{*} \\
+\sum_{j = 1}^{n_{p}}{\inf_{\Delta j}{\sqrt{ x'^{2} + y'^{2} }}\Delta t_{j}} \geq \sum_{j=1}^{n_{p}}{\sqrt{ (\min_{\Delta j}{|x'|})^{2} + (\min_{\Delta j}{|x'|})^{2}}\Delta t_{j}} = s_{p}^{*} \\
+s_{p}^{*} \leq s_{p} \leq  I \leq S_{p} \leq  S_{p}^{*} \\
+\end{align*}
+$$
+$$
+\begin{align*}
+s_{p}^{*} = \sum_{j=1}^{n_{p}}{\sqrt{ (\min_{\Delta j}{|x'|})^{2} + (\min_{\Delta j}{|x'|})^{2}}\Delta t_{j}} \leq \text{длина } \gamma \leq \\
+\leq \sum_{j=1}^{n_{p}}{\sqrt{ (\max_{\Delta j}{|x'|})^{2} + (\max_{\Delta j}{|x'|})^{2}}\Delta t_{j}} = S_{p}^{*}
+\end{align*}
+$$
+Заметим, что нет зависимости от разбиения. Находятся эти числа на промежутке:
+$I, \text{длина }\gamma \in [s_{p}^{*}; S_{p}^{*}]$. Если $S_{p}^{*} - s_{p}^* \to 0$, при $\lambda_{p} \to 0 \implies I = \text{длина }\gamma$
+$$
+\begin{align*}
+S_{p}^{*} - s_{p}^{*} = \sum_{j=1}^{n_{p}}{\sqrt{ (\max_{\Delta j}{|x'|})^{2} + (\max_{\Delta j}{|x'|})^{2}}\Delta t_{j}} - \sum_{j=1}^{n_{p}}{\sqrt{ (\min_{\Delta j}{|x'|})^{2} + (\min_{\Delta j}{|x'|})^{2}}\Delta t_{j}}\leq \\
+\leq  \sum_{j = 1}^{n_{p}}{\sqrt{(\max_{\Delta_{j}}{|x'|} - \min_{\Delta_{j}}{|x'|})^{2} + (\max_{\Delta_{j}}{|y'|} - \min_{\Delta_{j}}{|y'|})^{2}}\Delta t_{j}} \leq \\
+\forall{\epsilon>0} \exists{\delta_{\epsilon}>0}: \forall{t', t'' \in [a; b]}, [t' - t'']<\delta_{\epsilon}: |x'(t') - x'(t'')|<\epsilon ~~|y'(t') - y'(t'')|<\epsilon\\
+
+\leq \sum_{j=1}^{n_{p}}{[|\max_{\Delta_{j}}{|x'|} - \min_{\Delta_{j}}{|x'|}| + |\max_{\Delta_{j}}{|y'|} - \min_{\Delta_{j}}{|y'|}|]\Delta t_{j}} \leq 2\epsilon \sum_{j=1}^{n_{p}}{\Delta t_{j}} = 2\epsilon(b-a) \\
+\square
+\end{align*}
+$$
+
+Показываем, что длина не зависит от параметризации:
+$$
+\begin{align*}
+t = t(x) = t(x(\tau)), \tau \in [\alpha; \beta] \\
+\int_{a}^{b}{\sqrt{ (x'(t))^{2} + (y'(t))^{2} }dt} = \int_{\alpha}^{\beta}{\sqrt{ (x'(t(\tau)))^{2} + (y'(t(\tau)))^{2}}dt(\tau)}  \\
+= \int_{\alpha}^{\beta}{\sqrt{(x'(t(\tau))t'_{\tau})^{2} +(y'(t(\tau))t'_{\tau})^{2}  }d\tau} = \int_{\alpha}^{\beta}{\sqrt{ (x'_{\tau})^{2} + (y'_{\tau})^{2}}d\tau}
+\end{align*}
+$$
+Длина графика:
+$$
+\begin{align*}
+y = f(x), x \in [a; b]; \quad \gamma = \begin{cases}
+x = x \\
+y = f(x)
+\end{cases}, \implies \text{длина } \gamma = \int_{a}^{b}{\sqrt{ 1 + f'^{2} }dx}
+\end{align*}
+$$
+В полярных координатах:
+$$
+\begin{align*}
+r = r(\varphi), \varphi \in [\alpha; \beta]; r(\varphi) \in \mathbb{C}^{1}[\alpha; \beta] \\
+\begin{cases}
+x = r(\varphi)\cos{\varphi}, \\
+y = r(\varphi)\sin(\varphi),
+\end{cases} \varphi \in [\alpha; \beta] \\
+dl = \sqrt{ r^{2} + (r')^{2} }d\varphi
+\end{align*}
+$$
+![[Screenshot_3939.png]]
+
+### Площадь в декартовых и полярных координатах:
+![[Screenshot_3940.png]]
+На рисунке произвольная фигура, которую поделили с помощью квадратной сетки. Есть клетки, которые полностью в фигуре, а есть и частично.
+$G_{in}^{0}$ - квадрат со стороной 2. $G_{in}^{n}$ - квадрат со стороной $2^{n}$
+$$
+\begin{align*}
+G_{in}^{0} \subset G_{in}^{1} \subset G_{in}^{0} \subset \dots \subset G_{in}^{n} \subset \dots \subset G \\
+G_{out}^{0} \supset G_{out}^{1} \supset G_{out}^{2} \supset\dots \supset G_{out}^{n} \supset\dots\supset G \\
+G_{in}^{n} \subset G \subset G_{out}^{n}, n \to \infty
+\end{align*}
+$$
+Если $\exists \lim\limits_{ n \to \infty }{\text{площадь }G_{in}^{n}} = \lim\limits_{ n \to \infty }{\text{площадь }G_{out}^{n}}$, то = площадь $G$
+
+Можно доказать:
+1. Площадь прямоугольника
+2. Если $G_{1} \subset G_{2} \implies \text{площадь } G_{1} \leq \text{площадь } G_{2}$
+3. $G_{1} \cap G_{2} = \emptyset \implies \text{площадь } (G_{1} \cup G_{2}) =$ Площадь $G_{1}$ + площадь $G_{2}$
+#### Вычисление:
+1. Криволинейная трапеция в декартовых координатах:
+$$
+\begin{align*}
+\begin{cases}
+x \in [a; b] \\
+0 \leq y\leq f(x)
+\end{cases} \\
+\sum_{j=1}^{n_{p}}{\inf_{\Delta_{j}}f(x)\Delta x_{j}} \leq \text{Площадь трапеции} 
+\leq \sum_{j=1}^{n_{p}}{\sup_{\Delta_{j}}f(x)\Delta x_{j}} \\
+\Longleftrightarrow f(x) \in \mathbb{R}[a; b] 
+\end{align*}
+$$
+```
+
+Лекция 29.4.2026 (нейронкой).md:
+```
+## 1. Оценка нормы линейного оператора
+
+### Постановка задачи
+Рассматривается линейный оператор, действующий в конечномерных пространствах (пока речь идёт о $\mathbb{R}^n$ или $\mathbb{C}^n$, хотя чуть позже появится и более общий контекст).  
+Исходная запись:
+
+$$y = Ax,\text{ где } x, y \in \mathbb{R}^{n} (\mathbb{C}^{n} = \mathbb{R}^{m}) \quad \text{— операторное равенство.}$$
+
+**Пояснение.**  
+$A$ — это линейное отображение (оператор) из пространства векторов $x$ в пространство векторов $y$. В скобках дано соглашение: под $\mathbb{C}^{n}$ понимается комплексное арифметическое пространство, которое можно рассматривать как вещественное пространство $\mathbb{R}^{2n}$; запись $\mathbb{C}^{n} = \mathbb{R}^{m}$ некорректна — скорее всего имелось в виду, что комплексное $n$-мерное пространство отождествляется с $\mathbb{R}^{2n}$, но здесь $m$ не равно $n$. Обычно в учебниках говорят, что $\mathbb{C}^n$ изоморфно $\mathbb{R}^{2n}$. Автор, вероятно, хотел напомнить, что и вещественный, и комплексный случаи охватываются единообразно.
+
+### Норма оператора
+Далее идёт неравенство:
+
+$$||y|| = ||Ax|| \leq k \, ||x||.$$
+
+**Пояснение.**  
+Поскольку оператор линеен, естественно задаться вопросом, насколько сильно он может увеличивать длину (норму) вектора. Мы хотим найти такое число $k \geq 0$, что для **всех** $x$ выполняется $||Ax|| \le k ||x||$.  
+Вводится понятие **нормы оператора**:
+
+$$||A|| := \inf \{ k \mid \forall x,\; ||Ax|| \le k ||x|| \}.$$
+
+(Проверять, что это действительно норма, пока не требуется.)  
+Инфимум здесь берётся по всем допустимым константам $k$. Иными словами, $||A||$ — это наименьшая из таких мажорант. На практике эта величина даёт оценку «во сколько раз оператор может растянуть вектор в худшем случае».
+
+### Матричное представление оператора
+Выбираем некоторый базис $\{e\}$ (вероятно, стандартный базис). Координаты векторов записываем в виде столбцов; индекс $\downarrow$ в $x_{e,\downarrow}$ обозначает запись в виде столбца в базисе $e$. Тогда:
+
+$$y_{e, \downarrow} = A_{e}\, x_{e, \downarrow}.$$
+
+Матрица оператора $A_e$ содержит компоненты $a_{jk}$. Евклидова норма вектора $y$ выражается через координаты:
+
+$$||y||_{2} = \left( \sum_{j=1}^{n} |y_{j}|^{2} \right)^{1/2}.$$
+
+В развёрнутом матричном виде:
+
+$$
+\begin{bmatrix}
+y_{1}\\
+y_{2}\\
+\dots\\
+y_{j}\\
+\dots\\
+y_{n}
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11} & \dots & a_{1n}\\
+a_{j1} & \dots & a_{jn}\\
+\dots\\
+a_{n1} & \dots & a_{nn}
+\end{bmatrix}
+\begin{bmatrix}
+x_{1}\\
+\dots\\
+x_{n}
+\end{bmatrix}.
+$$
+
+**Замечание об индексах.** Во второй строке матрицы первый индекс — $j$, второй пробегает от $1$ до $n$, но в записи он опущен. Подразумевается, что $j$ — произвольная строка.
+
+### Вывод оценки через неравенство Коши–Буняковского
+Теперь мы хотим явно оценить $||y||_2$ через компоненты матрицы и координаты $x$.
+
+$$
+\begin{aligned}
+||y||_{2}
+&= \left( \sum_{j=1}^{n} |y_j|^2 \right)^{1/2}  \\
+&= \left( \sum_{j=1}^{n} \Bigl| \sum_{k=1}^{n} a_{jk} x_k \Bigr|^2 \right)^{1/2}.
+\end{aligned}
+$$
+
+На этом шаге мы имеем сумму квадратов модулей сумм. Применяем неравенство Коши–Буняковского (К-Б) для сумм:
+
+$$\Bigl| \sum_{k=1}^{n} a_{jk} x_k \Bigr|^2 \le \Bigl( \sum_{k=1}^{n} |a_{jk}|^2 \Bigr) \Bigl( \sum_{k=1}^{n} |x_k|^2 \Bigr).$$
+
+Подставляя эту оценку, получаем:
+
+$$
+||y||_2 \le \left( \sum_{j=1}^{n} \Bigl( \sum_{k=1}^{n} |a_{jk}|^2 \Bigr) \Bigl( \sum_{k=1}^{n} |x_k|^2 \Bigr) \right)^{1/2}.
+$$
+
+**Аккуратный комментарий к тексту лекции.**  
+В исходных записях выписана промежуточная строка:
+
+$$
+\leq (\text{К-Б}) \sum_{j=1}^{n}\left( \sum_{k=1}^{n}{|a_{jk}|^{2}} \sum_{k=1}^{n}{|x_{k}|^{2}} \right)^{\frac{1}{2}}.
+$$
+
+Здесь корень и сумма по $j$ переставлены не в том порядке. Корректный переход: сначала квадратный корень из всей внешней суммы, а под корнем стоит $\sum_j \bigl( (\sum_k |a_{jk}|^2) (\sum_k |x_k|^2) \bigr)$. Далее мы выносим не зависящий от $j$ множитель $\sum_k |x_k|^2$:
+
+$$ \sum_{j=1}^{n} \Bigl( \sum_{k=1}^{n} |a_{jk}|^2 \Bigr) \Bigl( \sum_{k=1}^{n} |x_k|^2 \Bigr) = \Bigl( \sum_{j,k} |a_{jk}|^2 \Bigr) \Bigl( \sum_{k=1}^{n} |x_k|^2 \Bigr). $$
+
+Тогда
+
+$$||y||_2 \le \Bigl( \sum_{j,k=1}^{n} |a_{jk}|^2 \Bigr)^{1/2} \; \Bigl( \sum_{k=1}^{n} |x_k|^2 \Bigr)^{1/2}.$$
+
+Замечаем, что $\bigl( \sum_{k=1}^{n} |x_k|^2 \bigr)^{1/2} = ||x||_2$ — это евклидова норма $x$, которая действительно не зависит от $j$. Следовательно, мы получили оценку вида $||Ax||_2 \le K ||x||_2$ с константой
+
+$$K = \Bigl( \sum_{j,k=1}^{n} |a_{jk}|^2 \Bigr)^{1/2}.$$
+
+Это число называется **нормой Фробениуса** матрицы $A$. В наших обозначениях оно даёт одно из возможных значений $k$, поэтому норму оператора (инфимум таких $k$) можно оценить сверху:
+
+$$||A|| \le \Bigl( \sum_{j,k=1}^{n} |a_{jk}|^2 \Bigr)^{1/2}.$$
+
+На лекции сказано, что это «оптимальное значение $k$» — это не совсем точно: норма Фробениуса не обязательно совпадает с операторной нормой, но она даёт удобную верхнюю границу.
+
+### Случай оператора, зависящего от параметра
+Если элементы матрицы зависят от параметра $t$, то аналогичная оценка показывает непрерывность по параметру:
+
+$$
+y(t)_{\downarrow} = A(t) x_{\downarrow}.
+$$
+
+В записи:
+
+$$
+\begin{aligned}
+||y(t) - y(t)||_{2} \le \left( \sum_{j, k = 1}^{n} |a_{jk}(t) - a_{jk}(t)|^{2} \right)^{1/2} ||x||_2.
+\end{aligned}
+$$
+
+**Несостыковка.** Разность $y(t)-y(t)$ тождественно равна нулю, и элементы матрицы тоже одинаковы. Очевидно, имелось в виду сравнение двух разных моментов времени $t_1$ и $t_2$:
+
+$$||y(t_1) - y(t_2)||_{2} \le \Bigl( \sum_{j,k} |a_{jk}(t_1) - a_{jk}(t_2)|^{2} \Bigr)^{1/2} ||x||_2.$$
+
+Это неравенство означает, что если элементы матрицы $A(t)$ непрерывны по $t$ (в смысле близости по норме Фробениуса), то и результат применения оператора к фиксированному вектору $x$ будет непрерывно зависеть от $t$. Обозначение $||x_2||$ — скорее всего, описка, следует читать $||x||_2$.
+
+---
+
+## 2. Метрические пространства
+
+### Мотивация
+Мы переходим к изучению общих свойств расстояния и топологии в $\mathbb{R}^n$. Для определения непрерывности функций нужен способ измерять близость точек, поэтому вводится абстрактное понятие метрического пространства.
+
+### Определение метрического пространства
+Пусть $X$ — произвольное множество. **Метрикой** (расстоянием) называется функция $d: X \times X \to \mathbb{R}$, удовлетворяющая трём аксиомам:
+
+$$
+\begin{aligned}
+&\forall x,y \in X: \\
+1)\;& d(x,y) \ge 0, \quad d(x,y) = 0 \iff x = y \quad \text{(неотрицательность и невырожденность)};\\
+2)\;& d(x,y) = d(y,x) \quad \text{(симметрия)};\\
+3)\;& d(x,z) \le d(x,y) + d(y,z) \quad \text{(неравенство треугольника)}.
+\end{aligned}
+$$
+
+**Пример нарушения симметрии:**  
+В горах расстояние можно измерять временем пути. Идти снизу вверх дольше, чем сверху вниз, поэтому «временнáя метрика» не симметрична.
+
+**Стандартный пример** — евклидово пространство $\mathbb{R}^n$ (или $\mathbb{C}^n$) с расстоянием
+
+$$d(x,y) = \sqrt{ \sum_{j=1}^{n} |x_j - y_j|^2 }.$$
+
+Именно такое расстояние мы будем использовать по умолчанию.
+
+---
+
+## 3. Открытые и замкнутые множества в $\mathbb{R}^n$
+
+### Открытый шар
+**Определение.** Открытым шаром с центром $a$ и радиусом $\gamma > 0$ называется множество
+
+$$B(a, \gamma) := \{ x \in \mathbb{R}^n : d(a,x) < \gamma \}.$$
+
+Граница шара в него не входит.
+
+### Открытое множество
+Множество $G \subset \mathbb{R}^n$ называется **открытым**, если каждая его точка входит в него вместе с некоторым открытым шаром:
+
+$$\forall x \in G \;\; \exists \gamma > 0 : B(x, \gamma) \subset G.$$
+
+В записях было `B(x, \gamma) < G` — это явная опечатка, правильно $\subset$.
+
+**Примеры.**
+1. Всё пространство $\mathbb{R}^n$ открыто.
+2. Пустое множество $\emptyset$ (в тексте $\not O$) открыто, потому что условие «для любой точки…» для пустого множества выполняется тривиально.
+   Отрицание: $A$ не открыто, если $\exists x \in A$ такая, что для любого шара $B(x,\gamma)$ этот шар не содержится целиком в $A$ (т.е. $B(x,\gamma) \not\subset A$).
+3. **Открытый шар открыт.**  
+   Доказательство (приведённое в записях). Берём произвольную точку $x \in B(a,\gamma)$. Нам нужно найти шарик с центром в $x$, целиком лежащий в $B(a,\gamma)$. Естественным кандидатом является $B(x,\; \gamma - d(a,x))$, так как $d(a,x) < \gamma$.  
+   Действительно, для любого $\xi$ из этого шарика:
+
+   $$d(\xi,a) \le d(\xi,x) + d(x,a) < (\gamma - d(a,x)) + d(a,x) = \gamma.$$
+
+   Следовательно, $\xi \in B(a,\gamma)$, и $B(x, \gamma - d(a,x)) \subset B(a,\gamma)$. Это завершает доказательство.
+
+   **Замечание.** В тексте лекции написано $\forall{x, \xi \in B(x, \gamma - d(a, x))}$; это опечатка: квантор должен выглядеть как $\forall \xi \in B(x, \gamma - d(a, x))$.
+
+### Замкнутое множество
+Определяется через дополнение: множество $F \subset \mathbb{R}^n$ **замкнуто**, если его дополнение $\mathbb{R}^n \setminus F$ открыто.
+
+### Замкнутый шар
+**Определение.** Замкнутый шар радиуса $\gamma$ с центром $a$ содержит свою границу:
+
+$$\overline{B(a, \gamma)} := \{ x \in \mathbb{R}^n : d(x,a) \le \gamma \}.$$
+
+**Примеры замкнутых множеств.**
+4. $\emptyset$ и $\mathbb{R}^n$ замкнуты, так как их дополнения ($\mathbb{R}^n$ и $\emptyset$ соответственно) открыты.
+5. **Замкнутый шар замкнут.**  
+   Доказательство. Пусть $x \in \mathbb{R}^n \setminus \overline{B(a,\gamma)}$, т.е. $d(a,x) > \gamma$. Покажем, что открытый шар $B(x, d(a,x) - \gamma)$ не пересекается с $\overline{B(a,\gamma)}$, т.е. лежит в дополнении.  
+   Возьмём $\xi \in B(x, d(a,x) - \gamma)$. Тогда
+
+   $$d(a,\xi) \ge d(a,x) - d(x,\xi) > d(a,x) - (d(a,x) - \gamma) = \gamma.$$
+
+   Значит, $d(a,\xi) > \gamma$, т.е. $\xi$ не принадлежит замкнутому шару. Мы нашли для произвольной точки дополнения окрестность, целиком лежащую в дополнении. Поэтому дополнение открыто, а замкнутый шар замкнут.
+
+### Утверждение 1 (операции над открытыми множествами)
+Пусть $G_{\alpha}$ — открытые множества (индекс $\alpha$ пробегает некоторое множество $A$). Тогда:
+
+1. Объединение любого семейства открытых множеств открыто: $\bigcup_{\alpha} G_{\alpha}$ открыто.
+2. Пересечение **конечного** числа открытых множеств открыто: $\bigcap_{k=1}^{m} G_k$ открыто.
+
+**Доказательство.**
+1. Если $x \in \bigcup_{\alpha} G_{\alpha}$, то существует такое $\alpha_x$, что $x \in G_{\alpha_x}$. Поскольку $G_{\alpha_x}$ открыто, найдётся шар $B(x, \gamma_x) \subset G_{\alpha_x} \subset \bigcup_{\alpha} G_{\alpha}$.
+2. Пусть $x \in \bigcap_{k=1}^{m} G_k$. Тогда $x$ принадлежит каждому $G_k$, и для каждого $k$ существует $\gamma_k > 0$ такое, что $B(x, \gamma_k) \subset G_k$. Возьмём $\gamma = \min\{\gamma_1,\dots,\gamma_m\} > 0$. Для любого $k$: $B(x,\gamma) \subset B(x,\gamma_k) \subset G_k$, следовательно, $B(x,\gamma) \subset \bigcap_{k=1}^{m} G_k$. Открытость доказана.
+
+**Пример, показывающий важность конечности.**  
+Бесконечное пересечение открытых множеств может быть замкнутым:
+
+$$[-1; 1] = \bigcap_{n=1}^{\infty} \left( -1 - \frac{1}{2^n}; \; 1 + \frac{1}{2^n} \right).$$
+
+Каждое множество в скобках открыто, а их пересечение — замкнутый отрезок.  
+**Несостыковка:** В записи индекс суммирования обозначен через $n$, а сверху стоит $\infty$; существенно, что это счётное пересечение.
+
+### Утверждение 2 (операции над замкнутыми множествами)
+Двойственно к предыдущему. Пусть $F_{\alpha}$ замкнуты. Тогда:
+
+1. Пересечение любого семейства замкнутых множеств замкнуто: $\bigcap_{\alpha} F_{\alpha}$ замкнуто.
+2. Объединение конечного числа замкнутых множеств замкнуто.
+
+Обоснование получается автоматически из формул де Моргана и Утверждения 1. Например,
+
+$$\mathbb{R}^n \setminus \Bigl( \bigcap_{\alpha} F_{\alpha} \Bigr) = \bigcup_{\alpha} (\mathbb{R}^n \setminus F_{\alpha}),$$
+
+а справа стоит объединение открытых, т.е. открытое множество; значит, левая часть замкнута.
+
+**Замечание об опечатке.** В записи было: $\mathbb{R}^{n}\setminus(\cap_{\alpha} F_{\alpha}) = \cup_{k=1}^{m}{\mathbb{R}^{n}\setminus F_{k}}$, что некорректно — параметр $\alpha$ подменён конечным $m$.
+
+**Пример.** Открытый интервал можно представить как счётное объединение замкнутых отрезков:
+
+$$(-1; 1) = \bigcup_{n=1}^{\infty} \left[ -1 + \frac{1}{2^n}; \; 1 - \frac{1}{2^n} \right].$$
+
+Это иллюстрирует, что объединение бесконечного числа замкнутых множеств может быть открытым (и, следовательно, не замкнутым).
+
+### Сфера
+Сфера с центром $a$ радиуса $\gamma$ — множество точек на расстоянии ровно $\gamma$:
+
+$$S(a, \gamma) := \{ x \in \mathbb{R}^n : d(x,a) = \gamma \}.$$
+
+Сфера замкнута, так как $S(a, \gamma) = \overline{B(a, \gamma)} \cap \bigl( \mathbb{R}^n \setminus B(a, \gamma) \bigr)$ — пересечение двух замкнутых множеств.
+
+---
+
+## 4. Окрестности и граничные точки
+
+**Зачем это нужно?**  
+Для строгого определения предела и непрерывности функции многих переменных нам потребуется язык окрестностей и граничных точек.
+
+### Окрестность
+**Определение 6 (из первичных записей).**  
+Открытое множество, содержащее точку $a$, называется *окрестностью* точки $a$ и обозначается $U_a$.
+
+### Классификация точек относительно множества
+**Определение 7.**  
+Дано множество $E \subset \mathbb{R}^n$ и точка $x \in \mathbb{R}^n$:
+1. Если существует окрестность $U_x \subset E$, то $x$ — *внутренняя точка* $E$.
+2. Если существует окрестность $U_x \subset \mathbb{R}^n \setminus E$, то $x$ — *внешняя точка* $E$.
+3. Если в любой окрестности $U_x$ есть как точки из $E$, так и точки из $\mathbb{R}^n \setminus E$, то $x$ — *граничная точка* $E$.
+
+### Граница множества
+**Определение 8 (из первичных записей).**  
+Множество всех граничных точек обозначается $\partial E$ и называется *границей* $E$.
+
+**Пример 7 (начало).**  
+Утверждается, что:
+- $S(a, \gamma) = \partial B(a, \gamma)$,
+- $S(a, \gamma) = \partial \overline{B(a, \gamma)}$,
+- $S(a, \gamma) = \partial S(a, \gamma)$.
+
+В записях начинается доказательство первого пункта:  
+«$S(a, \gamma) = \partial B(a, \gamma) \quad \forall x \in S(a, \gamma) \quad \forall B(x, \rho)$ ...»  
+Фраза обрывается.
+
+**Реконструкция рассуждения.**  
+Нужно показать, что любая точка сферы является граничной для открытого шара. Возьмём $x \in S(a,\gamma)$ и произвольный шар $B(x,\rho)$. Этот шар обязательно пересекает $B(a,\gamma)$ (например, точки на отрезке от $x$ к $a$ внутри) и пересекает внешность $\mathbb{R}^n \setminus \overline{B(a,\gamma)}$ (точки вне замкнутого шара, дальше от $a$). Следовательно, в любой окрестности $x$ есть точки из $B(a,\gamma)$ и из его дополнения, т.е. $x$ — граничная точка.
+
+Второе и третье утверждения доказываются аналогично. Подробности были даны во второй порции записей.
+```
+
+Лекция 29.4.2026.md:
+```
+$||y|| = ||Ax|| \leq k ||x||$
+Введём $||A|| := \inf{k}$ (проверять не нужно, т.к. это не потребуется). Работает скорее как $оценка$
+Обозначим базис как $\{e\}$, тогда:
+$y_{e, \downarrow} = A_{e}x_{e, \downarrow}$
+$||y||_{2} = \left( \sum_{j=1}^{n}{|y_{j}|^{2}} \right)^{\frac{1}{2}}$
+$$
+\begin{bmatrix}
+     y_{1}\\
+    y_{2} \\
+	\dots \\
+	y_{j} \\
+	\dots \\
+	y_{n}
+\end{bmatrix} =
+
+\begin{bmatrix}
+    a_{11} & \dots a_{1n} \\
+    a_{j1} & \dots a_{jn} \\
+	\dots \\
+	a_{n1} &\dots a_{nn}
+\end{bmatrix}
+\begin{bmatrix}
+x_{1} \\
+\dots \\
+x_{n}
+\end{bmatrix}
+$$
+$$
+\begin{align*}
+||y||_{2} = \left( \sum_{j=1}^{n}{|y_{j}|^{2}} \right)^{\frac{1}{2}} = \left( \sum_{j=1}^{n}{|\sum_{k=1}^{n}{a_{jk}x_{k}}|^{2}} \right)^{\frac{1}{2}} \leq (\text{К-Б}) \sum_{j=1}^{n}\left( \sum_{k=1}^{n}{|a_{jk}|^{2}} \sum_{k=1}^{n}{|x_{k}|^{2}} \right)^{\frac{1}{2}} = \left( \sum_{j,k = 1}^{n}{|a_{jk}|^{2}} \right)^{\frac{1}{2}} \cdot \left( \sum_{k = 1}^{n}{|x_{k}|^{2}} \right)^{\frac{1}{2}} \\
+\text{, где } \left( \sum_{k = 1}^{n}{|x_{k}|^{2}} \right)^{\frac{1}{2}} = ||x||_{2} \text{ и оно не зависит от j, и где } \left( \sum_{j,k = 1}^{n}{|a_{jk}|^{2}} \right)^{\frac{1}{2}} - \text{оптимальное значение k}
+\end{align*}
+$$
+$$
+\begin{align*}
+y(t)_{\downarrow} = A(t)x_{\downarrow} \\
+||y(t) - y(t)||_{2} \leq \left( \sum_{j, k = 1}^{n}{|a_{jk}(t) - a_{jk}(t)|^{2}} \right)^{\frac{1}{2}} ||x_{2}||
+\end{align*}
+$$
+### Метрические пространства
+#### Определение:
+$$
+\begin{align*}
+\forall{x, y} \in X \to d(x, y) \\
+1)d(x, y) \geq  0, \quad d(x, y) = 0 \leftrightarrow  x= y \\
+2)d(x, y) = d(y, x) \\
+3) d(x, z) \leq  d(x, y) + d(y, z)
+\end{align*}
+$$
+Пример того, где 2 свойство не выполняется. В горах мерят расстояние во времени. Расстояние между точками во времени. И получается снизу вверх медленнее, чем сверху вниз.
+
+$$
+\begin{align*}
+X = \{\mathbb{R}^{n} (\mathbb{C}^{n}), \quad d(x, y) = \sqrt{ \sum_{1}^{n}{|x_{j}-y_{j}|^{2}} }\} \text{ (Определение метрического пространства)}\\ 
+B(a, \gamma) : = \{x\in \mathbb{R}^{n}: d(a, x)<\gamma\} \text{(Определение открытого шара)}\\
+G \subset \mathbb{R}^{n} \text{ открыто, если } \forall{x} \in G \quad \exists{B(x, \gamma)} < G
+\end{align*}
+$$
+#### Примеры:
+1) $\mathbb{R}^{n}$ открыто
+2) $\not O$ открыто
+Отрицание $A$ не открыто, если $\exists{x\in A}: \quad \forall{B(x, \gamma) \not\subset A}$
+3) Открытый шар открыт (граница не входит). 
+![[Pasted image 20260429092559.png]]$$
+\begin{align*}
+\forall{x, \xi \in B(x, \gamma - d(a, x))} \quad d(\xi, a) \leq d(x, \xi) + d(x, a) < (\gamma - d(a, x)) + d(x, a) = \gamma
+\end{align*}
+$$
+#### Определение 4
+$$
+F \subset \mathbb{R}^{n} \text{ замкнуто, если } \mathbb{R}^{n}\F \text{открыто}
+$$
+#### Определение 5
+$\overline{B(a, \gamma)}$ замкнутый шар, где $\overline{B(a, \gamma)} := \{x \in \mathbb{R}^{n}: d(x, a)\leq \gamma\}$ (граница входит)
+
+#### Примеры
+4) $\not O$ и $\mathbb{R}^{n}$ замкнуты. $\mathbb{R}^{n} \ \not O = \mathbb{R}^{n}$ открыто, $\mathbb{R}^{n}\ \mathbb{R}^{n} = \not O$ открыто
+5) $\overline{B(a, \gamma)}$ замкнут
+![[Pasted image 20260429093130.png]]
+$x \in \mathbb{R}^{n} \ \overline{B(a, \gamma)}$, т.е. $d(a, x) > \gamma \quad \forall{\xi\in B(x, d(a, x)-\gamma)}$
+$d(a, x)\leq d(a, \xi) + d(\xi, x) \implies d(a, \xi) \geq d(a, x) - d(x, \xi) > d(a, x) - (d(a, x) - \gamma) = \gamma$
+
+#### Утверждение 1
+$G_{\alpha} \in A$, открытые множества. Тогда выполняются следующее:
+1. $U_{\alpha} G_{\alpha}$ открыто
+2. $\cap_{k=1}^{m}{G}_{k}$ открыто
+##### **Доказательство**:
+1. $x \in U_{\alpha}G_{\alpha} \implies \exists{\alpha_{x}}: x\in G_{\alpha x}$. Т.к. $G_{a x}$ открыто, то $\exists{B(x, \gamma_{x})} \subset G_{\alpha x} \subset U_{\alpha}G_{\alpha}$
+2. $x \in \cap_{k=1}^{m}{G_{k}} \quad \forall{k=1,\dots ,m} \exists{\gamma_{k}>0}: B(x, \gamma_{k}) \subset G_{k}$
+$\gamma := \min_{k = 1, \dots, m}{\gamma_{k}>0}$
+$B(x, \gamma) \subset B(x, \gamma_{k}) \subset G_{k} \implies B(x, \gamma) \subset \cap_{k}G_{k}$
+##### Пример:
+$[-1; 1] = \cap_{k=1}^{\infty}{\left( -1 - \frac{1}{2^{n}}; 1+ \frac{1}{2^{n}} \right)}$
+
+#### Утверждение 2:
+$F_{\alpha} \text{ где } \alpha \in A$ замкнуты.
+1. $\cap_{\alpha} F_{\alpha}$ замкнуто
+2. $\cup_{k=1}^{m}{F_{k}}$ замкнуто
+$\mathbb{R}^{n}\(\cap_{\alpha} F_{\alpha}) = \cup_{k=1}^{m}{\mathbb{R}^{n}\F_{k}}$
+Левая часть открыто по утверждению 1.
+##### Примеры:
+$(-1; 1) = \cup{\left[ -1 + \frac{1}{2^{n}}; 1-\frac{1}{2^{n}} \right]}$
+
+
+$S(a, \gamma) := \{x \in \mathbb{R}^{n}: d(x, a) = \gamma\}$
+Это сфера, она замкнута. С центром в точке $a$ с радиусом $\gamma$
+$S(a, \gamma) = \overline{B(a, \gamma)} \cap \mathbb{R}^{n}\B(a,\gamma)$ замкнуто (определение)
+
+Немного про окрестности и так далее
+
+Зачем мы вообще это делаем?
+Мы хотим определять непрерывность, а для этого нужно определять расстояние между точками.
+
+#### Определение 6:
+Открытое множество, содержащее точку $a \to$ окрестность $a, U_{a}$
+#### Определение 7:
+Имеется множество точек $E \subset \mathbb{R}^{n} \quad x\in \mathbb{R}^{n}, \text{ если}$:
+1. $\exists{U_{x}\subset E} \implies x$ - внутренняя точка $E$
+2. $\exists{U_{x}\subset \mathbb{R}_{n}\E} \implies x$ - внешняя точка $E$
+3. $\forall{U_{x}}$ есть точки из $E$ и из $\mathbb{R}^{n}\E \implies$ x - граничная точка $E$
+#### Определение 8:
+Объединение граничных точек $E$ - граница $E$, $\partial E$
+#### Пример 7:
+$S(a, \gamma) = \partial B(a, \gamma)$; $S(a, \gamma) = \partial \overline{B(a, \gamma)}$; $S(a, \gamma) = \partial S(a, \gamma)$
+1. $S(a, \gamma) = \partial B(a, \gamma) \quad \forall{x} \in S(a, \gamma) \quad \forall{B(x, \rho)}$
+```
+
+Лекция 3.4.2026.md:
+```
+### Утверждение:
+1. $f(x) \in \mathbb{R}[a; b]$ то существует несобственный интеграл на $[a; b)$
+2. **Линейность**
+3. Замена переменной:
+Пусть $\int_{a}^{\infty}{f(x)dx}$ сходится, $\varphi(t): [\alpha; \gamma] \to [a; \omega), \varphi(t)$ гладкая и строго монотонная: $\varphi(t)\in \mathbb{C}^{1}[\alpha; \gamma]$. $\varphi(\alpha) = a, \varphi(\beta)\to\omega, \beta \to \gamma$
+При $t \to \gamma - 0, \varphi(t) \to \omega - 0$
+Тогда $\int_{\alpha}^{\gamma}{f(\varphi(t))\varphi'(t)}$ сходится и = $\int_{a}^{\omega}{f(x)dx}$
+
+Доказательство:
+1. $F(x) = \int_{a}^{x}(f(t)dt)$, где $x \in [a; b]$
+$$
+F(x) \in \mathbb{C}[a; b] \implies \int_{a}^{x}{f(t)dt} \to \int_{a}^{b}{f(t)dt}, \text{ при } x\to b -0
+$$
+2. $\int_{a}^{\omega}{f(x)dx}, \int_{a}^{\omega}{g(x)dx}$ сходятся. Тогда:
+$$
+\begin{align*}
+\forall{\alpha, \beta:} \int_{a}^{\omega}{(\alpha f(x) + \beta g(x))dx} \text{ сходится и } = \alpha\int_{a}^{\omega}{f(x)dx} + \beta\int_{a}^{\omega}{g(x)dx} \\
+\end{align*}
+$$
+Пока мы не знаем что он сходится. Давайте мы покажем, что это так:
+$$
+\begin{align*}
+\int_{a}^{\omega}{(\alpha f(x) + \beta g(x))dx} = \lim\limits_{ b \to \omega, b\in[a;\omega)}{\int_{a}^{b}(\alpha f + \beta g)dx} =  \\
+ = \lim\limits_{ b \to \omega, b\in[a;\omega)}{\left( \alpha \int_{a}^{b}{f(x)dx} + \beta \int_{a}^{b}{g(x)dx} \right)} = \alpha \int_{a}^{\omega}{f(x)dx} + \beta \int_{a}^{\omega}{g(x)dx} ~~ \square 
+\end{align*}
+$$
+3. $\varphi(t)$ взаимно однозначное соответствие между $[\alpha, \gamma]$ и $[a; \omega)$. $b \Longleftrightarrow \beta \in [\alpha; \gamma)$, Причём $b \to \omega$ и $\beta \to \gamma$.
+По определению:
+$$
+\lim\limits_{ b \to \omega, b \in [a; \omega) }{\int_{a}^{b}{f(x)dx}} = \lim\limits_{ \beta \to \gamma, \beta \in [\alpha; \gamma)}{\int_{\alpha}^{\beta}}{f(\varphi(t))\varphi'(t)dt} \quad \square 
+$$
+### Утверждение 2 (интегрирование по частям):
+$f(x), g(x) \in \mathbb{C}^{1}[a; \omega)$ и $\exists \lim\limits_{ x \to \omega, x \in [a; \omega) }{f(x)\cdot g(x)} \implies f(x)g'(x)$ и $f(x)'g(x)$ одновременно интегрируемы в несобственном смысле на промежутке $[a; \omega)$. В случае интегрируемости $\int_{a}^{\omega}{f(x)g'(x)dx} = f(x)g(x)|^{\omega}_{a} - \int_{a}^{\omega}{f'(x)g(x)dx}$
+#### Доказательство:
+$$
+\forall{b \in [a, \omega)} ~ \int_{a}^{b}{f(x)g'(x)dx} = \int_{a}^{b}{fdg} = fg|^{b}_{a} - \int_{a}^{b}f'gdx
+$$
+Предположили что предел существует. Смотрим предельный переход при $b \to \omega, b\in[a; \omega)$. Если несобственный интеграл существует (сходится), то утверждение при предельном переходе. $\square$
+
+## Признаки сходимости:
+### Теорема (Критерий Коши):
+$f(x)$ на $[a, \omega)$ и $\forall{b \in [a; \omega)} f(x) \in \mathbb{R}[a; b]$. $\int_{a}^{\omega}{f(x)dx}$ сходится $\Longleftrightarrow$ $\forall{\epsilon>0} \exists b_{\epsilon}>a: \forall{b_{1}, b_{2}>b_{\epsilon}} ~ |\int_{b_{1}}^{b_{2}}{f(x)dx}|<\epsilon$
+#### Доказательство:
+$F(b) = \int_{a}^{b}{f(x)dx}, b \in [a; \omega)$. Сходимость интеграла по определению: $\int_{a}^{\omega}{f(x)dx} \Longleftrightarrow \exists \lim\limits_{ b \to \omega, b \in [a; \omega)}{\int_{a}^{b}{f(x)dx}}$, т.е.
+$$
+\begin{align*}
+\exists \lim\limits_{ b \to \omega, b \in [a, \omega) }{F(b)} \Longleftrightarrow \forall{\epsilon >0} ~ \exists{b_{\epsilon} \in [a; \omega)}: \forall{b_{1}, b_{2} \in [b_{\epsilon}, \omega)}~ |F(b_{1}) - F(b_{2})|<\epsilon \\
+\left|\int_{a}^{b_{1}}{f(x)dx} - \int_{a}^{b_{2}}{f(x)dx}\right| = \left|\int_{b_{1}}^{b_{2}}{f(x)dx}\right| < \epsilon \quad \square
+\end{align*}
+$$
+### Определение:
+$\int_{a}^{\omega}{f(x)dx}$ сходится абсолютно, если сходится $\int_{a}^{\omega}{|f(x)|dx}$.
+### Утверждение
+Если интеграл сходится абсолютно, то он сходится
+#### Доказательство (через критерий Коши):
+$\forall{b \in [a; \omega)} f(x) \in \mathbb{R}[a; b] \implies |f(x)| \in \mathbb{R}[a; b]$
+$$
+\forall{\epsilon>0}~\exists{b_{\epsilon}\in[a; \omega)}: \forall{b_{1}, b_{2} \in [b_{\epsilon}, \omega)}: \left|\int_{b_{1}}^{b_{2}}{|f(x)|dx}\right| < \epsilon \implies \left|\int_{b_{1}}^{b_{2}}{f(x)dx}\right| < \epsilon 
+$$
+
+### Теорема (Критерий сходимости ряда с монотонными членами)
+$f(x) \geq 0$ на $[1; +\infty), f(x)$ убывает $\implies \sum_{1}^{\infty}{f(x)}$ сходится $\Longleftrightarrow$ сходится $\int_{1}^{\infty}{f(x)dx}$
+#### Доказательство:
+$\forall{n \in \mathbb{N}}, f(n) \geq f(x) \geq f(n+1), x \in [n; n+1]$
+$$
+\begin{align*}
+f(n) \geq  \int_{n}^{n+1}{f(x)dx} \geq  \int_{n}^{n+1}{f(n+1)dx} = f(n+1), n = 1, \dots, k \\
+\sum_{n=1}^{k}{f(n)} \geq \sum_{n=1}^{k}{\int_{n}^{n+1}{f(x)dx}} = \int_{1}^{k+1}{f(x)dx}\geq \sum_{n=1}^{k}{f(n+1)} = \sum_{n=2}^{k+1}{f(n)} = \\
+= \sum_{n=1}^{k+1}{f(n)} - f(1) \\
+\sum_{n = 1}^{k}{f(n)} \geq  \int_{1}^{k+1}{f(x)dx} \geq \sum_{1}^{k+1}{f(n)} - f(1) \\
+\forall{k \in \mathbb{N}}
+\end{align*}
+$$
+Возрастает по $k$. Сходится $\int_{1}^{b}{f(x)dx} \implies$ ограничен.
+Ограниченность:  $\sum_{1}^{\infty}{f(n)} \geq \sum_{n = 1}^{[b] + 1}{f(n)}\geq \int_{1}^{[b]+1}{f(x)dx} \quad \square$
+
+
+### Теорема (признак сравнения)
+$f(x), g(x)$ на $[a; \omega), \forall{b \in [a; \omega)}$. $f(x), g(x) \in \mathbb{R}[a; b]$. Если $0\leq f(x)\leq g(x)$ на $[a; \omega)$, то:
+1. $\int_{a}^{\omega}{g(x)dx}$ сходится $\implies \int_{a}^{\omega}{f(x)dx}$ сходится
+2. $\int_{a}^{\omega}{f(x)dx}$ расходится $\implies \int_{a}^{\omega}{g(x)dx}$ расходится.
+#### Доказательство:
+$F(x) = \int_{a}^{x}{f(t)dt}$, $G(x) = \int_{a}^{x}{g(t)dt}$, $x \in [a;\omega)$. $F(x)$ и $G(x)$ возрастают на $[a; \omega)$
+$0 \leq F(x) \leq G(x)$. Дальше просто теорема о зажатой последовательности. $\quad \square$
+### Следствие 1:
+$|f(x)|\leq g(x)$ на $[a; \omega) \implies \int_{a}^{\omega}{g(x)dx}$ сходится $\implies \int_{a}^{\omega}{f(x)dx}$ сходится абсолютно
+### Следствие 2:
+Если $f(x) \geq 0, g(x)$ на $[a;\omega)$ и $\exists{c_{1}, c_{2}>0}: c_{1}f(x) \leq g(x) \leq c_{2}f(x)$ на $[a; \omega) \implies \int_{a}^{\omega}{f(x)dx}$ и $\int_a^{\omega}{g(x)dx}$ сходятся или расходятся одновременно.
+### Следствие 3: 
+Если $f(x), g(x) \geq 0$ и $\exists \lim\limits_{ x \to \omega, x \in [a; \omega) }{\frac{f(x)}{g(x)}}\neq0$, то $\int_{a}^{\omega}{f(x)dx}$ и $\int_{a}^{\omega}{g(x)dx}$ расходятся или сходятся одновременно.
+```
+
+Лекция 4.3.2026.md:
+```
+3) $S_{p} = \sup_{\xi}{\sigma(f, p, i)} \quad s(p)=\inf_{\xi}{\sigma(f,p,\xi)}$
+#### Доказательство:
+1. $\forall{\sigma(f,p,\xi)} = \sum_{\xi=1}^{n_{p}}{f(\xi_{j})\Delta x_{j}} \leq \sum_{1}^{n_{p}}{\sup_{\Delta j}{f(x)}\Delta x_{j}}=S_{p}$
+$$
+\begin{align*}
+\forall{\epsilon>0} \forall{j =1, \dots, n_{p}} ~ \exists{\xi_{j}':} f(\xi'_{j}) > \sup_{\Delta j}{f(x)} -\epsilon \\
+\sigma(f, p, \xi') = \sum_{j = 1}^{n_{p}}{f(\xi'_{j})\Delta x_{j}} > \sum_{j=1}^{n_{p}}{(\sup_{\Delta j}{f(x)} -\epsilon)\Delta x_{j}} =  \\
+= \sum_{1}^{n_{p}}{\sup_{\Delta j}{f(x)}\Delta x_{j}} - \epsilon \sum_{j=1}^{n_{p}}{\Delta x_{j}} = S_{p} - \epsilon(b-a)
+\end{align*}
+$$
+### Продолжение
+Колебание $f(x)$ на $[a; b]$
+$$
+\omega_{[a; b]}(f) = \omega(f, [a; b]) = \sup_{x', x'' \in [a; b]}|f(x') - f(x'')| = \sup_{x', x'' \in [a; b]}(f(x') - f(x''))
+$$
+**Утверждение**:
+$$
+\omega(f, [a; b]) = \sup_{[a; b]}f(x) - \inf_{[a; b]}f(x)
+$$
+**Доказательство**:
+a. $$
+\begin{align*}
+\forall{x', x'' \in [a; b]} f(x') - f(x'') \leq \sup_{[a; b]}f(x) - \inf_{[a; b]}f(x) \implies \\
+\implies  \sup(f(x') - f(x'')) = \omega(f, [a; b]) \leq M_{[a; b]} - m_{[a; b]}
+\end{align*}
+$$
+b. (точность) 
+$$
+\begin{align*}
+\forall{\epsilon>0} \\
+ \exists{x'_{\epsilon}\in[a; b]}: f(x_{\epsilon})' > M - \frac{\epsilon}{2} \\
+\exists x''_{\epsilon} \in [a; b]: f(x''_{\epsilon})<m+\frac{\epsilon}{2} \\
+f(x'_{\epsilon}) - f(x''_{\epsilon}) > \left( M - \frac{\epsilon}{2} \right) - \left( m + \frac{\epsilon}{2} \right) = M - m = \epsilon
+\end{align*}
+$$
+
+Свойство 4:
+$$
+S_{p} - s_{p} = \sum_{j=1}^{n_{p}}{(M_{j} - m_{j})\Delta x_{j}} = \sum_{j =1}^{n_{p}}{\omega(f, \Delta j)\Delta x_{j}}
+$$
+
+### Определение интегралов д'Арбу:
+$$
+I_{*} = \sup_{p}{s_{p}} \quad I^{*} = \inf_{p}{S_{p}}
+$$Первый - нижний,  второй - верхний интеграл д'Арбу.
+## Критерий интегрируемости д'Арбу
+### Теорема 1:
+$$
+f(x) \in \mathbb{B}[a; b], f(x) \in \mathbb{R}[a; b] \Longleftrightarrow \lim\limits_{ \lambda_{p} \to 0 }{(S_{p} - s_{p})} = 0 
+$$
+**Доказательство**:
+$$
+\begin{align*}
+\implies f(x) \in \mathbb{R}[a; b], \text{ т.е. } \exists{I}: \forall{\epsilon>0} \exists{\delta_{\epsilon}>0}: \forall{p}, \lambda_{p}<\delta_{\epsilon} \forall{\xi} ~ |\sigma(f, p, \xi) - I| < \epsilon \\
+I - \epsilon < \sigma(f, p, \xi)< I + \epsilon \\
+I - \epsilon \leq \inf_{\xi}{\sigma(f, p, \xi)} = s_{p} \leq  S_{p} = \sup_{\xi}{\sigma(f, p, \xi)} \leq I-\epsilon \\
+I - \epsilon \leq s_{p} \leq S_{p} \leq I + \epsilon \\
+S_{p} - s_{p} \leq 2\epsilon \implies  \lim\limits_{ \lambda_{p} \to 0 }(S_{p} - s_{p}) = 0 \\
+\impliedby \lim\limits_{ \lambda_{p} \to 0 }(S_{p} - s_{p}) = 0 \implies S_{p} - s_{p} \geq I^{*} - I_{*} \geq 0 \\
+\text{Т.к. }\lambda_{p}\to 0 \implies  S_{p} - s_{p} \to 0 \implies I^{*} = I_{*} = I \quad 
+\end{align*}
+$$
+$$
+\begin{align*}
+\forall{\epsilon>0} ~ \forall{\xi}~ \exists{\delta_{\epsilon}>0}:\forall{p} ~ \lambda_{p}<\delta_{\epsilon} \quad 0 \leq  S_{p} - s_{p} < \epsilon \\
+\text{По свойству 3:} s_{p} \leq \sigma(f, p, \xi) \leq S_{p} \implies |\sigma(f, p, \xi) - I| \leq S_{p} - s_{p} < \epsilon \implies  \\
+\implies  \lim\limits_{ \lambda_{p} \to 0 }{\sigma(f, p, \xi)} = I = \int_{a}^{b}{f(x)dx} \implies f(x) \in \mathbb{R}[a; b] \quad \square
+\end{align*}
+$$
+### Следствие:
+$$
+\lambda_{p} \to 0 \implies  S_{p} - s_{p} = \sum_{j = 1}^{n_{p}}{\omega(f, \Delta_{j})\Delta x_{j}} \to 0
+$$
+
+### Теорема 2:
+$$
+f(x) \in \mathbb{B}[a; b], f(x) \in \mathbb{R}[a; b] \Longleftrightarrow I_{*} = I^{*}
+$$
+
+## Некоторые классы интегрируемых функций
+### Теорема 1:
+$f(x) \in \mathbb{C}[a; b] \implies f(x) \in \mathbb{R}[a; b]$
+#### Доказательство (Теорема Кантора о равномерной непрерывности):
+$$
+\begin{align*}
+f(x) \in \mathbb{C}[a; b] \implies  \forall{\epsilon >0}~\exists{\delta_{\epsilon}>0}: \forall{x', x'' \in [a; b]} ~ |f(x') - f(x'')| < \epsilon \\
+\forall{\Delta \subset [a; b]}, \text{длина }\Delta < \delta_{\epsilon} \implies \sup_{x', x'' \in \Delta}{|f(x') - f(x'')|} \leq \epsilon, \text{ т.е. } \omega(f, \Delta) \leq \epsilon \\
+\forall{p},  \lambda_{p} < \delta_{\epsilon} ~ 0\leq \sum_{j = 1}^{n_{p}}{\omega(f, \Delta_{j})\Delta x_{j}} \leq \epsilon \sum_{j = 1}^{n_{p}}{\Delta x_{j}} = \epsilon(b-a)
+\end{align*}
+$$
+
+### Теорема 2:
+$$
+f(x) \in \mathbb{B}[a; b] \text{ и имеет 1 точку разрыва} \implies f(x) \in \mathbb{R}[a; b] 
+$$
+**Доказательство**:
+$$
+\begin{align*}
+\exists M: \forall{x \in [a; b]} ~ |f(x)| < M \\
+\forall{\epsilon>0} ~ \forall{\Delta \subset [a; b]} ~ \omega(f, \Delta) \leq  f(x') - f(x'') \leq M - (-M) = 2M \\
+[a; b] \text{ без } (c - \delta; c+\delta) = [a; c-\delta] \cup [c+\delta; b] \\
+\exists{\delta_{\epsilon}'}: \forall{x', x '' \in [a; c-\delta]} ~ |f(x') - f(x'')|<\epsilon \\
+\exists{\delta_{\epsilon}''}: \forall{x', x '' \in [c+\delta; b]} ~ |f(x') - f(x'')|<\epsilon \\
+\delta_{\epsilon} = \min{\{ \delta, \delta_{\epsilon}', \delta_{\epsilon}'' \}} \\
+\forall{p}: \lambda_{p}<\delta_{\epsilon} \sum_{j=1}^{n_{p}}{\omega(f, \Delta_{j})\Delta x_{j}} = \sum_{\Delta_{j} \cap (c - \delta; c+\delta) = \emptyset}' + \sum_{\Delta_{j} \cap (c - \delta; c+\delta) \neq \emptyset}'' \\
+\sum' = \sum_{\Delta_{j} \cap (c - \delta; c+\delta) = \emptyset}{\omega(f, \Delta_{j})\Delta x_{j}} < \epsilon \sum_{j=1}^{n_{p}}{\Delta x_{j}} < \epsilon(b - a) \\
+\sum'' = \sum_{\Delta_{j} \cap (c - \delta; c+\delta) \neq \emptyset}{\omega(f, \Delta_{j})\Delta x_{j}} \leq 2M \sum_{\Delta_{j} \cap (c - \delta; c+\delta) \neq \emptyset} {\Delta x_{j}} < 2M * 4\delta = 8\delta M \end{align*}
+$$
+```
+
+Лекция 5.5.2026 (нейронкой).md:
+```
+### Метрические пространства (продолжение)
+
+#### Граница сферы (продолжение примера 7)
+
+Покажем, что в $\mathbb{R}^n$ сфера является своей собственной границей:
+$$
+S(a, r) =  \partial S(a, r) \quad (\mathbb{R}^{n})
+$$
+Для любой точки $x \in S(a, r)$ евклидово расстояние $d(a,x)=r$.  
+Возьмём произвольное $t>0$, $t\neq 1$, и построим точку на том же луче:
+$$
+x' = (a_{1} + t(x_{1}-a_{1}), \dots, a_{n} + t(x_{n}-a_{n}))
+$$
+Тогда $d(a,x') = t\cdot d(a,x) = t r$ (так как растяжение относительно центра $a$ в $t$ раз). Расстояние между $x$ и $x'$ равно
+$$
+d(x, x') = |d(a, x) - d(a, x')| = |r - tr| = |1-t|r.
+$$
+В исходной записи фигурирует равенство $d(a, x') = tr = (1-t)r = \rho$ — это опечатка: $tr$ и $(1-t)r$ одновременно равны быть не могут (если только $t=1/2$, но это не общий случай). Имелось в виду: $d(a,x') = t r$, а $d(x,x') = (1-t)r$ (для $0<t<1$). Если взять $t<1$, то $x'$ лежит внутри шара $B(a,r)$, если $t>1$, то снаружи. Таким образом, в любой окрестности $B(x,\rho)$ найдутся как точки из $B(a,r)$, так и точки из дополнения к $\overline{B(a,r)}$, а значит, и точки самой сферы и точки вне сферы. Это доказывает, что каждая точка сферы является граничной для $S(a,r)$ и для шаров.
+
+> *Примечание.* Здесь завершается рассуждение, оборванное в первой части (про $\forall B(x,\rho)$).
+
+---
+
+### Предельные точки и замыкание
+
+> **Нумерация.** В исходных записях далее идёт «Определение 8», однако ранее уже было Определение 8 (граница). Чтобы избежать дублирования, здесь и далее применяется сквозная нумерация. Определениям из второй порции присвоены номера начиная с 9.
+
+**Определение 9 (предельная точка множества).**  
+Пусть $E \subset \mathbb{R}^{n}$, $a \in \mathbb{R}^{n}$. Точка $a$ называется *предельной точкой* множества $E$, если в любой её окрестности $U_{a}$ содержится бесконечно много точек из $E$ (достаточно требования «хотя бы одна точка $E$, отличная от самой $a$» — в $\mathbb{R}^n$ эти формулировки эквивалентны).
+
+**Определение 10 (замыкание).**  
+Объединение множества $E$ и всех его предельных точек называется *замыканием* $E$ и обозначается $\overline{E}$.  
+(Не путать с комплексным сопряжением.)
+
+**Теорема 1 (критерий замкнутости).**  
+Множество $F \subset \mathbb{R}^{n}$ замкнуто тогда и только тогда, когда оно содержит все свои предельные точки.
+
+*Доказательство.*  
+$\Rightarrow$) Пусть $F$ замкнуто. Предположим, что $a$ — предельная точка $F$, но $a \notin F$. Тогда $a \in \mathbb{R}^{n} \setminus F$, а это множество открыто (по определению замкнутости). Значит, существует окрестность $U_a \subset \mathbb{R}^{n} \setminus F$. В ней нет точек $F$, что противоречит тому, что $a$ — предельная точка $F$. Следовательно, $a \in F$.
+
+$\Leftarrow$) Пусть $F$ содержит все свои предельные точки. Возьмём произвольную точку $a \in \mathbb{R}^{n}\setminus F$. Тогда $a$ не является предельной точкой $F$, поэтому найдётся окрестность $U_a$, не содержащая точек $F$ (кроме, возможно, самой $a$, но $a\notin F$). Значит, $U_a \cap F = \emptyset$, т.е. $U_a \subset \mathbb{R}^{n}\setminus F$. Таким образом, дополнение открыто, а $F$ замкнуто. $\square$
+
+**Упражнение.** Для любого $E \subset \mathbb{R}^{n}$ его замыкание $\overline{E}$ замкнуто.  
+*Идея доказательства:* можно показать, что дополнение к $\overline{E}$ открыто (любая точка вне $\overline{E}$ имеет окрестность, не пересекающуюся с $E$, а значит, и с $\overline{E}$), либо воспользоваться теоремой 1, проверив, что замыкание содержит все свои предельные точки.
+
+---
+
+### Связность и области
+
+**Определение 11 (линейная связность).**  
+Множество $E \subset \mathbb{R}^{n}$ *линейно связно*, если для любых двух точек $x', x'' \in E$ существует непрерывная кривая, целиком лежащая в $E$ и соединяющая эти точки:
+$$
+\exists \gamma(t) = (x_1(t), \dots, x_n(t)), \quad t \in [\alpha, \beta],
+$$
+где $x_j(t) \in C[\alpha, \beta]$ (непрерывны на отрезке), $x' = \gamma(\alpha)$, $x'' = \gamma(\beta)$.
+
+> *Замечание.* Здесь рассматривается именно линейная связность, а не общая топологическая связность, так как в дальнейшем курсе используется именно это понятие.
+
+**Определение 12 (область).**  
+Открытое линейно связное множество $G$ (или $\Omega$) в $\mathbb{R}^n$ называется *областью*.
+$$
+G(\Omega) \subset \mathbb{R}^{n} \text{ — область}.
+$$
+
+---
+
+### Ограниченные множества и теорема Больцано–Вейерштрасса
+
+**Определение 13 (ограниченность).**  
+Множество $E \subset \mathbb{R}^{n}$ *ограничено*, если оно целиком содержится в некотором шаре с центром в начале координат $\Theta$:
+$$
+\exists B(\Theta, r): E \subset B(\Theta, r).
+$$
+
+**Утверждение 3 (покоординатная ограниченность).**  
+$E$ ограничено $\Leftrightarrow$ для каждого $j = 1, \dots, n$ ограничено множество $E_j$ — проекция $E$ на $j$-ю координатную ось:
+$$
+E_j := \{x_j \in \mathbb{R} : \exists\, x = (x_1, \dots, x_j, \dots, x_n) \in E \}.
+$$
+*Пояснение.* Это следует из эквивалентности всех норм в $\mathbb{R}^n$; ограниченность в евклидовой норме равносильна ограниченности каждой координаты.
+
+**Утверждение 4 (покоординатная сходимость).**  
+Последовательность векторов $\{x^{(m)}\} = \{(x^{(m)}_1, \dots, x^{(m)}_n)\}$ в $\mathbb{R}^n$ сходится (по евклидовой метрике) тогда и только тогда, когда для каждого $j = 1, \dots, n$ сходится числовая последовательность $\{x^{(m)}_j\}$.
+Здесь $m$ — номер члена последовательности, нижний индекс — номер координаты.
+
+**Теорема 2 (Больцано–Вейерштрасса в $\mathbb{R}^n$).**  
+Всякая ограниченная последовательность точек в $\mathbb{R}^n$ содержит сходящуюся подпоследовательность.
+
+*Доказательство (диагональный метод).*  
+Пусть $\{x^{(m)}\} = \{(x_1^{(m)}, \dots, x_n^{(m)})\}$ ограничена.  
+1. Последовательность первых координат $\{x_1^{(m)}\}$ ограничена (Утверждение 3). По одномерной теореме Больцано–Вейерштрасса из неё можно выделить сходящуюся подпоследовательность $\{x_1^{(m_k)}\}$.  
+2. Рассмотрим подпоследовательность векторов с теми же номерами; их вторые координаты $\{x_2^{(m_k)}\}$ ограничены. Снова применяем Больцано–Вейерштрасса и выделяем подпоследовательность $\{x_2^{(m_{k_1})}\}$, сходящуюся.  
+3. Продолжаем этот процесс. Через $n$ шагов получим подпоследовательность индексов $m_{k_n}$, для которой одновременно сходятся все координатные последовательности. По Утверждению 4 исходная последовательность с этими номерами сходится. $\square$
+
+---
+
+### Предел функции многих переменных
+
+Переходим к функциям, заданным на подмножествах $\mathbb{R}^n$. Основные определения предела распространяют понятие предела из одномерного анализа.
+
+**Определение 14 (предел по Коши).**  
+Пусть $f: X \subset \mathbb{R}^{n} \to \mathbb{R}$ (или $\mathbb{R}^m$), $x_0$ — предельная точка множества $X$. Число (вектор) $A$ называется *пределом* $f(x)$ при $x \to x_0$ ($x \in X$), если
+$$
+\forall \epsilon > 0 \;\; \exists \delta_\epsilon > 0 : \;\; \forall x \in X, \; x \neq x_0, \; d(x, x_0) < \delta_\epsilon \;\implies\; |f(x) - A| < \epsilon.
+$$
+Обозначение: $\displaystyle \lim_{x \to x_0, \, x \in X} f(x) = A$.
+Здесь $|f(x)-A| = d(f(x), A)$ — расстояние в пространстве значений (для $\mathbb{R}^m$).
+
+Если $f: X \subset \mathbb{R}^{n} \to \mathbb{R}^{m}$, то определение полностью аналогично:
+$$
+\forall x \in X, \; d(x, x_0) < \delta_\epsilon \;\implies\; d(f(x), A) < \epsilon.
+$$
+
+**Определение 15 (предел по Гейне).**  
+$f(x)$ имеет предел $A$ при $x \to x_0$ в смысле Гейне, если для любой последовательности $\{x^{(m)}\} \subset X \setminus \{x_0\}$, сходящейся к $x_0$, последовательность $\{f(x^{(m)})\}$ сходится (к $A$).  
+В $\mathbb{R}^n$ определения по Коши и по Гейне эквивалентны.
+
+**Предел по проколотой окрестности и по направлению.**  
+- Если $X = \dot{U}_a = U_a \setminus \{a\}$ (проколотая окрестность), то $\displaystyle \lim_{x \to a, \, x \in \dot{U}_a} f(x)$ — обычный предел функции в точке $a$.  
+- Если $X = l$ — прямая, проходящая через $a$, то $\displaystyle \lim_{x \to a, \, x \in l} f(x)$ — предел по направлению $l$.
+
+#### Примеры на отсутствие предела
+
+**Пример 1.**
+$$
+f(x, y) = \frac{x^{2}-y^{2}}{x^{2}+y^{2}} \quad ((x,y) \neq (0,0)), \quad f(0,0)=0.
+$$
+Пределы по осям:
+- на оси $y=0$: $f(x,0) = 1$,
+- на оси $x=0$: $f(0,y) = -1$.
+Пределы по двум направлениям различны, следовательно, $\lim_{(x,y)\to(0,0)} f(x,y)$ не существует.
+
+**Пример 2.**
+$$
+f(x, y) = \frac{xy}{x^{2}+y^{2}} \quad ((x,y) \neq (0,0)), \quad f(0,0)=0.
+$$
+По осям: $f(x,0)=0$, $f(0,y)=0$.  
+Но на прямой $y = kx$:
+$$
+f(x, kx) = \frac{kx^2}{x^2(1+k^2)} = \frac{k}{1+k^{2}}.
+$$
+Предел зависит от $k$ (при $k=1$ равен $1/2$, при $k=-1$ равен $-1/2$), значит, общий предел не существует.
+
+**Пример 3.**
+$$
+f(x, y) = \frac{x^{2}y}{x^{4}+y^{2}} \quad ((x,y) \neq (0,0)), \quad f(0,0)=0.
+$$
+По прямым $y = kx$:
+$$
+f(x, kx) = \frac{k x^3}{x^{4} + k^{2}x^{2}} = \frac{k x}{x^{2}+k^{2}} \to 0 \quad (x\to 0, \; k \neq 0).
+$$
+Кажется, что предел равен $0$. Однако по параболам $y = kx^{2}$:
+$$
+f(x, kx^{2}) = \frac{k x^{4}}{x^{4} + k^{2}x^{4}} = \frac{k}{1+k^{2}}.
+$$
+Предел зависит от $k$, следовательно, не существует. Это показывает, что стремление по всем прямым недостаточно для существования предела.
+
+**Пример 4 (повторные пределы).**
+$$
+f(x, y) = 
+\begin{cases}
+x^{2}+y^{2}, & \text{если ровно одна из координат } x, y \text{ рациональна}, \\
+0, & \text{иначе}.
+\end{cases}
+$$
+Обсудим поведение в окрестности $(0,0)$ и повторные пределы.
+$$
+\lim_{(x, y) \to (0, 0)} f(x, y) \quad \text{и} \quad 
+\lim_{x \to 0} \bigl( \lim_{y \to 0} f(x, y) \bigr).
+$$
+В исходной записи присутствует строка:
+$$
+\lim\limits_{(x, y) \to (0, 0)}{f(x, y)} = \lim\limits_{ x \to 0}({\lim\limits_{ y \to 0 }{f(x, y)}}).
+$$
+> **Замечание.** Это равенство в общем случае неверно и здесь играет роль иллюстрации того, что порядок пределов может не совпадать с двойным пределом. На самом деле двойной предел $\lim_{(x,y)\to(0,0)} f(x,y)$ существует и равен $0$, так как $0 \le f(x,y) \le x^2+y^2 \to 0$. Однако повторный предел $\lim_{x\to0}\lim_{y\to0}f(x,y)$ не существует при $x\neq 0$: если $x$ фиксировано и рационально, то при $y\to0$ (иррациональные $y$) $f(x,y)=x^2+y^2 \to x^2$, а если $y$ рационально, то $f(x,y)=0$. Внутренний предел зависит от характера стремления $y$ и не существует. Таким образом, равенство из записи некорректно — оно демонстрирует, что повторный предел может не существовать даже при существовании двойного. Более аккуратно: говорить о повторном пределе можно, только если он существует.
+
+*Пояснение из лекции.* Если зафиксировать $x$, то при $y\to0$ функция не имеет предела из-за поведения, аналогичного функции Дирихле. Следовательно, по крайней мере один из повторных пределов не существует.
+```
+
+Лекция 5.5.2026.md:
+```
+$$
+\begin{align*}
+S(a, r) =  \partial S(a, r) \quad (\mathbb{R}^{n})  \\
+\forall{x \in S(a, r)} \quad t\sqrt{(x_{1}-a_{1})^{2} + \dots + (x_{n}-a_{n})^{2}} = r \text{, где }t>0 \\
+x' = (a_{1} + t(x_{1}-a_{1}), \dots, a_{n} + t(x_{n}-a_{n})) \\
+d(x, x') = d(a, x) - d(a, x'), \text{ где } d(a, x) = r, \quad d(a, x') = tr = (1-t)r = \rho
+\end{align*}
+$$
+#### Определение 8
+$$
+\begin{align*}
+E \subset \mathbb{R}^{n}, a \in \mathbb{R}^{n} \text{ предельная точка в множестве } E, \text{ если } \forall{U_{a}} \\
+ \text{ есть бесконечно много точек } E \text{(хотя бы одна из } E \text{, не совпадающей с } a).
+\end{align*}
+$$
+#### Определение 9
+$$
+\begin{align*}
+\text{Объединение } E \text{ и его предельных точек - замыкание. Обозначается как } \overline{E}. \\
+ \text{Не путать с сопряжением из комплексных чисел}
+\end{align*}
+$$
+### Теорема 1
+$$
+F \text{ замкнуто} \Leftrightarrow F \text{ содержит все свои ередельные точки}
+$$
+#### Доказательство:
+$$
+\begin{align*}
+\Rightarrow) F \text{замкнуто. Пусть } a - \text{предельная точка } F. \mathbb{R}^{n} \ F \text{ открыто по определению, поэтому если} \\
+a \not \in F \implies a\in \mathbb{R}^{n} \ F \implies \exists U_{a} \subset \mathbb{R}^{n} \ F \implies  U_{a} \cap F = \not O \\
+\Leftarrow) \text{Пусть } F \text{ содержит все свои предельные точки}. \implies  \text{если } a \in \mathbb{R}^{n} \ F, \text{то} a \text{не предельная точка} \implies  \\ \implies \exists{U_{a}}: U_{a} \cap F = \not O \implies U_{a} \subset \mathbb{R}^{n} \ F \implies  \mathbb{R}^{n} \ F \text{ открыто} \implies F \text{замкнуто}.
+\end{align*}
+$$
+### Упражнение
+$$
+\forall{E} \subset \mathbb{R}^{n} \quad \overline{E} \text{ замкнуто. Доказать}
+$$
+#### Определение 10:
+$$
+\begin{align*}
+E \subset \mathbb{R}^{n} \text{линейно связно, если } \forall{x', x'' \in E} \quad \exists{\gamma(t)}: x_{1} = x_{1}(t), \dots x_{n} = x_{n}(t)  \\
+x_{j} \in C[\alpha, \beta] (\text{непрерывна}) \\
+x' = x(\alpha), \quad x'' = x(\beta)
+\end{align*}
+$$
+Здесь имеется в виду именно линейная связность, а не обычная связность. Просто в дальнейшем контексте мы будем использовать именно её.
+#### Определение 11:
+$$
+\begin{align*}
+\text{Область } G(\Omega) \subset \mathbb{R}^{n} \text{ открытое связное множество}
+\end{align*}
+$$
+#### Определение 12:
+$$
+\begin{align*}
+E \subset \mathbb{R}^{n} \text{ ограничено, если } \exists{B(\Theta, r)}: E \subset B(\Theta, r), \text{где } \Theta - \text{начало координат}
+\end{align*}
+$$
+
+#### Утверждение 3:
+$$
+\begin{align*}
+E \text{ ограничено} \Leftrightarrow \forall{j = 1, \dots, n} E_{j}:= \{x_{j} \in \mathbb{R}: \exists{x = (x_{1}, \dots , x_{j}, \dots, x_{n}) \in E}\} \text{ ограничено}
+\end{align*}
+$$
+Ранее мы уже встречались с данным понятием в школе. По сути, это проекция на ось $j$
+
+#### Утверждение 4:
+$$
+\{x^{(m)}\} = \{(x^{(m))}_{1}, \dots , x^{(m))}_{n})\} \subset \mathbb{R}^{n} \text{ сходится } \Leftrightarrow  \forall{j = 1, \dots , n} \quad \{x^{(m)}\} \text{ сходится}
+$$
+Здесь $m$ - номер члена последовательности, а числа снизу - номера координат. 
+### Теорема 2 (Больцмана-Вейерштрасса):
+$$
+\forall\{x^{(m)}\} \subset \mathbb{R}^{n} \text{ ограниченная содержит сходящуюся подпоследовательность.}
+$$
+#### Доказательство (Последовательность применения одномерной теоремы Больцмана-Вейерштрасса)
+$$
+\begin{align*}
+\{x^{(m)} = (x_{1}^{(m)}, \dots , x_{n}^{(m)})\} \\
+\{x_{1}^{(m)}\} \text{ограниченна} \implies_{(\text{по утверждению 3})} \exists \text{подпоследовательность} \{x_{1}^{(m_{k})}\} \text{сходится} \\
+\{x_{2}^{(m)}\} \text{ограниченна} \implies_{(\text{по утверждению 3})} \exists \text{подпоследовательность} \{x_{2}^{(m_{k_{1}})}\} \text{ограничена} \implies_{Б-В} \exists \{x_{2}^{(m_{k_{2}})}\}\text{сходится} \\
+\dots \\ \\
+\text{Через n шагов} \\
+\{x_{n}^{(m)}\} \text{сходится и сходится} \quad \forall{j = 1, \dots , n} \\
+\{x_{j}^{(m_{k_{n}})}\} \text{сходится} \implies_{утверждение 4} \{x^{(m_{k_{n}})}\} \text{сходится}
+\end{align*}
+$$
+
+### Функции точки в $\mathbb{R}^{n}$. Пределы, повторные пределы.
+#### Определение
+$$
+\begin{align*}
+f(x): X \subset \mathbb{R}^{n} \to \mathbb{R}(\mathbb{R}^{m}) \\
+x_{0} \text{ предельная точка } X. \text{Тогда } A - \text{предел } f(x) \text{ при } x\to x_{0}, x \in X, \text{ если } \\
+\forall{\epsilon} >0 \quad \exists{\delta_{\epsilon}}>0: \forall{x\in X, x \not = x_{0}}, d(x, x_{0}) < \delta_{\epsilon} \quad |f(x) - A| < \epsilon \\
+\lim\limits_{ x \to x_{0}, x \in X}{f(x)} = A \text{. Предел } f(x) \text{ в } x_{0} \text{ вдоль (по) множества } X. \\
+|f(x) - A| = d(f(x), A)
+\end{align*}
+$$
+#### Определение'
+$$
+\begin{align*} \\
+\forall{x \in X}, d(x, x_{0}) < \delta_{\epsilon} \quad d(f(x), A) < \epsilon \\
+f: X \subset \mathbb{R}^{n} \to \mathbb{R}^{m} \ni A
+\end{align*}
+$$
+Позволяет рассматривать вектор функции.
+
+#### Определение (по Гейне):
+$$
+\begin{align*}
+f(x) : X \subset \mathbb{R}^{n} \to \mathbb{R} \\
+x_{0} \text{ пределеная точка } X. f(x) \text{ имеет в} x_{0} \text{ предел в смысле Гейне, если } \forall\{x^{(m)}\} \subset X \ \{x_{0}\} \\
+x^{(m)} \to x_{0}, \{f(x^{(m)})\} \text{ сходится}.
+\end{align*}
+$$
+
+#### Определение:
+$$
+\text{Если } X = \dot{U_{a}} = U_{a} \ \{a\}, \text{то} \lim\limits_{ x \to a, x \in \dot{U_{a}} }{f(x)} - \text{предел f(x) в } a. 
+$$
+#### Определение:
+$$
+\text{Если } X \text{ прямая } l,\text{проходящая через } a, \text{то} \lim\limits_{ x \to a, x \in l}{f(x)} - \text{предел по направлению } l  
+$$
+##### Пример 1
+$$
+\begin{align*}
+f(x, y) = \frac{{x^{2}-y^{2}}}{x^{2}+y^{2}},  \text{если } (x, y) \neq (0, 0), \text{иначе } 0. \\
+\text{на } (x, 0), f(x, 0) = 1 \\
+\text{на } (0, y), f(0, y) = -1
+\end{align*}
+$$
+##### Пример 2
+$$
+\begin{align*}
+f(x, y) = \frac{{xy}}{x^{2}+y^{2}},  \text{если } (x, y) \neq (0, 0), \text{иначе } 0. \\
+\text{на } (x, 0), f(x, 0) = 0 \\
+\text{на } (0, y), f(0, y) = 0 \\
+\text{на } x = y,  f(x, y) = \frac{1}{2} \\
+\text{на } x = -y,  f(x, y) = \frac{-1}{2} \\
+y = kx, f(x, kx) = \frac{k}{1+k^{2}}, \text{предел существует}.
+\end{align*}
+$$
+##### Пример 3
+$$
+\begin{align*}
+f(x, y) = \frac{{x^{2}y}}{x^{4}+y^{2}},  \text{если } (x, y) \neq (0, 0), \text{иначе } 0. \\
+y = kx, f(x, kx) = \frac{kx^{3}}{x^{4} + k^{2}x^{2}} = \frac{kx}{k^{2}+x^{2}} \to 0 \text{ при } x\to 0, k \neq 0, \text{предел существует} \\
+y = kx^{2}, f(x, kx^{2}) = \frac{k}{1+k^{2}}. \text{Предел существует}
+\end{align*}
+$$
+##### Пример 4
+$$
+\begin{align*}
+f(x, y) = x^{2}+y^{2},  \text{если ровно 1 } x \text{ или } y \text{ рациональное} \text{, иначе } 0. \\ \\
+\end{align*}
+$$Пусть мы зафиксировали точку x. Тогда, если мы делаем предел от y, то не будет предела (пример с функцией Дирихле).
+
+$$
+\lim\limits_{(x, y) \to (0, 0)}{f(x, y)} = \lim\limits_{ x \to 0}({\lim\limits_{ y \to 0 }{f(x, y)}})
+$$
+```
+
+Лекция 6.3.2026.md:
+```
+### Теорема 3:
+$f(x)$ монотонна на $[a; b] \implies f(x) \in \mathbb{R}[a; b]$
+Доказательство:
+$$
+\begin{align*}
+\forall{\epsilon > 0}: \forall{p}: \sum_{j = 1}^{n_{p}}{\omega(f, \Delta_{j})\Delta x_{j}} = \sum_{j = 1}^{n_{p}}{|f(x_{j})-f(x_{j-1})|\underbrace {\Delta x_{j}}}_{\leq \lambda} \leq \\
+\leq  \lambda_{p} \sum_{j = 1}^{n_{p}}{|f(x_{j}) - f(x_{j-1})|} = \\
+= \lambda_{p}|\sum_{j=1}^{n_{p}}{f(x_{j}) - f(x_{j-1})}| = \lambda_{p}|f(b) - f(a)| < \epsilon \implies \lambda_{p} < \frac{\epsilon}{|f(b) - f(a)|}
+\end{align*}
+$$
+### Определение:
+$l \in (-\infty; + \infty)$ имеет меру О по Лебегу, если $\forall{\epsilon>0} \exists{\{ (a_{j}; b_{j}) \}}:$
+1. $l \subset U_{j}(a_{j}; b)_{j}$
+2. $\sum{\text{длина }(a_{j}; b_{j})} < \epsilon$
+### Критерий Лебега
+$f(x) \in \mathbb{B}[a; b], f(x) \in \mathbb{R}[a; b] \Longleftrightarrow$ множество её точек разрыва меры О по Лебегу. 
+
+## Свойства определённого интеграла
+### Теорема 1:
+Функция $f(x)$ и $g(x)$ интегрируемы на $[a; b] \implies \forall{\alpha, \beta \in \mathbb{R} (\mathbb{C})} \implies \alpha f + \beta g \in \mathbb{R}[a; b]$ и $\int_{a}^{b}{(\alpha f + \beta g)dx} = \alpha\int_{a}^{b}{f(x)dx} + \beta\int_{a}^{b}{g(x)dx}$
+#### Доказательство:
+$$
+\begin{align*}
+\forall{p}, \forall{\xi}: \sigma(\alpha f + \beta g, p, \xi) = \sum_{j = 1}^{n_{p}}{(\alpha f(\xi_{j}) + \beta g(\xi_{j}))\Delta x_{j}}  \\
+= \alpha \sum_{j = 1}^{n_{p}}{f(\xi_{j})\Delta x_{j}} +\beta \sum_{j=1}^{n_{p}}{g(\xi_{j})\Delta x_{j}} \\
+\lambda_{p} \to 0 \implies \alpha \sum_{j = 1}^{n_{p}}{f(\xi_{j})\Delta x_{j}} \to \alpha\int_{a}^{b}{f(x)dx} \quad \beta \sum_{j=1}^{n_{p}}{g(\xi_{j})\Delta x_{j}} \to \beta\int_{a}^{b}{g(x)dx} \\
+\square
+\end{align*}
+$$
+
+### Теорема 2
+$f(x) \in \mathbb{R}[a; b] \implies |f(x)| \in \mathbb{R}[a; b]$
+#### Доказательство (через неравенство треугольника):
+$$
+\begin{align*}
+|c - d| \geq | |c| - |d| | \implies  \forall{x', x''}~ |f(x') - f(x'')| \geq  ||f(x')| - |f(x'')|| \implies \\
+\implies \forall{\Delta} ~ \omega(f, \Delta) \geq \omega(|f|, \Delta) \implies  \\
+\text{По критерию д'Арбу} \sum_{j = 1}^{n_{p}}{\omega(f, \Delta_{j})\Delta x_{j}} \geq \sum_{j = 1}^{n_{p}}{\omega(|f|, \Delta_{j})\Delta x_{j}} \geq 0 \\
+\sum_{j = 1}^{n_{p}}{\omega(f, \Delta_{j})\Delta x_{j}} \to 0 \implies  \sum_{j = 1}^{n_{p}}{\omega(|f|, \Delta_{j})\Delta x_{j}} \to \implies |f| \in \mathbb{R}[a; b] \quad \square
+\end{align*}
+$$
+
+### Теорема 3
+$f(x), g(x) \in \mathbb{R}[a; b] \implies f\cdot g \in \mathbb{R}[a; b]$
+#### Доказательство:
+1. $f(x) \in \mathbb{R}[a;b] \implies f^{2}\in \mathbb{R}[a; b]$
+$$
+\begin{align*}
+f(x) \in \mathbb{B}[a; b] \implies \exists M>0: \forall{x', x''}: |f(x)| < M \\
+|f^{2}(x') - f^{2}(x'')| = |f(x') + f(x'')| \cdot |f(x') - f(x'')| \leq \\
+\leq  (|f(x')| + |f(x'')|) \cdot |f(x') - f(x'')|\leq 2M\cdot |f(x') - f(x'')| \\
+\forall{p}: \lambda_{p} \to 0: \sum_{j=1}^{n_{p}}{\omega(f^{2}, \Delta_j)\Delta x_{j}} \leq 2M \sum_{j=1}^{n_{p}}{\omega(f, \Delta_{j})\Delta x_{j}} \to 0 \implies f^{2}\in \mathbb{R}[a; b]
+\end{align*}
+$$
+2. $f(x), g(x) \in \mathbb{R}[a; b] \implies f + g \in \mathbb{R}[a; b] \text{ и } f - g \in \mathbb{R}[a; b]$
+$$
+\begin{align*}
+(f+g)^{2} \in \mathbb{R}[a; b] \text{ и } (f - g)^{2} \in \mathbb{R}[a; b] \implies \frac{1}{4}((f+g)^{2} - (f-g)^{2}) =fg \in \mathbb{R}[a; b]
+\end{align*}
+$$
+## Аддитивность интеграла как функции отрезка:
+### Утверждение 1:
+$f(x) \in \mathbb{R}[a; b] \text{ и } [c; d] \subset [a; b] \implies f(x) \in \mathbb{R}[c; d]$
+#### Доказательство:
+$$
+\begin{align*}
+\forall{\epsilon>0} ~ \exists{\delta_{\epsilon}>0}: \forall{p, \lambda_{p}<\delta_{\epsilon}} \sum_{j=1}^{n_p}{\omega(f, \Delta_{j})\Delta x_{j}}<\epsilon \\
+\forall{\pi} \text{ Разбиение } [c; d], \lambda_{\pi}<\delta_{\epsilon} \\
+\text{Дополним } \pi \text{ до разбиения } [a; b] \text{ добавляяя точки на } [a; b]\[c; d], \\
+ \text{ так чтобы }\lambda_{p} \leq  \lambda_{\pi} <\delta \\
+\epsilon > \sum_{j=1}^{n_{p}}{\omega(f, \Delta_{j})\Delta x_{j}}\geq \sum_{j: x_{j} \in [c; d]}^{n_{p}}{\omega(f, \Delta_{j})\Delta x_{j}} \implies f(x) \in \mathbb{R}[c; d]  \quad\square
+\end{align*}
+$$
+
+### Утверждение 2:
+$$
+\begin{align*}
+a  < c < b, f(x) \in \mathbb{R}[a; c], f(x) \in \mathbb{R}[c; d] \implies f(x)\in \mathbb{R}[a; b]  \\
+\text{ и } \int_{a}^{b}{f(x)dx} = \int_{a}^{c}{f(x)dx} + \int_{c}^{b}{f(x)dx}
+\end{align*}
+$$
+#### Доказательство (проверка критерия д'Арбу):
+1. Ограниченность: $f(x) \in \mathbb{B}[a; c]\cup [c; b] \implies f(x) \in \mathbb{B}[a; b]$
+2. 
+$$
+\begin{align*}
+\forall{\epsilon >0} \\
+\exists{\delta_{\epsilon}'>0}: \forall_{[a; c]}{p}: \lambda_{p}<\delta_{\epsilon}' \sum_{j = 1}^{n_{p, [a; c]}}{\omega(f, \Delta_{j})\Delta x_{j}}<\epsilon \\
+\exists{\delta_{\epsilon}''>0}: \forall_{[c; b]}{p}: \lambda_{p}<\delta_{\epsilon}'' \sum_{j = 1}^{n_{p, [c; b]}}{\omega(f, \Delta_{j})\Delta x_{j}}<\epsilon \\
+\delta_{\epsilon} = \min\{ \epsilon, \delta_{\epsilon}', \delta_{\epsilon}'' \} > 0 \\
+\forall{p}_{[a; b]} \lambda_{p, [a; b]} < \delta_{\epsilon} ~ \sum_{j =1}^{n_{p, [a; b]}}{\omega(f, \Delta_{j})\Delta x_{j}} = \underbrace{\sum_{j: \Delta_{j} \subset [a; c)}'}_{<\epsilon} + \sum_{j: \Delta_{j} \cap c \neq \emptyset}'' + \underbrace {\sum_{j: \Delta_{j} \subset (c; b]}'''}_{<\epsilon} \\
+ < 2\epsilon + 2M \cdot \left( \sum{\text{длина } \Delta_{j}, \text{ где } \Delta_{j} \ni c} \right)\cdot2 = 2\epsilon + 4M\epsilon = \epsilon(2 + 4M) \implies  \\
+ \implies  f(x) \in \mathbb{R}[a;b]
+\end{align*}
+$$
+$$
+\begin{align*}
+\forall{p}_{[a; b]} \ni c, \lambda_{p, [a; b]} \to 0: \forall{\xi} \quad \sigma(f, p_{[a; b]}, \xi) = \sigma(f, p_{[a; c]}, \xi) + \sigma(f, p_{[c; d]}, \xi) \implies  \\
+\implies \int_{a}^{b}{f(x)dx} = \int_{a}^{c}{f(x)dx} + \int_{c}^{b}{f(x)dx}
+\end{align*}
+$$
+### Следствие:
+$$
+f(x) \in \mathbb{R}[a; b] \implies  \forall{c \in [a; b]}: \int_{a}^{b}{f(x)dx} = \int_{a}^{c}{f(x)dx} + \int_{c}^{b}{f(x)dx}
+$$
+```
+
+Лекция 8.5.2026.md:
+```
+### Теорема (для 2 и более переменных)
+Пусть $f(x, y)$ в $\dot{U}_{(x_{0}, y_{0})} \to \mathbb{R}$, $f(x, y) \to A$ при $(x, y) \to (x_{0}, y_{0})$ и $\forall{x \neq x_{0}}$, и $x$ достаточно близко к $x_{0}$, $\exists{\lim\limits_{ y \to y_{0} }}{f(x, y)} =: \varphi(x) \implies \exists{\lim\limits_{ x \to x_{0} }}{\varphi(x)} = A$
+Можно записать так:
+$\lim\limits_{ (x, y) \to (x_{0}, y_{0})}{f(x, y)} = \lim\limits_{ x \to x_{0} }{(\lim\limits_{ y \to y_{0} }{f(x, y)})}$. Но здесь нужно учитывать, что оба предела существуют.
+#### Доказательство (предельный переход в неравенствах):
+$$
+\begin{align*}
+\forall{\epsilon}>0 \quad \exists{\delta_{\epsilon}}>0: \forall{(x, y)}: d((x, y), (x_{0}, y_{0}))<\delta_{\epsilon} \quad |f(x, y) - A|< \frac{\epsilon}{2} (\text{здесь x фиксирован}) \\
+ \\
+|\lim\limits_{ y \to y_{0} }{f(x, y)} - A| \leq  \frac{\epsilon}{2} < \epsilon, \text{ где } \lim\limits_{ y \to y_{0} }{f(x, y)} = \varphi(x) \quad \square
+\end{align*}
+$$
+
+### Непрерывность функции нескольких переменных
+#### Определение 1
+$f(x): X \subset \mathbb{R}^n -> \mathbb{R}^m$ непрерывна в точке $a \in X$ относительно множества $X$, если $f(x) \to f(a)$ при $x \to a, x \in X$, т.е. $\forall{\epsilon>0} \quad \exists{\delta_{\epsilon}}>0: \forall{x \in X} \quad d(x, a)<\delta_{\epsilon} \quad d(f(x), f(a))<\epsilon$
+
+#### Определение 2:
+$f(x): X \subset \mathbb{R}^n -> \mathbb{R}^m$ непрерывна на $X$, если $\forall{x \in X}, f(x)$ непрерывна в $x$ относительно $X$. Обозначается как $f(x) \in C(X)$
+
+#### Определение 3:
+$f(x): X \in \mathbb{R}^{n} \to \mathbb{R}^{m}. f(x)$ ограничена на множестве $X$, если $\exists{B(\Theta, r)} \subset \mathbb{R}^{m}: \forall{x \in X}, f(x) \in B(\Theta, r) \Leftrightarrow d(f(x), \Theta)<r$ 
+#### Утверждение 1:
+$f(x): X \in \mathbb{R}^{n} \to \mathbb{R}^{m}$, непрерывная в точке $a \in X$, относительно $X \implies \exists{U_{a}}: f(x)$ ограниченна на $U_{a} \cap X$
+##### Доказательство:
+$$
+\begin{align*}
+\epsilon := 1 \implies \delta>0, \forall{x \in X}: d(x, a) < \delta \implies d(f(x), f(a))<1 \quad d(\Theta, f(x)) \leq d(\Theta, a) + d(a, f(x)) < \\
+< \underbrace{d(\Theta, a) + 1}_{r} \implies f(x) \in B(\Theta, r) \quad \square
+\end{align*}
+$$
+#### Утверждение 2:
+$f(x): X \subset \mathbb{R}^{n} \to Y \subset \mathbb{R}^{m}, f(x)$ непрерывна в точке $x_{0} \in X$ (относительно $X$). $g(y): Y \subset \mathbb{R}^{m} \to \mathbb{R}^{k}$ непрерывна в точке $y_{0} = f(x_{0})$ относительно $Y \implies g(f(x))$ непрерывна в $x_{0}$ (относительно $X$)
+##### Доказательство:
+![[Pasted image 20260508105830.png]]
+
+#### Утверждение 3
+$f(x): X \in \mathbb{R}^{n} \to \mathbb{R}^{m}$, непрерывна в $x_{0} \in X$, относительно $X$. $f(x_{0})>0$ (или $f(x_{0})<0$) $\implies \exists{U_{x_{0}}}: \forall{x \in U_{x_{0}}\cap X} \quad f(x)>0$ (или $f(x)<0$)
+##### Доказательство:
+$\epsilon:=\frac{|f(x_{0})|}{2} \to \delta_{\epsilon}>0 \quad B(x_{0}, \delta_{\epsilon}) \square$
+
+#### Утверждение 4 (Арифметические свойства)
+1) $f(x), g(x): X \subset \mathbb{R}^{n} \to \mathbb{R}^{m}$, непрерывны в $x_{0} \in X$ относительно $X \implies f(x) \pm g(x)$ непрерывна в $x_{0}$ относительно $X$.
+2) $f(x), g(x) \subset X \subset \mathbb{R}^{n} \to \mathbb{R}$, непрерывны в $x_{0} \in X$ относительно $X \implies f(x)\cdot g(x)$ и если $y(x_{0}) \neq 0$, то $\frac{f(x)}{g(x)}$ непрерывна в $x_{0}$ относительно $X$
+
+
+$K \subset \mathbb{R}^{n}$ ограниченное и замкнутое множество (будет аналогом отрезка, компакта)
+#### Утверждение 5 (теорема Вейерштрасса):
+$f(x): K \subset \mathbb{R}^{n} \to \mathbb{R}^{m}, f(x) \in C(K) \implies f(x)$ ограниченно и замкнуто 
+##### Доказательство:
+a) $f(K)$ ограниченно (От противного)
+Предположим, что функция $f(x) \subset \mathbb{R}^{m}$ не ограничена. Тогда $\forall{j \in \mathbb{N}} , \exists{x^{(j)} \in K}: d(\Theta, f(x^{(j)}))>j$
+$\{ x^{(j)} \} \subset K \implies$, т.к. $K$ ограничено, то $\{ x^{(j)} \}$ ограничена $\underbrace{\implies}_{Б-В}$ $\exists$ подпоследовательность $\{ x^{(j_{l})} \}$ сходится.
+$x^{0}:=\lim\limits_{ l \to \infty }{x^{j_{l}}} \implies x^{0}$ предельная точка $K \implies$ т.к. $K$ замкнуто, то $x^{0} \in K \quad \forall{l}, d(\Theta, f(x^{j_{l}}))>j_{l}\geq j \implies \{ f(x^{j_{l}}) \}$ неограниченно. Противоречит непрерывности $f(x)$ в точке $x^{0}$
+б) $f(x)$ замкнуто
+Пусть $y$ предельная точка множества $f(K) \implies \exists{\{ y^{(j)} \} \subset f(K)}: y^{(j)} \to y^{0}, j \to \infty$
+i) $\exists{j}: y^{(j)} = y^{0} \implies y^{0} \in f(K)$
+ii) $\forall{j} \underbrace{y^{(j)}}_{f(x^{(j)}), x \in K} \neq y^{0} \quad \{ x^{(j)} \} \subset K$ ограниченно $\underbrace{\implies}_{Б-В}$ $\exists$ подпоследовательность $\{ x^{(j_{l})} \}$ сходится.
+$x^0:=\lim\limits_{ l \to \infty }{x^{(j_{l})}}, x^{0}$ - предельная точка $K \implies x^{0} \in K$ (замкнутость $K$)
+$x^{(j_{l})} \to x^{0}, l\to \infty$ последовательность Гейне $\implies f(x^{(j_{l})}) = y^{(j_{l})} \to y^{0} = f(x^{0})$ из непрерывности по Гейне. 
+$\square$
+
+#### Определение 4
+$f(x): X \subset \mathbb{R}^{n} \to \mathbb{R}$ равномерно непрерывна на множестве $X$, если $\forall{\epsilon>0}, \exists{\delta_{\epsilon} >0}: \forall{x', x'' \in X}, d(x', x'') < \delta_{\epsilon} \implies |f(x') - f(x'')|<\epsilon$
+
+#### Утверждение 6 (теорема Кантора):
+$f(x): K \subset \mathbb{R}^{n} \to \mathbb{R}, f(x) \in C(K) \implies f(x)$ равномерно непрерывна на $K$.
+
+#### Определение 5:
+$X \subset \mathbb{R}^{n}$ линейно связно, если $\forall{a, b \in X}, \exists$ пусть $\gamma: x(t), t \in [\alpha, \beta] \quad \gamma \subset X, x(\alpha) = a, x(\beta) = b, x(t) \in C[\alpha, \beta]$
+
+#### Утверждение 7:
+$E \subset \mathbb{R}^{n}$ линейно связно $f(x): E \to \mathbb{R}^{m}, f(x) \in C(E) \implies f(E)$ линейно связно
+##### Доказательство:
+$\forall{A, B \in f(E)}, \exists{a, b \in E}: A = f(a), B = f(b)$
+$E$ линейно связно $\implies \exists \text{ путь, который соединяется a и b } x(t), t \in [\alpha, \beta], x(\alpha), x(\beta) = b \quad \forall{t\in[\alpha, \beta]}, x(t) \in E\implies f(x(t))$
+```
+
